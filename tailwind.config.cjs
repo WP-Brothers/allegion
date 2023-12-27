@@ -17,7 +17,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        heading: ['"Merriweather"'],
+        heading: ['"Roboto"'],
         body: ['"Lato"'],
         icon: ['"Material Icons"'],
         iconRound: ['"Material Symbols Rounded"'],
@@ -69,23 +69,18 @@ module.exports = {
       },
       colors: {
         primary: {
-          light: '#ffefe4',
-          DEFAULT: '#ff6900',
-          dark: '#c0640f',
+          light: '#a1cbb0',
+          DEFAULT: '#009636',
+          dark: '#27603c',
         },
         secondary: {
-          light: '#ebf3f4',
-          DEFAULT: '#0f7c41',
-          dark: '#0b4b26',
-        },
-        cta: {
-          light: '#dbedff',
-          DEFAULT: '#1990fe',
-          dark: '#1065b5',
+          light: '#ededed',
+          DEFAULT: '#5b6770',
+          dark: '#2f3234',
         },
         font: {
-          DEFAULT: '#191919',
-          link: '#ff6900',
+          DEFAULT: '#000000',
+          link: '#009636',
         },
         message: {
           DEFAULT: '#1966d3',

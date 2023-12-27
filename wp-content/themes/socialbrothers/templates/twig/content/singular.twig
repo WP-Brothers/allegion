@@ -1,32 +1,32 @@
 {% block title %}
-    {% include 'organisms/single-head.twig' with head %}
+	{% include 'organisms/single-head.twig' with head %}
 {% endblock %}
 
 {% block before_content %}{% endblock %}
 
 {% block content %}
-    <section class="py-10 md:py-20">
-        <div class="container">
-            <div class="grid md:grid-cols-12">
-                <div class="md:col-span-10">
-                    {% for content_block in parse_blocks(post.post_content) %}
-                        {{ render_block(content_block)|raw }}
-                    {% endfor %}
+	<section class="py-10 md:py-20">
+		<div class="container">
+			<div class="grid md:grid-cols-12">
+				<div class="md:col-span-10">
+					{% for content_block in parse_blocks(post.post_content) %}
+						{{ render_block(content_block)|raw }}
+					{% endfor %}
 
-                    {% if author.name %}
-                        {% include 'organisms/author.twig' with author %}
-                    {% endif %}
-                </div>
-                <div class="md:col-span-2 md:justify-self-end">
-                    {% include 'molecules/share.twig' with share %}
-                </div>
-            </div>
-        </div>
-    </section>
+					{% if author.name %}
+						{% include 'organisms/author.twig' with author %}
+					{% endif %}
+				</div>
+				<div class="md:col-span-2 md:justify-self-end">
+					{% include 'molecules/share.twig' with share %}
+				</div>
+			</div>
+		</div>
+	</section>
 {% endblock %}
 
 {% block after_content %}
-    {% if more_slider %}
-        {% include 'organisms/content-slider.twig' with more_slider %}
-    {% endif %}
+	{% if more_slider %}
+		{% include 'organisms/content-slider.twig' with more_slider %}
+	{% endif %}
 {% endblock %}
