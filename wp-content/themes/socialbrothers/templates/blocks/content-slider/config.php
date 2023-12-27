@@ -3,7 +3,7 @@
 $prefix     = 'block_content-slider';
 $block_data = [
     'key'    => $prefix,
-    'title'  => __('Content + nieuws slider', '_SBB'),
+    'title'  => __('Content + slider', '_SBB'),
     'fields' => [
         [
             'key'          => "{$prefix}_content_tab",
@@ -14,16 +14,45 @@ $block_data = [
             'multi_expand' => 1,
         ],
         [
+            'key'     => "{$prefix}_content_position",
+            'name'    => 'content_position',
+            'label'   => __('Content positie', '_SBB'),
+            'type'    => 'select',
+            'choices' => [
+                'left'   => __('Links', '_SBB'),
+                'right'  => __('Rechts', '_SBB'),
+                'hidden' => __('Geen Content', '_SBB'),
+            ],
+        ],
+        [
             'key'   => "{$prefix}_sub_title",
             'label' => __('Subtitel', '_SBB'),
             'name'  => 'sub_title',
             'type'  => 'text',
+            'conditional_logic' => [
+                [
+                    [
+                        'field' => "{$prefix}_content_position",
+                        'operator' => '!=',
+                        'value' => 'hidden',
+                    ],
+                ],
+            ],
         ],
         [
             'key'   => "{$prefix}_title",
             'label' => __('Titel', '_SBB'),
             'name'  => 'title',
             'type'  => 'text',
+            'conditional_logic' => [
+                [
+                    [
+                        'field' => "{$prefix}_content_position",
+                        'operator' => '!=',
+                        'value' => 'hidden',
+                    ],
+                ],
+            ],
         ],
         [
             'key'          => "{$prefix}_content",
@@ -33,6 +62,15 @@ $block_data = [
             'toolbar'      => 'contentcenter',
             'tabs'         => 'visual',
             'media_upload' => false,
+            'conditional_logic' => [
+                [
+                    [
+                        'field' => "{$prefix}_content_position",
+                        'operator' => '!=',
+                        'value' => 'hidden',
+                    ],
+                ],
+            ],
         ],
         [
             'key'          => "{$prefix}_buttons",
@@ -111,6 +149,15 @@ $block_data = [
                     ],
                 ],
             ],
+            'conditional_logic' => [
+                [
+                    [
+                        'field' => "{$prefix}_content_position",
+                        'operator' => '!=',
+                        'value' => 'hidden',
+                    ],
+                ],
+            ],
         ],
         [
             'key'          => "{$prefix}_slider_tab",
@@ -168,6 +215,29 @@ $block_data = [
                 ],
             ],
         ],
+
+        [
+            'key'           => "{$prefix}_slider_options",
+            'label'         => __('Slider opties', '_SBB'),
+            'name'          => 'slider_options',
+            'type'          => 'accordion',
+            'open'          => 0,
+            'multi_expand'  => 1,
+        ],
+        [
+            'key'     => "{$prefix}_slider_background_image",
+            'name'    => 'background_image',
+            'label'   => __('Achtergrond afbeelding', '_SBB'),
+            'type'    => 'image',
+        ],
+        [
+            'key'     => "{$prefix}_slider_overflow",
+            'name'    => 'overflow',
+            'label'   => __('Overlappen', '_SBB'),
+            'instructions' => __('Laat de slider uit de pagina komen', '_SBB'),
+            'type'    => 'true_false',
+            'ui'      => true,
+        ]
     ],
 ];
 
