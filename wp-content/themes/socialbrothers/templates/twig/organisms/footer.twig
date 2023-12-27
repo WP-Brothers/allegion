@@ -1,0 +1,36 @@
+<footer class="bg-secondary-light">
+    <div class="container">
+        <div class="py-10 md:py-20">
+            <div class="grid md:grid-cols-4 lg:grid-cols-12 gap-6">
+                <div class="md:col-span-2 lg:col-span-5">
+                    <div class="grid gap-4">
+                        {% include 'molecules/content.twig' with {content_lead: true} %}
+                        {% if phone %}
+                            {% include "atoms/big-link.twig" with {title: phone, url: 'tel:' ~ phone} %}
+                        {% endif %}
+                        {% if email %}
+                            {% include "atoms/big-link.twig" with {title: email, url: 'mailto:' ~ email} %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="lg:col-start-7 lg:col-span-3">
+                    {{ menu1|raw }}
+                </div>
+
+                <div class="lg:col-span-3">
+                    {{ menu2|raw }}
+                </div>
+            </div>
+        </div>
+        <div class="py-4 md:pb-6">
+            <div class="flex gap-4 flex-col md:flex-row md:justify-between flex-wrap md:items-center">
+                <div>
+                    {{ menu_bottom|raw }}
+                </div>
+                <div class="text-neutral-75">
+                    {% include "molecules/follow-icons.twig" %}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

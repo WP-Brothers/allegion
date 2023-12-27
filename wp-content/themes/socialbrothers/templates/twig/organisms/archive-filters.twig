@@ -1,0 +1,12 @@
+<section class="section">
+    <div class="container">
+        <form action="{{ archive_url }}" class="flex flex-wrap gap-4 py-6 items-center justify-between border-b border-neutral-25">
+            <div>
+                {% include 'molecules/filters.twig' with filters %}
+            </div>
+            <div>
+                {% include 'molecules/sort.twig' with sort %}
+            </div>
+        </form>
+    </div>
+</section>

@@ -1,0 +1,62 @@
+.btn {
+  --primary: #ff6900;
+  --alt: #ffffff;
+  --secondary: #c0640f;
+
+  @apply py-[10px] px-4 border-2 justify-center uppercase no-underline font-bold rounded-[4px] inline-flex gap-2 leading-4 border-[var(--primary)] bg-[var(--primary)] text-[var(--alt)] transition-colors items-center min-h-[48px];
+
+  &:hover {
+    @apply bg-[var(--secondary)] border-[var(--secondary)];
+  }
+
+  &--solid {
+    @apply border-b-4 border-b-[var(--secondary)] pb-[8px];
+  }
+
+  &--outline {
+    @apply border-2 bg-transparent text-[var(--primary)];
+
+    &:hover {
+      @apply text-[var(--alt)];
+    }
+  }
+
+  &--link {
+    @apply px-0 border-transparent bg-transparent text-[var(--primary)];
+
+    &:hover {
+      @apply bg-transparent border-transparent text-[var(--secondary)];
+    }
+  }
+
+  &--ghost {
+    --primary: rgba(255, 255, 255, .24);
+    --alt: #ffffff;
+    --secondary: rgba(255, 255, 255, .12);
+
+    @apply border-transparent border-b-[var(--secondary)];
+
+    &:hover {
+      @apply border-b-transparent border-transparent;
+    }
+  }
+
+  &--secondary {
+    --primary: #0f7c41;
+    --secondary: #0b4b26;
+  }
+
+  &--cta {
+    --primary: #1990fe;
+    --secondary: #1065b5;
+  }
+
+  &--white {
+    --primary: #ffffff;
+    --secondary: #686c73;
+  }
+
+  &--icon-right {
+    @apply flex-row-reverse;
+  }
+}

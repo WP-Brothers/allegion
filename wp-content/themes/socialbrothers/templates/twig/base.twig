@@ -1,0 +1,7 @@
+{% if have_posts() %}
+    {% for post in wp_query.get_posts %}
+        {% include ['content/' ~ post.post_type ~ '.twig', 'content/singular.twig'] with {post: post} %}
+    {% else %}
+        {% include 'content/none.twig' %}
+    {% endfor %}
+{% endif %}

@@ -1,0 +1,47 @@
+{
+  "name": "acf/cards",
+  "title": "Content kaarten",
+  "category": "sections",
+  "icon": "table-row-after",
+  "keywords": ["kaarten", "usp"],
+  "acf": {
+      "mode": "preview"
+  },
+  "supports": {
+      "anchor": true,
+      "fullHeight": false,
+      "alignText": false,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": [
+              "top",
+              "bottom"
+          ]
+      },
+      "color": {
+          "text": false,
+          "background": true
+      }
+  },
+  "attributes": {
+      "backgroundColor": {
+          "type": "string",
+          "default": "secondary-light"
+      },
+      "style": {
+          "type": "object",
+          "default" : {
+              "spacing":
+              {
+                  "padding": {
+                      "top": "80px",
+                      "bottom": "80px"
+                  }
+              }
+          }
+      }
+  }
+}

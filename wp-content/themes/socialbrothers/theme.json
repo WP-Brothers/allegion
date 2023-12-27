@@ -1,0 +1,209 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"appearanceTools": true,
+    "color": {
+			"defaultPalette": false,
+			"custom": false,
+			"palette": [
+				{
+					"color": "#ffffff",
+					"name": "Wit",
+					"slug": "white"
+				},
+				{
+					"color": "#000000",
+					"name": "Zwart",
+					"slug": "black"
+				},
+				{
+					"color": "#ff6900",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#ffefe4",
+					"name": "Primary light",
+					"slug": "primary-light"
+				},
+				{
+					"color": "#ffefe4",
+					"name": "Primary dark",
+					"slug": "primary-dark"
+				},
+				{
+					"color": "#0f7c41",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#ebf3f4",
+					"name": "Secondary light",
+					"slug": "secondary-light"
+				},
+				{
+					"color": "#0b4b26",
+					"name": "Secondary dark",
+					"slug": "secondary-dark"
+				},
+				{
+					"color": "#1990fe",
+					"name": "CTA",
+					"slug": "cta"
+				},
+				{
+					"color": "#dbedff",
+					"name": "CTA light",
+					"slug": "cta-light"
+				},
+				{
+					"color": "#1065b5",
+					"name": "CTA dark",
+					"slug": "cta-dark"
+				},
+				{
+					"color": "#ff7b18",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				},
+				{
+					"color": "#191919",
+					"name": "Font",
+					"slug": "font"
+				},
+				{
+					"color": "#ff6900",
+					"name": "Link",
+					"slug": "link"
+				},
+				{
+					"color": "#7900ff",
+					"name": "Support",
+					"slug": "support"
+				},
+				{
+					"color": "#00ff45",
+					"name": "Support 2",
+					"slug": "support-2"
+				},
+				{
+					"color": "#00c6ff",
+					"name": "Support 3",
+					"slug": "support-3"
+				},
+				{
+					"color": "#ffffff",
+					"name": "Neutral",
+					"slug": "neutral"
+				},
+				{
+					"color": "#f5f5f5",
+					"name": "Neutral 5",
+					"slug": "neutral-5"
+				},
+				{
+					"color": "#eeeeee",
+					"name": "Neutral 25",
+					"slug": "neutral-25"
+				},
+				{
+					"color": "#c2c8cf",
+					"name": "Neutral 50",
+					"slug": "neutral-50"
+				},
+				{
+					"color": "#686c73",
+					"name": "Neutral 75",
+					"slug": "neutral-75"
+				},
+				{
+					"color": "#353c45",
+					"name": "Neutral 100",
+					"slug": "neutral-100"
+				},
+				{
+					"color": "#1966d3",
+					"name": "System message",
+					"slug": "system-message"
+				},
+				{
+					"color": "#dae7f8",
+					"name": "System message 2",
+					"slug": "system-message-2"
+				},
+				{
+					"color": "#3ca355",
+					"name": "System succes",
+					"slug": "system-succes"
+				},
+				{
+					"color": "#e0f0e4",
+					"name": "System succes 2",
+					"slug": "system-succes-2"
+				},
+				{
+					"color": "#f4a525",
+					"name": "System warning",
+					"slug": "system-warning"
+				},
+				{
+					"color": "#fdf1dc",
+					"name": "System warning 2",
+					"slug": "system-warning-2"
+				},
+				{
+					"color": "#c84041",
+					"name": "System error",
+					"slug": "system-error"
+				},
+				{
+					"color": "#f6e0e1",
+					"name": "System error 2",
+					"slug": "system-error-2"
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "1116px",
+			"wideSize": "1400px"
+		},
+		"spacing": {
+			"spacingScale": {
+				"steps": 0
+			},
+			"customSpacingSize": false,
+			"spacingSizes": [
+				{
+					"size": "20px",
+					"slug": "20",
+					"name": "smallest"
+				},
+				{
+					"size": "40px",
+					"slug": "40",
+					"name": "small"
+				},
+				{
+					"size": "80px",
+					"slug": "80",
+					"name": "base"
+				},
+				{
+					"size": "120px",
+					"slug": "120",
+					"name": "big"
+				},
+				{
+					"size": "160px",
+					"slug": "160",
+					"name": "biggest"
+				}
+			],
+			"units": [
+				"%",
+				"px"
+			]
+		}
+  }
+}

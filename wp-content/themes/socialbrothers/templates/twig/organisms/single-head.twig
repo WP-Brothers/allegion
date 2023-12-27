@@ -1,0 +1,20 @@
+<section class="py-10 md:py-20 {{ background|default('bg-secondary-light') }}">
+    <div class="container">
+        <div class="grid gap-4 md:gap-6 md:grid-cols-2 lg:grid-cols-12">
+            <div class="lg:col-span-6 self-center">
+                <div class="grid gap-4 md:gap-6 lg:gap-10">
+                    <div class="flex">
+                        {% include 'molecules/labels.twig' %}
+
+                    </div>
+
+                    {% include 'atoms/heading/h1.twig' %}
+                </div>
+
+            </div>
+            <div class="lg:col-span-5 lg:col-start-8">
+                {% include 'atoms/image.twig' with {ratio: 'aspect-square', image_classes: 'w-full h-full rounded'} %}
+            </div>
+        </div>
+    </div>
+</section>

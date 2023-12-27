@@ -1,0 +1,10 @@
+<div class="content {{ content_small ? 'content--small' : '' }} {{ content_lead ? 'content--lead' : '' }} {{ content_single_lead ? 'content--single-lead' : '' }}">
+    {% include 'atoms/heading/sub-title.twig' %}
+    {% if first_block %}
+        {% include 'atoms/heading/h1.twig' %}
+    {% else %}
+        {% include 'atoms/heading/h2.twig' %}
+    {% endif %}
+    {% include 'atoms/content.twig' %}
+    {% include 'molecules/buttons.twig' %}
+</div>

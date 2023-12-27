@@ -1,0 +1,41 @@
+image: node:16
+
+pipelines:
+  branches:
+    main:
+      - step:
+          name: Deploy to WP Engine
+          script:
+          - pipe: wpengine/wpe-site-deploy:v1
+            variables:
+              WPE_SSHG_KEY_PRIVATE: $WPE_SSHG_KEY_PRIVATE
+              WPE_ENV: sbtweema
+
+  pull-requests:
+    "**":
+      - step:
+          name: 📦  Install Dependencies
+          caches:
+            - node
+          script:
+            - yarn install
+      - parallel:
+          - step:
+              name: ⚡  Lint Typescript
+              caches:
+                - node
+              script:
+                - yarn run eslint
+          - step:
+              name: ✨  Lint SCSS
+              caches:
+                - node
+              script:
+                - yarn run stylelint
+          - step:
+              name: 🛠️   Build Assets
+              caches:
+                - node
+              script:
+                - yarn run build
+

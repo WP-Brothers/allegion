@@ -1,0 +1,9 @@
+<article>
+    <a href="{{ permalink }}" class="grid gap-3 no-underline">
+        {% include 'molecules/image-card.twig' %}
+        <div>
+            {% include 'atoms/label.twig' with {label: date, icon: 'today', type: 'clean'} %}
+        </div>
+        {% include 'atoms/heading/h2.twig' with {class: 'text-h3m md:text-h3 font-body mb-0'} %}
+    </a>
+</article>

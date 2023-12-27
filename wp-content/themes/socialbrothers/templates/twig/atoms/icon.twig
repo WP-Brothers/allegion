@@ -1,0 +1,12 @@
+{% if size == '48' %}
+    {% set sizeClass = 'h-12 w-12 text-[48px]' %}
+{% elseif size == '16' %}
+    {% set sizeClass = 'h-4 w-4 text-p' %}
+{% else %}
+    {% set sizeClass = 'h-6 w-6 text-[24px]' %}
+{% endif %}
+{% if icon %}
+    <div class="{{ sizeClass }} {{ color }} flex justify-center items-center {{ class }}">
+        <span class="{{ icon_type|default('material-symbols-rounded') }}">{{ icon }}</span>
+    </div>
+{% endif %}

@@ -1,0 +1,45 @@
+{
+  "name": "acf/thank-you",
+  "title": "Bedankt",
+  "category": "sections",
+  "icon": "buddicons-tracking",
+  "keywords": ["socials", "thanks"],
+  "acf": {
+      "mode": "preview"
+  },
+  "supports": {
+      "anchor": true,
+      "jsx": true,
+      "align": [ "full", "wide" ],
+      "fullHeight": false,
+      "alignText": false,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": [
+              "top",
+              "bottom"
+          ]
+      },
+      "color": {
+          "background": true,
+          "text": true
+      }
+  },
+  "attributes": {
+      "style": {
+          "type": "object",
+          "default" : {
+              "spacing":
+              {
+                  "padding": {
+                      "top": "80px",
+                      "bottom": "80px"
+                  }
+              }
+          }
+      }
+  }
+}

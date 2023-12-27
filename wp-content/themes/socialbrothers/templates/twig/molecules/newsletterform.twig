@@ -1,0 +1,7 @@
+<form id="newsletter-form" action="" class="grid gap-4">
+    {% include 'atoms/form/input.twig' with {type: 'email', placeholder: 'jouw@email.nl'|translatable, name: 'email'} %}
+    {% include 'atoms/form/checkbox.twig' with {name: 'privacy', label: privacy_text, id: "privacy"} %}
+    <div>
+        {% include 'atoms/form/button.twig' with {type: 'btn btn--outline btn--white', title: 'Inschrijven'|translatable} %}
+    </div>
+</form>

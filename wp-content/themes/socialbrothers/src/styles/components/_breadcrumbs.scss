@@ -1,0 +1,13 @@
+.breadcrumbs {
+
+  > span {
+    @apply flex gap-2 md:gap-6 items-center text-neutral-75;
+  }
+
+  span {
+
+    a {
+      @apply underline hover:no-underline;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{% if not slide_content %}
+    {% set slide_content = 'molecules/post-card.twig' %}
+{% endif %}
+
+<div class="slider" data-swiper="{{ swiper_options }}">
+    <div class="swiper {{ flow ? 'swiper--visible' : '' }} {{ classes }}">
+        <div class="swiper-wrapper">
+            {% for slide in slides %}
+                <div class="swiper-slide {{ slide_classes }}">
+                    {% include slide_content with slide %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="flex flex-wrap gap-4 justify-between items-center relative z-10">
+        <div>
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="flex items-center gap-4 md:gap-6 mt-4">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+</div>

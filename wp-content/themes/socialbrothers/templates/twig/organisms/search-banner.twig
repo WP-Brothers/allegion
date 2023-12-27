@@ -1,0 +1,20 @@
+<section id="{{ anchor }}" class="bg-secondary-light py-10 md:py-20 {{ class_name }}" style="{{ style|raw }}">
+    <div class="{{ container|default('container') }}">
+        <div class="grid md:grid-cols-12 gap-4 md:gap-6">
+            <div class="md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-4 text-center">
+                {% include "atoms/heading/h1.twig" with {class: 'text-h2m md:text-h2 md:mb-10'} %}
+                <div class="md:px-10">
+                    {% include "molecules/search-bar.twig" with {value: search|raw} %}
+                </div>
+                {% if search %}
+                    <p class="mt-4">{{ found|raw }}
+                        {{ 'resultaten gevonden op'|translatable }}
+                        <strong>
+                            ‘{{ search|raw }}’
+                        </strong>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>

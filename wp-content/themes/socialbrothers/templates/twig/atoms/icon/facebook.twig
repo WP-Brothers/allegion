@@ -1,0 +1,10 @@
+{% if size == '32' %}
+    {% set sizeClass = 'h-8 w-8' %}
+{% elseif size == '24' %}
+    {% set sizeClass = 'h-6 w-6' %}
+{% else %}
+    {% set sizeClass = 'h-4 w-4' %}
+{% endif %}
+<svg width="32" height="32" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="{{ sizeClass }} {{ color|default('fill-primary hover:fill-primary-dark') }}">
+    <path d="M22.084 17.5L22.7505 13.1566H18.5829V10.338C18.5829 9.14969 19.1651 7.99141 21.0316 7.99141H22.9263V4.29344C22.9263 4.29344 21.207 4 19.563 4C16.1309 4 13.8874 6.08031 13.8874 9.84625V13.1566H10.0723V17.5H13.8874V28H18.5829V17.5H22.084Z" fill="inherit"/>
+</svg>

@@ -1,0 +1,110 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply mb-4 font-Merriweather font-bold;
+}
+
+h1,
+.h1 {
+  @apply text-h1m md:text-h1;
+}
+
+h2,
+.h2 {
+  @apply text-h2m md:text-h2;
+}
+
+h3,
+.h3 {
+  @apply text-h3m md:text-h3;
+}
+
+h4,
+.h4 {
+  @apply text-h4;
+}
+
+h5,
+.h5 {
+  @apply text-h5;
+}
+
+h6,
+.h6 {
+  @apply text-h6;
+}
+
+p {
+  @apply mb-4;
+
+  a {
+    @apply text-font-link underline hover:no-underline;
+  }
+}
+
+.content {
+
+  ul,
+  ol {
+    @apply list-disc list-inside;
+
+    ul,
+    ol {
+      @apply pl-5;
+    }
+  }
+
+  ol {
+    @apply list-decimal;
+  }
+
+  &--small {
+
+    .text-subtitle {
+      @apply mb-[3px];
+    }
+
+    > * {
+      @apply mb-4 last:mb-0;
+    }
+  }
+
+  &--lead {
+
+    p {
+      @apply text-pbig;
+    }
+  }
+
+  &--single-lead {
+
+    p {
+      @apply first-of-type:text-pbig;
+    }
+  }
+}
+
+label {
+
+  a {
+    @apply underline font-bold;
+  }
+}
+
+.video {
+  @apply overflow-hidden rounded-lg;
+
+  > * {
+    @apply w-full aspect-video h-auto;
+  }
+}
+
+details summary {
+
+  &::-webkit-details-marker {
+    @apply hidden;
+  }
+}

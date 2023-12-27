@@ -1,0 +1,25 @@
+.nav-links,
+.facetwp-page {
+  @apply flex items-center justify-center mt-5 md:my-10 gap-3;
+
+  .page-numbers:not(.dots) {
+    @apply bg-transparent text-primary-dark w-12 h-12 no-underline flex items-center justify-center rounded-full hover:text-white hover:bg-primary cursor-pointer transition-colors;
+
+    &.current {
+      @apply text-white bg-primary cursor-default;
+    }
+
+    &.prev,
+    &.next {
+      @apply flex items-center justify-center border-primary text-primary border-2 rounded-md hover:text-primary-dark hover:border-primary-dark hover:bg-transparent hover:border-2 transition-colors hover:cursor-pointer aspect-square text-[24px];
+    }
+  }
+
+  .prev {
+    @apply mr-14;
+  }
+
+  .next {
+    @apply ml-14;
+  }
+}

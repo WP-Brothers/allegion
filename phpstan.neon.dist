@@ -1,0 +1,35 @@
+includes:
+    - vendor-bin/phpstan/vendor/phpstan/phpstan-phpunit/extension.neon
+    - vendor-bin/phpstan/vendor/phpstan/phpstan-phpunit/rules.neon
+    - vendor-bin/phpstan/vendor/szepeviktor/phpstan-wordpress/extension.neon
+    - vendor/ekino/phpstan-banned-code/extension.neon
+    - phpstan-baseline.neon
+
+parameters:
+  level: max
+  paths:
+    - src
+    - tests
+  bootstrapFiles:
+    - tools/phpunit.phar
+    - vendor-bin/phpstan/vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
+  excludePaths:
+      analyseAndScan:
+        - tests/*/Fixtures/*
+
+  banned_code:
+    nodes:
+      # enable detection of a set of functions
+      -
+        type: Expr_FuncCall
+        functions:
+          - dd
+          - dump
+          - var_dump
+
+  scanDirectories:
+      - vendor/roots/wordpress-no-content
+
+  tmpDir: .var/cache/phpstan
+  editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'
+

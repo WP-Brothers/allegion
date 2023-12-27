@@ -1,0 +1,12 @@
+<ul class="grid gap-2">
+    {% for anchor in anchors %}
+        <li>
+            <a href="#{{ anchor.anchor }}" class="no-underline grid grid-cols-[24px_1fr] gap-4 group">
+                {% include 'atoms/icon.twig' with {color: 'text-primary'} %}
+                <span class="group-hover:underline">
+                    {{ anchor.title }}
+                </span>
+            </a>
+        </li>
+    {% endfor %}
+</ul></ul>

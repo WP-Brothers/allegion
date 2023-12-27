@@ -1,0 +1,33 @@
+<section id="{{ anchor }}" class="{{ class_name|default('py-10') }}" style="{{ style|raw }}">
+    <div class="{{ container|default('container') }}">
+        <div class="bg-cta p-4 md:p-10 text-white rounded-lg">
+            <div class="grid md:grid-cols-[80px_1fr] lg:grid-cols-[80px_1fr_80px_1fr] gap-4 md:gap-10">
+                <div>
+                    {% include 'atoms/avatar.twig' %}
+                </div>
+                <div>
+                    {% include 'atoms/heading/h4.twig' with {title: name} %}
+                    {% include 'atoms/p.twig' with {content: about_me} %}
+                    {% if button.url %}
+                        {% include 'atoms/button.twig' with button %}
+                    {% endif %}
+                </div>
+                <div class="md:col-start-2 lg:col-start-4">
+                    <div class="grid gap-4">
+                        {% if phone %}
+                            {% include 'molecules/icon-link.twig' with {title: phone, icon: 'phone', url: 'tel:' ~ phone} %}
+                        {% endif %}
+
+                        {% if email %}
+                            {% include 'molecules/icon-link.twig' with {title: email, icon: 'mail', url: 'mailto:' ~ email} %}
+                        {% endif %}
+                    </div>
+
+                    {% include 'atoms/hr.twig' with {color: 'border-white'} %}
+                    {% include 'molecules/follow-icons.twig' %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

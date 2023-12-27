@@ -1,0 +1,39 @@
+<?php
+
+$prefix     = 'block_single_image';
+$block_data = [
+    'key'    => $prefix,
+    'title'  => __('Afbeelding', '_SBB'),
+    'fields' => [
+        [
+            'key'          => "{$prefix}_content_tab",
+            'label'        => __('Afbeelding', '_SBB'),
+            'name'         => 'content_tab',
+            'type'         => 'accordion',
+            'open'         => 1,
+            'multi_expand' => 1,
+        ],
+        [
+            'key'           => "{$prefix}_image",
+            'label'         => __('Afbeedling', '_SBB'),
+            'name'          => 'image_id',
+            'type'          => 'image',
+            'return_format' => 'id',
+        ],
+        [
+            'key'     => "{$prefix}_ratio",
+            'name'    => 'ratio',
+            'label'   => __('Afbeelding ratio', '_SBB'),
+            'type'    => 'select',
+            'choices' => [
+                ''                           => __('Vrij', '_SBB'),
+                'aspect-square object-cover' => __('1/1 (vierkant)', '_SBB'),
+                'aspect-video object-cover'  => __('16/9(video)', '_SBB'),
+                'aspect-4/3 object-cover'    => __('4/3', '_SBB'),
+                'aspect-3/4 object-cover'    => __('3/4', '_SBB'),
+            ],
+        ],
+    ],
+];
+
+return $block_data;

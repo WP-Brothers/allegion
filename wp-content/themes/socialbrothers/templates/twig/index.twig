@@ -1,0 +1,7 @@
+{{ get_header(header_name|default('')) }}
+
+{% block base_content %}
+    {% include 'base.twig' %}
+{% endblock %}
+
+{{ get_footer(footer_name|default('')) }}

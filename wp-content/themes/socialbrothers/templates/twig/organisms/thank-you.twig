@@ -1,0 +1,13 @@
+{% set size = '24' %}
+<section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
+    <div class="container">
+        <div class="grid gap-4 md:gap-6 md:grid-cols-12">
+            <div class="md:col-span-6 md:col-start-4 self-center text-center">
+                {% include 'molecules/content.twig' with {content_lead: true} %}
+                <div class="mt-5 md:mt-10 flex justify-center">
+                    {% include 'molecules/follow-links.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

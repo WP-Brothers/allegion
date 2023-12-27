@@ -1,0 +1,4 @@
+<div>
+    <input type="checkbox" name="{{ name }}" id="{{ id }}" value="{{ value }}" {{ direct_submit ? 'onchange="this.form.submit()"' : '' }} {{ selected ? 'checked' : '' }}>
+    <label for="{{ id }}">{{ label|raw }}</label>
+</div>
