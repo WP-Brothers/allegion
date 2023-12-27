@@ -6,7 +6,7 @@ add_filter(
         $slides   = [];
         $post_ids = [];
 
-        if ('custom' === $context['content_option'] && ! empty($context['posts'])) {
+        if ('custom' === $context['content_option'] && !empty($context['posts'])) {
             $post_ids = $context['posts'];
         } else {
             $post_ids = wp_list_pluck(get_posts([
@@ -20,10 +20,9 @@ add_filter(
         }
         $context['slides'] = $slides;
 
-        if (! empty($context['buttons'])) {
+        if (!empty($context['buttons'])) {
             $context['buttons'] = wpb_build_buttons_context($context['buttons']);
         }
-
         return $context;
     }
 );

@@ -1,14 +1,20 @@
-<section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
-    <div class="full-container relative md:overflow-hidden">
-        <div class="{{ container|default('container') }}">
-            <div class="grid gap-4 md:gap-6 md:grid-cols-12">
-                <div class="md:col-span-5 xl:col-span-4">
-                    {% include 'molecules/content.twig' %}
-                </div>
-                <div class="md:col-span-7 max-w-[calc(100vw-32px)]">
-                    {% include 'molecules/swiper.twig'  with {flow: true, classes: 'md:clip-slider-right'} %}
-                </div>
-            </div>
-        </div>
-    </div>
+{% if background_image %}
+	{% set text_white = true %}
+{% endif %}
+
+<section id="{{ anchor }}" class="{{ class_name }} relative" style="{{ style|raw }}">
+	{{ wp_get_attachment_image( background_image.id, 'full', size|default('large'), {class: 'absolute inset-0 object-cover h-full'})|raw }}
+	<div class="bg-overlay inset-0 absolute w-full h-full"></div>
+	<div class="full-container relative md:overflow-hidden">
+		<div class="{{ container|default('container') }}">
+			<div class="grid gap-4 md:gap-6 md:grid-cols-12">
+				<div class="md:col-span-5 xl:col-span-4">
+					{% include 'molecules/content.twig' with {text_white} %}
+				</div>
+				<div class="md:col-span-7 max-w-[calc(100vw-32px)]">
+					{% include 'molecules/swiper.twig'  with {flow: true, classes: 'md:clip-slider-right', text_white} %}
+				</div>
+			</div>
+		</div>
+	</div>
 </section>

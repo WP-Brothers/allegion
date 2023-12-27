@@ -169,7 +169,7 @@ $block_data = [
         ],
         [
             'key'     => "{$prefix}_slider_content_option",
-            'label'   => __('Slder content opties', '_SBB'),
+            'label'   => __('Slider content opties', '_SBB'),
             'name'    => 'content_option',
             'type'    => 'select',
             'choices' => [
