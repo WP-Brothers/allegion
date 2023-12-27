@@ -1,39 +1,39 @@
 <header id="header" class="top-0 sticky bg-white py-4 md:py-6 z-[100] w-full">
-    <div class="container">
-        <div class="md:flex md:items-center gap-4 xl:gap-[60px]">
-            <div class="flex justify-between items-center">
-                <a href="/">
-                    {% include 'atoms/image.twig' with {image_id: logo_id, size: 'full', image_classes: 'h-12 max-w-[300px]'} %}
-                </a>
+	<div class="container">
+		<div class="md:flex md:items-center gap-4 xl:gap-[60px]">
+			<div class="flex justify-between items-center">
+				<a href="/">
+					{% include 'atoms/image.twig' with {image_id: logo_id, size: 'full', image_classes: 'h-12 max-w-[300px]'} %}
+				</a>
 
-                <button id="toggle-header-nav" class="h-12 w-12 flex items-center justify-center md:hidden">
-                    {% include 'atoms/icon.twig' with {icon: 'menu', size: '32', class: 'active:hidden', color: 'text-primary'} %}
-                    {% include 'atoms/icon.twig' with {icon: 'close', size: '32', class: 'hidden active:flex', color: 'text-primary'} %}
-                </button>
-            </div>
+				<button id="toggle-header-nav" class="h-12 w-12 flex items-center justify-center md:hidden">
+					{% include 'atoms/icon.twig' with {icon: 'menu', size: '32', class: 'active:hidden', color: 'text-primary'} %}
+					{% include 'atoms/icon.twig' with {icon: 'close', size: '32', class: 'hidden active:flex', color: 'text-primary'} %}
+				</button>
+			</div>
 
-            <div id="header-nav" class="max-h-[calc(100vh_-_80px)] top-20 md:top-0 overflow-auto md:overflow-unset hidden absolute w-full right-0 p-4 md:p-0 gap-4 md:relative bg-white md:flex items-end md:items-center md:justify-between md:flex-grow">
-                {{ menu|raw }}
+			<div id="header-nav" class="max-h-[calc(100vh_-_80px)] top-20 md:top-0 overflow-auto md:overflow-unset hidden absolute w-full right-0 p-4 md:p-0 gap-4 md:relative bg-white md:flex items-end md:items-center md:justify-between md:flex-grow">
+				{{ menu|raw }}
 
-                <div class="flex flex-col md:flex-row md:justify-end md:items-center gap-4 md:gap-6 flex-grow">
-                    <button id="toggle-header-search" class="hidden text-primary hover:text-primary-dark transition-colors h-12 w-12 md:flex justify-center items-center">
-                        {% include 'atoms/icon.twig' with {icon: 'search', size: '32'} %}
-                    </button>
-                    <div class="md:hidden">
-                        {% include "molecules/search-bar.twig" %}
-                    </div>
-                    {% include 'atoms/button.twig' with  button %}
-                </div>
-            </div>
-            <div id="header-search" class="md:absolute md:bottom-0 hidden translate-y-full pb-4 right-0 w-full bg-white">
-                <div class="container">
-                    <div class="flex justify-end">
-                        <div class="max-w-[400px]">
-                            {% include "molecules/search-bar.twig" %}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+				<div class="flex flex-col md:flex-row md:justify-end md:items-center gap-4 md:gap-6 flex-grow">
+					<button id="toggle-header-search" class="hidden text-primary hover:text-primary-dark transition-colors h-12 w-12 md:flex justify-center items-center">
+						{% include 'atoms/icon.twig' with {icon: 'search', size: '32'} %}
+					</button>
+					<div class="md:hidden">
+						{% include "molecules/search-bar.twig" %}
+					</div>
+					{% include 'atoms/button.twig' with  button %}
+				</div>
+			</div>
+			<div id="header-search" class="md:absolute md:bottom-0 hidden translate-y-full pb-4 right-0 w-full bg-white">
+				<div class="container">
+					<div class="flex justify-end">
+						<div class="max-w-[400px]">
+							{% include "molecules/search-bar.twig" %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </header>

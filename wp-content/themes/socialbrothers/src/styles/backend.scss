@@ -1,3 +1,4 @@
+/* stylelint-disable */
 @use "sass:meta";
 @import "tailwind.css";
 
@@ -16,11 +17,12 @@
   }
 }
 
-.acf-block-preview {
-  margin: 0 !important;
-  padding: 0 !important;
+  .acf-block-preview {
+    margin: 0 !important;
+    padding: 0 !important;
 
-  @apply font-body text-font;
+    @apply font-body text-font;
 
-  @import "styles.scss";
+    @import "styles.scss";
+  }
 }
