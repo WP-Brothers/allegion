@@ -1,0 +1,12 @@
+<section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
+    <div class="{{ container|default('container') }}">
+        <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+            <div>
+                {% include 'molecules/content.twig' with left %}
+            </div>
+            <div>
+                {% include 'molecules/content.twig' with right %}
+            </div>
+        </div>
+    </div>
+</section>

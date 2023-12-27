@@ -1,0 +1,29 @@
+{% set icon_color = 'text-secondary' %}
+
+{% set defaultStyle = 'rounded-lg ' %}
+{% set cardWrap = ' p-4 md:px-6' %}
+
+{% if type == 'primary' %}
+    {% set style = defaultStyle ~ 'text-white bg-primary' ~ cardWrap %}
+    {% set icon_color = 'text-white' %}
+{% elseif type == 'secondary' %}
+    {% set style = defaultStyle ~ 'text-white bg-secondary' ~ cardWrap %}
+    {% set icon_color = 'text-white' %}
+{% elseif type == 'cta' %}
+    {% set style = defaultStyle ~ 'text-white bg-cta' ~ cardWrap %}
+    {% set icon_color = 'text-white' %}
+{% elseif type == 'white' %}
+    {% set style = defaultStyle ~ 'text-font bg-white' ~ cardWrap %}
+{% endif %}
+
+<div class="{{ style }}">
+    {% if icon %}
+        <div class="mb-4">
+            {% include 'atoms/icon.twig' with {color: icon_color, size: '48'} %}
+        </div>
+    {% endif %}
+    {% include 'atoms/heading/h4.twig' %}
+    {% include 'atoms/text.twig' %}
+    {% set size = '' %}
+    {% include 'atoms/button.twig' with button %}
+</div>

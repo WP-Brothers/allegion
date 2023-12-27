@@ -1,0 +1,6 @@
+{{ get_header(header_name|default('')) }}
+{% include 'organisms/archive-head.twig' with banner %}
+{% include 'organisms/archive-filters.twig' with filters %}
+{% include 'organisms/archive-posts.twig' %}
+{% include 'organisms/newsletter-banner.twig' with newsletter_banner %}
+{{ get_footer(footer_name|default('')) }}

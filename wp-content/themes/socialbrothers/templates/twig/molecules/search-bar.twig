@@ -1,0 +1,4 @@
+<form action="/" class="grid grid-cols-[1fr_auto] gap-3">
+    {% include 'atoms/form/input.twig' with {type: 'search', name: 's', placeholder: 'Zoek naar…'|translatable} %}
+    {% include 'atoms/form/button.twig' with {title: 'Zoek'|translatable, icon: 'search'} %}
+</form>

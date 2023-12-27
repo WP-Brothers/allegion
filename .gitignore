@@ -1,0 +1,48 @@
+### Default project gitignore
+
+## IDE Projectfiles
+/.idea/
+
+
+## Dynamic
+/.var/cache/phpunit/*
+!/.var/cache/phpunit/.gitkeep
+/.var/cache/php-cs-fixer/*
+!/.var/cache/php-cs-fixer/.gitkeep
+/.var/cache/phpstan/*
+!/.var/cache/phpstan/.gitkeep
+
+## Vendor
+vendor
+node_modules
+
+## WordPress
+/*.php
+!/.phpstorm.meta.php
+!/.php-cs-fixer.dist.php
+!/.twig-cs-fixer.php
+/*.html
+/*.txt
+/.phpactor.json
+/tools
+/wp-includes
+/wp-admin
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/socialbrothers
+!/wp-content/themes/socialbrothers/library/vendor/
+/wp-content/themes/socialbrothers/dist
+
+## Other
+*.DS_Store
+*.sql
+vite.config.ts.timestamp*
+yarn.lock
+.php-cs-fixer.cache
+.twig-cs-fixer.cache
+composer.lock
+tools
+
+.htaccess
+conf

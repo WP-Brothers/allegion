@@ -1,0 +1,201 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Method SocialBrothers\\\\Theme\\\\Bootstrap\\\\Loader\\\\FileLoaderInterface\\:\\:createFileLoader\\(\\) has parameter \\$includeDirectories with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bootstrap/Loader/FileLoaderInterface.php
+
+		-
+			message: "#^Method SocialBrothers\\\\Theme\\\\Bootstrap\\\\Loader\\\\FileLoaderInterface\\:\\:getFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bootstrap/Loader/FileLoaderInterface.php
+
+		-
+			message: "#^Call to an undefined method Traversable\\:\\:getIterator\\(\\)\\.$#"
+			count: 1
+			path: src/Bootstrap/Loader/ThemeFileLoader.php
+
+		-
+			message: "#^Method SocialBrothers\\\\Theme\\\\Bootstrap\\\\Loader\\\\ThemeFileLoader\\:\\:__construct\\(\\) has parameter \\$includeDirs with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bootstrap/Loader/ThemeFileLoader.php
+
+		-
+			message: "#^Method SocialBrothers\\\\Theme\\\\Bootstrap\\\\Loader\\\\ThemeFileLoader\\:\\:createFileLoader\\(\\) has parameter \\$includeDirectories with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bootstrap/Loader/ThemeFileLoader.php
+
+		-
+			message: "#^Method SocialBrothers\\\\Theme\\\\Bootstrap\\\\Loader\\\\ThemeFileLoader\\:\\:getFiles\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bootstrap/Loader/ThemeFileLoader.php
+
+		-
+			message: "#^Method SocialBrothers\\\\Theme\\\\Bootstrap\\\\Loader\\\\ThemeFileLoader\\:\\:getIterator\\(\\) return type has no value type specified in iterable type Traversable\\.$#"
+			count: 1
+			path: src/Bootstrap/Loader/ThemeFileLoader.php
+
+		-
+			message: "#^Property SocialBrothers\\\\Theme\\\\Bootstrap\\\\Loader\\\\ThemeFileLoader\\:\\:\\$includeDirs type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/Bootstrap/Loader/ThemeFileLoader.php
+
+		-
+			message: "#^Property SocialBrothers\\\\Theme\\\\Bootstrap\\\\Loader\\\\ThemeFileLoader\\:\\:\\$iterator type has no value type specified in iterable type Traversable\\.$#"
+			count: 1
+			path: src/Bootstrap/Loader/ThemeFileLoader.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Bootstrap/Loader/ThemeFileLoader.php
+
+		-
+			message: "#^Call to an undefined method object\\:\\:getFactories\\(\\)\\.$#"
+			count: 1
+			path: src/Container/ThemeContainer.php
+
+		-
+			message: "#^Method SocialBrothers\\\\Theme\\\\Container\\\\ThemeContainer\\:\\:getConfig\\(\\) should return SocialBrothers\\\\DI\\\\ContainerConfigInterface but returns SocialBrothers\\\\DI\\\\ContainerConfigInterface\\|null\\.$#"
+			count: 1
+			path: src/Container/ThemeContainer.php
+
+		-
+			message: "#^Method SocialBrothers\\\\Theme\\\\Container\\\\ThemeContainer\\:\\:getInstance\\(\\) should return static\\(SocialBrothers\\\\Theme\\\\Container\\\\ThemeContainer\\) but returns SocialBrothers\\\\Theme\\\\Container\\\\ThemeContainer\\.$#"
+			count: 1
+			path: src/Container/ThemeContainer.php
+
+		-
+			message: "#^Parameter \\#1 \\$config of callable SocialBrothers\\\\DI\\\\BuilderInterface expects SocialBrothers\\\\DI\\\\Config\\\\ContainerConfig, SocialBrothers\\\\DI\\\\ContainerConfigInterface given\\.$#"
+			count: 1
+			path: src/Container/ThemeContainer.php
+
+		-
+			message: "#^Parameter \\#1 \\$value of function collect expects Illuminate\\\\Contracts\\\\Support\\\\Arrayable\\<\\(int\\|string\\), SocialBrothers\\\\Interop\\\\ServiceProviderInterface\\>\\|iterable\\<\\(int\\|string\\), SocialBrothers\\\\Interop\\\\ServiceProviderInterface\\>\\|null, iterable\\<SocialBrothers\\\\Interop\\\\ServiceProviderInterface\\> given\\.$#"
+			count: 1
+			path: src/Container/ThemeContainer.php
+
+		-
+			message: "#^Unable to resolve the template type TKey in call to function collect$#"
+			count: 1
+			path: src/Container/ThemeContainer.php
+
+		-
+			message: "#^Unsafe access to private property SocialBrothers\\\\Theme\\\\Container\\\\ThemeContainer\\:\\:\\$instance through static\\:\\:\\.$#"
+			count: 1
+			path: src/Container/ThemeContainer.php
+
+		-
+			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+			count: 1
+			path: src/Container/ThemeContainer.php
+
+		-
+			message: "#^Method SocialBrothers\\\\Theme\\\\Exception\\\\Container\\\\MissingImplementationBindingException\\:\\:__construct\\(\\) has parameter \\$code with no type specified\\.$#"
+			count: 1
+			path: src/Exception/Container/MissingImplementationBindingException.php
+
+		-
+			message: "#^Method SocialBrothers\\\\Theme\\\\Exception\\\\Container\\\\UndefinedContainerBindingException\\:\\:__construct\\(\\) has parameter \\$code with no type specified\\.$#"
+			count: 1
+			path: src/Exception/Container/UndefinedContainerBindingException.php
+
+		-
+			message: "#^Constant THEME_PACKAGE_NAME not found\\.$#"
+			count: 1
+			path: src/Helper/Theme.php
+
+		-
+			message: "#^Function add_filter invoked with 4 parameters, 0 required\\.$#"
+			count: 1
+			path: src/Helper/Theme.php
+
+		-
+			message: "#^Function apply_filters invoked with 2 parameters, 0 required\\.$#"
+			count: 1
+			path: src/Helper/Theme.php
+
+		-
+			message: "#^Used constant THEME_PACKAGE_NAME not found\\.$#"
+			count: 1
+			path: src/Helper/Theme.php
+
+		-
+			message: "#^Cannot call method render\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Helper/Twig.php
+
+		-
+			message: "#^Cannot call method renderString\\(\\) on mixed\\.$#"
+			count: 1
+			path: src/Helper/Twig.php
+
+		-
+			message: "#^Parameter \\#1 \\$array of function array_diff expects array, array\\<int, string\\>\\|false given\\.$#"
+			count: 1
+			path: src/Provider/ThemeProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$directory of function scandir expects string, mixed given\\.$#"
+			count: 1
+			path: src/Provider/ThemeProvider.php
+
+		-
+			message: "#^Anonymous function never returns null so it can be removed from the return type\\.$#"
+			count: 1
+			path: src/Provider/TwigProvider.php
+
+		-
+			message: "#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\\.$#"
+			count: 2
+			path: src/Provider/TwigProvider.php
+
+		-
+			message: "#^Function __ invoked with 2 parameters, 0 required\\.$#"
+			count: 1
+			path: src/Provider/TwigProvider.php
+
+		-
+			message: "#^Method SocialBrothers\\\\Theme\\\\Provider\\\\TwigProvider\\:\\:getFactories\\(\\) should return array\\<string, callable\\(\\)\\: mixed\\> but returns non\\-empty\\-array\\<string, array\\<int, string\\>\\|\\(callable\\(\\)\\: mixed\\)\\>\\.$#"
+			count: 1
+			path: src/Provider/TwigProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$environment of class SocialBrothers\\\\WpTwig\\\\Twig\\\\TwigTemplater constructor expects Twig\\\\Environment, mixed given\\.$#"
+			count: 1
+			path: src/Provider/TwigProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$loader of class Twig\\\\Environment constructor expects Twig\\\\Loader\\\\LoaderInterface, mixed given\\.$#"
+			count: 1
+			path: src/Provider/TwigProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class Twig\\\\TwigFilter constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Provider/TwigProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$name of class Twig\\\\TwigFunction constructor expects string, mixed given\\.$#"
+			count: 1
+			path: src/Provider/TwigProvider.php
+
+		-
+			message: "#^Parameter \\#1 \\$paths of class Twig\\\\Loader\\\\FilesystemLoader constructor expects array\\|string, mixed given\\.$#"
+			count: 2
+			path: src/Provider/TwigProvider.php
+
+		-
+			message: "#^Parameter \\#2 \\$callable of class Twig\\\\TwigFilter constructor expects \\(callable\\(\\)\\: mixed\\)\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Provider/TwigProvider.php
+
+		-
+			message: "#^Parameter \\#2 \\$callable of class Twig\\\\TwigFunction constructor expects \\(callable\\(\\)\\: mixed\\)\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Provider/TwigProvider.php
+
+		-
+			message: "#^Parameter \\#2 \\$rootPath of class Twig\\\\Loader\\\\FilesystemLoader constructor expects string\\|null, mixed given\\.$#"
+			count: 1
+			path: src/Provider/TwigProvider.php

@@ -1,0 +1,5 @@
+<select name="{{ name }}" id="{{ id }}" {{ direct_submit ? 'onchange="this.form.submit()"' : '' }} class="border border-neutral-50 py-3 pl-4 {{ class_name }}">
+    {% for option in options %}
+        <option value="{{ option.value }}" {{ selected == option.value ? 'selected' : '' }}>{{ option.label }}</option>
+    {% endfor %}
+</select>

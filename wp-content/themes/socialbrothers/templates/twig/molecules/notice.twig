@@ -1,0 +1,29 @@
+{% set icon = 'info' %}
+{% set color = 'text-messsage' %}
+{% set style = 'border-message bg-message-2' %}
+
+{% if type == 'succes' %}
+    {% set icon = 'check' %}
+    {% set color = 'text-succes' %}
+    {% set style = 'border-succes bg-succes-2' %}
+{% elseif type == 'error' %}
+    {% set color = 'text-error' %}
+    {% set icon = 'warning' %}
+    {% set style = 'border-error bg-error-2' %}
+{% elseif type == 'warning' %}
+    {% set color = 'text-warning' %}
+    {% set icon = 'error' %}
+    {% set style = 'border-warning bg-warning-2' %}
+{% endif %}
+
+{% if alt_icon and use_alt_icon %}
+    {% set icon = alt_icon %}
+{% endif %}
+
+<div class="{{ style }} border-l-4 p-4 md:p-6 grid grid-cols-[24px_1fr] gap-4 md:gap-6">
+    {% include 'atoms/icon.twig' %}
+    <div>
+        {% include 'atoms/heading/h4.twig' %}
+        <p class="mb-0">{{ content|raw }}</p>
+    </div>
+</div>

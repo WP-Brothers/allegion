@@ -1,0 +1,44 @@
+{
+  "name": "acf/single-index",
+  "title": "Inhoudsopgave",
+  "category": "single",
+  "icon": "editor-ol",
+  "keywords": ["table of contents", "summary", "legend", "index", "anchor", "anker"],
+  "acf": {
+      "mode": "preview"
+  },
+  "supports": {
+      "anchor": true,
+      "jsx": true,
+      "fullHeight": false,
+      "alignText": false,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": [
+              "top",
+              "bottom"
+          ]
+      },
+      "color": {
+          "background": true,
+          "text": true
+      }
+  },
+  "attributes": {
+      "style": {
+          "type": "object",
+          "default" : {
+              "spacing":
+              {
+                  "padding": {
+                      "top": "40px",
+                      "bottom": "40px"
+                  }
+              }
+          }
+      }
+  }
+}

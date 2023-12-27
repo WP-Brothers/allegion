@@ -1,0 +1,43 @@
+{
+  "name": "acf/content-slider",
+  "title": "Content nieuws slider",
+  "category": "sections",
+  "icon": "images-alt2",
+  "keywords": ["content", "slider"],
+  "acf": {
+      "mode": "preview"
+  },
+  "supports": {
+      "anchor": true,
+      "fullHeight": false,
+      "alignText": false,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": [
+              "top",
+              "bottom"
+          ]
+      },
+      "color": {
+          "background": false,
+          "text": false
+      }
+  },
+  "attributes": {
+      "style": {
+          "type": "object",
+          "default" : {
+              "spacing":
+              {
+                  "padding": {
+                      "top": "80px",
+                      "bottom": "80px"
+                  }
+              }
+          }
+      }
+  }
+}

@@ -1,0 +1,107 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  # Alternatively run on PR
+  # pull_request:
+  #   branches:
+  #     - develop
+
+jobs:
+  build:
+    name: 📦  Install Dependencies
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [ 16, 18 ]
+    steps:
+      - name: 🗃️ Checkout repository
+        uses: actions/checkout@v3
+
+      - name: 🛸 Setup PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7
+
+      - name: 🏭 Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.version }}
+          cache: 'pnpm'
+
+      - name: Install dependencies and build dist
+        run: |
+            pnpm install
+            pnpm run build
+
+  code-style:
+    name: Code style
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          extensions: none, iconv, json, phar, tokenizer
+          coverage: none
+          tools: phive, composer:v2
+
+      - name: Run PHP-CS-Fixer
+        run: |
+            composer install --no-ansi --no-interaction --no-progress
+            composer run format
+
+  unit-tests:
+    name: PHPUnit Unit Tests
+    runs-on: ${{ matrix.os }}
+    env:
+      PHP_EXTENSIONS: none, curl, dom, json, libxml, mbstring, openssl, phar, soap, tokenizer, xml, xmlwriter
+      PHP_INI_VALUES: memory_limit=-1, assert.exception=1, zend.assertions=1, error_reporting=-1, log_errors_max_len=0, display_errors=On
+    continue-on-error: ${{ matrix.experimental }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+        php-version:
+          - "8.0"
+          - "8.2"
+        experimental:
+          - false
+        include:
+          - os: ubuntu-latest
+            php-version: "8.3"
+            experimental: true
+          - os: windows-latest
+            php-version: "8.3"
+            experimental: true
+    steps:
+      - name: Configure Git to avoid issues with line endings
+        if: matrix.os == 'windows-latest'
+        run: git config --global core.autocrlf false
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: ${{ env.PHP_EXTENSIONS }}
+          ini-values: ${{ env.PHP_INI_VALUES }}
+          tools: phive, composer:v2
+
+      - name: Install dependencies and tools with composer and phive
+        shell: bash
+        run: |
+            composer update --no-ansi --no-interaction --no-progress
+            phive install --no-progress
+
+      - name: Run tests with PHPUnit
+        shell: bash
+        run: composer run test

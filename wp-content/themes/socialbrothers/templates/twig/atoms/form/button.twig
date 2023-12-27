@@ -1,0 +1,6 @@
+<button class="btn {{ type|default('btn--solid') }}">
+    {% if icon %}
+        {% include 'atoms/icon.twig' %}
+    {% endif %}
+    {{ title|raw }}
+</button>

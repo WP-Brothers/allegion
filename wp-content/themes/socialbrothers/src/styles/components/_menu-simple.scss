@@ -1,0 +1,11 @@
+.menu-simple > ul,
+ul.menu-simple {
+  @apply flex flex-wrap gap-4 lg:gap-[38px];
+
+  li {
+
+    a {
+      @apply underline hover:no-underline font-bold text-neutral-75;
+    }
+  }
+}

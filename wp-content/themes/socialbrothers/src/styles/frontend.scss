@@ -1,0 +1,5 @@
+@use "sass:meta";
+
+@import "tailwind.css";
+
+@include meta.load-css("styles");

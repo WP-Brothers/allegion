@@ -1,0 +1,9 @@
+{% block title %}{% endblock %}
+
+{% block before_content %}{% endblock %}
+{% block content %}
+    {% for content_block in parse_blocks(post.post_content) %}
+        {{ render_block(content_block)|raw }}
+    {% endfor %}
+{% endblock %}
+{% block after_content %}{% endblock %}

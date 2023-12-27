@@ -1,0 +1,8 @@
+{% if buttons %}
+    <div class="flex flex-wrap gap-4 md:gap-6">
+        {% for button in buttons %}
+            {% include 'atoms/button.twig' with button %}
+        {% endfor %}
+    </div>
+
+{% endif %}

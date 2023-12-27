@@ -1,0 +1,43 @@
+{
+  "name": "acf/accordions",
+  "title": "Accordions",
+  "category": "sections",
+  "icon": "arrow-down-alt2",
+  "keywords": ["accordion", "faq", "question", "awnser", "Veel gestelde vragen"],
+  "acf": {
+      "mode": "preview"
+  },
+  "supports": {
+      "anchor": true,
+      "fullHeight": false,
+      "alignText": false,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": [
+              "top",
+              "bottom"
+          ]
+      },
+      "color": {
+          "text": false,
+          "background": true
+      }
+  },
+  "attributes": {
+      "style": {
+          "type": "object",
+          "default" : {
+              "spacing":
+              {
+                  "padding": {
+                      "top": "80px",
+                      "bottom": "80px"
+                  }
+              }
+          }
+      }
+  }
+}

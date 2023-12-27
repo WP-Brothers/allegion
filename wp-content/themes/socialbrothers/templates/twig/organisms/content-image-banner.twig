@@ -1,0 +1,14 @@
+<section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
+    <div class="{{ container|default('container') }}">
+        <div class="bg-cta p-4 md:p-8 xl:p-16 text-white rounded-lg">
+            <div class="flex flex-wrap md:flex-nowrap gap-4 md:gap-6 {{ layout.align.flex }} {{ layout.justify.flex }} {{ orientation }}">
+                <div class="w-full md:w-1/2 {{ orientation ? '' : 'xl:mr-[8.3333333%]' }}">
+                    {% include 'molecules/content.twig' %}
+                </div>
+                <div class="w-full md:w-1/2 xl:w-5/12  {{ orientation ? 'xl:mr-[8.3333333%]' : '' }}">
+                    {% include 'atoms/image.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

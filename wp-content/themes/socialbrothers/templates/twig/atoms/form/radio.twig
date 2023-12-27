@@ -1,0 +1,4 @@
+<div>
+    <input type="radio" name="{{ name }}" id="{{ id }}" value="{{ value }}" {{ direct_submit ? 'onchange="this.form.submit()"' : '' }} {{ selected == value ? 'checked' : '' }}>
+    <label for="{{ id }}">{{ label|raw }}</label>
+</div>

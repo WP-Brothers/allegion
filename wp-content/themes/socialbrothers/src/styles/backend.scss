@@ -1,0 +1,26 @@
+@use "sass:meta";
+@import "tailwind.css";
+
+.wp-block-post-title {
+  @apply container font-body;
+
+  .wp-block {
+    @apply max-w-[unset] my-0;
+  }
+
+  &.acf-block-preview {
+    @import "styles.scss";
+
+  .acf-block-preview {
+    @include meta.load-css("styles");
+  }
+}
+
+.acf-block-preview {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  @apply font-body text-font;
+
+  @import "styles.scss";
+}

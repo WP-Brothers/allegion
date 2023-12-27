@@ -1,0 +1,14 @@
+<section id="{{ anchor }}" class="{{ class_name|default('py-10') }}" style="{{ style|raw }}">
+    <div class="{{ container|default('container') }}">
+        <div class="bg-cta p-4 md:p-10 text-white rounded-lg">
+            <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-4 md:gap-6">
+                <div class="lg:col-span-6">
+                    {% include 'molecules/content.twig' with {text_inherit: true} %}
+                </div>
+                <div class="lg:col-span-5 lg:col-start-8">
+                    {% include 'molecules/newsletterform.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

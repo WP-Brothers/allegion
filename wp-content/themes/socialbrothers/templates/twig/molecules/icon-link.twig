@@ -1,0 +1,6 @@
+<a href="{{ url }}" class="no-underline group grid grid-cols-[24px_1fr] gap-4" target="{{ target|default('_self') }}">
+    {% include 'atoms/icon.twig' with {icon: icon|default('link')} %}
+    <span class="group-hover:underline">
+        {{ title }}
+    </span>
+</a>

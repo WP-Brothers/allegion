@@ -1,0 +1,9 @@
+<section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
+    <div class="{{ container|default('container') }}">
+        <div class="grid gap-4 md:gap-6">
+            {% for notice in notices %}
+                {% include 'molecules/notice.twig' with notice %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

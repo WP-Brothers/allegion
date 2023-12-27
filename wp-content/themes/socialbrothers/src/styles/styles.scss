@@ -1,0 +1,56 @@
+@use "swiper/scss";
+
+@use "base/typography";
+
+@use "base/container";
+
+@use "base/buttons";
+
+@use "components/breadcrumbs";
+
+@use "components/swiper";
+
+@use "components/pagination";
+
+@use "components/forms";
+
+@use "components/menu-list";
+
+@use "components/menu-simple";
+
+@use "components/menu-main";
+
+@use "base/container";
+
+@use "base/typography";
+
+html,
+body {
+  --wp--preset--spacing--20: 20px;
+  --wp--preset--spacing--40: 40px;
+  --wp--preset--spacing--80: 40px;
+  --wp--preset--spacing--120: 60px;
+  --wp--preset--spacing--160: 80px;
+  scroll-behavior: smooth;
+
+  @apply font-body text-font;
+
+  @media (min-width: 768px) {
+    --wp--preset--spacing--80: 80px;
+    --wp--preset--spacing--120: 120px;
+    --wp--preset--spacing--160: 160px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+
+  .material-symbols-rounded {
+    font-size: inherit;
+  }
+}

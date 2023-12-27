@@ -1,0 +1,9 @@
+<section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
+    <div class="{{ container|default('container') }}">
+        <div class="grid gap-4 ms:gap-6 {{ grid }}">
+            {% for image_id in images %}
+                {% include 'atoms/image.twig' %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

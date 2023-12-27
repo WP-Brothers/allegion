@@ -1,0 +1,151 @@
+.swiper {
+
+  &--visible {
+    @apply md:overflow-visible;
+  }
+}
+
+.swiper-wrapper {
+  @apply h-auto;
+}
+
+/* Position and transition for pagination */
+.swiper-pagination {
+  @apply text-center transition-opacity transform z-10 flex items-center;
+}
+
+/* Hide pagination when it's hidden */
+.swiper-pagination-hidden {
+  @apply opacity-0;
+}
+
+/* Hide pagination when disabled */
+.swiper-pagination-disabled > .swiper-pagination,
+.swiper-pagination-disabled {
+  @apply hidden;
+}
+
+/* Common Styles */
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  @apply bottom-2 top-auto left-0 w-full;
+}
+
+/* Bullets */
+.swiper-pagination-bullets-dynamic {
+  @apply overflow-hidden text-xs;
+
+  .swiper-pagination-bullet,
+  .swiper-pagination-bullet-active-prev-prev,
+  .swiper-pagination-bullet-active-next-next {
+    @apply transform scale-[33];
+  }
+
+  .swiper-pagination-bullet-active-prev,
+  .swiper-pagination-bullet-active-next {
+    @apply transform scale-[66];
+  }
+
+  .swiper-pagination-bullet-active,
+  .swiper-pagination-bullet-active-main {
+    @apply transform scale-100;
+  }
+}
+
+.swiper-pagination-bullet {
+  @apply w-4 h-4 inline-block rounded-full cursor-pointer bg-primary-light;
+
+  &:hover {
+    @apply bg-primary;
+  }
+
+  &:only-child {
+    @apply hidden;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  @apply opacity-100 bg-primary h-6 w-6;
+}
+
+/* Vertical Pagination */
+.swiper-vertical > .swiper-pagination-bullets,
+.swiper-pagination-vertical.swiper-pagination-bullets {
+  @apply transform -translate-y-1/2;
+
+  .swiper-pagination-bullet {
+    @apply my-[6px] mx-0;
+
+    @apply block;
+  }
+
+  &.swiper-pagination-bullets-dynamic {
+    @apply w-8;
+  }
+}
+
+/* Horizontal Pagination */
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-horizontal.swiper-pagination-bullets {
+
+  .swiper-pagination-bullet {
+    @apply my-0 mx-[6px];
+  }
+
+  &.swiper-pagination-bullets-dynamic {
+    @apply whitespace-nowrap;
+
+    .swiper-pagination-bullet {
+      @apply inline-block transition-transform;
+    }
+  }
+}
+
+/* RTL for dynamic bullets */
+.swiper-horizontal.swiper-rtl
+> .swiper-pagination-bullets-dynamic
+.swiper-pagination-bullet {
+  @apply transition-transform;
+}
+
+/* Lock class for pagination */
+.swiper-pagination-lock {
+  @apply hidden;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  @apply flex items-center justify-center w-12 h-12 border-primary text-primary border-2 rounded-md hover:text-primary-dark hover:border-primary-dark hover:border-2 transition-colors duration-300 hover:cursor-pointer aspect-square;
+}
+
+.swiper-button-disabled,
+.swiper-button-hidden {
+  @apply hover:cursor-not-allowed opacity-30;
+}
+
+.swiper-button-prev svg,
+.swiper-button-next svg {
+  @apply w-full h-full object-contain;
+}
+
+.swiper-button-prev svg {
+  @apply rotate-180;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply font-iconRound tracking-normal leading-normal text-2xl;
+}
+
+/* Set the content of the previous button */
+.swiper-button-prev::after {
+  @apply content-["\e5c4"];
+}
+
+/* Set the content of the next button in RTL mode */
+.swiper-button-next::after,
+.swiper-rtl .swiper-button-prev::after {
+  @apply content-["\e5c8"];
+}

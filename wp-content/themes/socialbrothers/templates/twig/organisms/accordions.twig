@@ -1,0 +1,10 @@
+<section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
+    <div class="{{ container|default('container') }}">
+        {% include "molecules/content.twig" %}
+        <div class="grid gap-4 md:gap-6">
+            {% for accordion in accordions %}
+                {% include 'molecules/accordion.twig' with accordion %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

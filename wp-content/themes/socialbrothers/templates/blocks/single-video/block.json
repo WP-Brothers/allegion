@@ -1,0 +1,43 @@
+{
+  "name": "acf/single-video",
+  "title": "Video",
+  "category": "single",
+  "icon": "format-video",
+  "keywords": ["video","youtube", "vimeo", "player"],
+  "acf": {
+      "mode": "preview"
+  },
+  "supports": {
+      "anchor": true,
+      "jsx": true,
+      "fullHeight": false,
+      "alignText": false,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": [
+              "top",
+              "bottom"
+          ]
+      },
+      "color": {
+          "background": true
+      }
+  },
+  "attributes": {
+      "style": {
+          "type": "object",
+          "default" : {
+              "spacing":
+              {
+                  "padding": {
+                      "top": "40px",
+                      "bottom": "40px"
+                  }
+              }
+          }
+      }
+  }
+}

@@ -1,0 +1,166 @@
+{
+    "name": "socialbrothers/sb-starter-theme",
+    "description": "WordPress starter theme made by Social Brothers.",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Social Brothers",
+            "email": "wordpress@socialbrothers.nl"
+        },
+        {
+            "name": "Jascha van Aalst",
+            "email": "jascha@socialbrothers.nl",
+            "role": "Back-end WordPress development"
+        },
+        {
+            "name": "Niels Mentink",
+            "email": "niels@socialbrothers.nl",
+            "role": "Front-end development"
+        },
+        {
+            "name": "Ryence Hörmann",
+            "email": "ryence@socialbrothers.nl",
+            "role": "Front-end WordPress development"
+        },
+        {
+            "name": "Gerben de Gier",
+            "email": "gerben@socialbrothers.nl",
+            "role": "WordPress Lead"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://composer.sbdev.nl/"
+        },
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "files": [
+            "wp-content/themes/socialbrothers/inc/helper.php"
+        ],
+        "psr-4": {
+            "SocialBrothers\\Theme\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SocialBrothers\\Theme\\": "tests"
+        }
+    },
+    "require": {
+        "php": "~8.0||~8.1||~8.2",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "composer/installers": "*",
+        "illuminate/collections": "*",
+        "php-di/php-di": "^6.4 || ^7",
+        "socialbrothers/di": "^1.0",
+        "socialbrothers/service-provider": "^1.0.1",
+        "socialbrothers/wp-cookiebanner": "^1",
+        "socialbrothers/wp-sb-admin-notices": "^2.1",
+        "socialbrothers/wp-twig": "1.4",
+        "socialbrothers/wp-vite": "^1.0",
+        "symfony/finder": "^5.4 || ^6.0",
+        "wpackagist-plugin/password-bcrypt": "^1.0"
+    },
+    "require-dev": {
+        "composer-plugin-api": "^1.0 || ^2.0",
+        "bamarni/composer-bin-plugin": "^1.8",
+        "ekino/phpstan-banned-code": "^1.0",
+        "phar-io/phive": "^0.15.2",
+        "roave/security-advisories": "dev-latest",
+        "roots/wordpress-no-content": "^6.2",
+        "spatie/ignition": "^1.4",
+        "symfony/var-dumper": "^5.4"
+    },
+    "config": {
+        "platform-check": false,
+        "platform": {
+            "php": "8.0.2"
+        },
+        "allow-plugins": {
+            "composer/installers": true,
+            "junaidbhura/composer-wp-pro-plugins": true,
+            "roots/wordpress-core-installer": true,
+            "bamarni/composer-bin-plugin": true,
+            "wpb/wpb-style": true,
+            "jspaetzel/phpstyle": true,
+            "automattic/jetpack-autoloader": true
+        },
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "installer-paths": {
+            "wp-content/mu-plugins/{$name}/": [
+                "type:wordpress-muplugin",
+                "wpackagist-plugin/password-bcrypt"
+            ],
+            "wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ],
+            "wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ]
+        },
+        "bamarni-bin": {
+            "bin-links": true,
+            "forward-command": true
+        }
+    },
+    "archive": {
+        "exclude": [
+            ".idea/",
+            ".phive/",
+            ".var/",
+            "node_modules/",
+            "tests/",
+            "tools/",
+            "vendor/",
+            "wp-admin/",
+            "wp-includes/",
+            ".deployignore",
+            ".editorconfig",
+            ".env",
+            "bitbucket-pipelines.yml",
+            ".npmrc",
+            ".nvmrc",
+            ".php-cs-fixer.dist.php",
+            ".phpstorm.meta.php",
+            "phpunit.xml.dist",
+            "phpstan.neon.dist",
+            "auth.json",
+            "package.json",
+            "tsconfig.json",
+            "vite.config.ts",
+            "readme.html",
+            "index.php",
+            "wp-*.php"
+        ]
+    },
+    "scripts": {
+        "phive:install": "vendor/bin/phive install",
+        "php-cs-fixer": "vendor/bin/php-cs-fixer",
+        "twig-cs-fixer": "vendor/bin/twig-cs-fixer",
+        "phpstan": "vendor/bin/phpstan",
+        "phpunit": "tools/phpunit.phar",
+        "format:php": "@php-cs-fixer fix --config=.php-cs-fixer.dist.php",
+        "format:twig": "@twig-cs-fixer --config=.twig-cs-fixer.php lint --fix ./wp-content/themes/socialbrothers --no-cache",
+        "format": [
+            "@format:php",
+            "@format:twig"
+        ],
+        "test": "@phpunit -c phpunit.xml.dist",
+        "analyze": "@phpstan analyze -c phpstan.neon.dist",
+        "analyze:baseline": "@phpstan analyze -c phpstan.neon.dist --generate-baseline"
+    }
+}
