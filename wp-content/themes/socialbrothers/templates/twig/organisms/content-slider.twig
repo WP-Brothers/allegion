@@ -1,18 +1,32 @@
-{% if background_image %}
-	{% set text_white = true %}
+{% if content_position == 'left' %}
+	{% set position_content = 'order-2 first:col-start-9' %}
+	{% set position_slider = 'first:col-start-1 col-span-6' %}
+	{% set polygon_swiper = 'md:clip-slider-left' %}
+
+{% elseif content_position == 'right'%}
+	{% set position_slider = 'first:col-start-7' %}
+	{% set polygon_swiper = 'md:clip-slider-right' %}
+
+{% elseif content_position == 'none' %}
+	{% set position_content = 'hidden invisible' %}
+	{% set position_slider = 'col-start-1 col-span-12' %}
+	{% set polygon_swiper = 'md:clip-slider-full' %}
 {% endif %}
 
 <section id="{{ anchor }}" class="{{ class_name }} relative" style="{{ style|raw }}">
-	{{ wp_get_attachment_image( background_image.id, 'full', size|default('large'), {class: 'absolute inset-0 object-cover h-full'})|raw }}
-	<div class="bg-overlay inset-0 absolute w-full h-full"></div>
+	{% if background_image %}
+		{{ wp_get_attachment_image( background_image.id, 'full', size|default('large'), {class: 'absolute inset-0 object-cover h-full'})|raw }}
+		<div class="bg-overlay inset-0 absolute w-full h-full"></div>
+	{% endif %}
 	<div class="full-container relative md:overflow-hidden">
 		<div class="{{ container|default('container') }}">
-			<div class="grid gap-4 md:gap-6 md:grid-cols-12">
-				<div class="md:col-span-5 xl:col-span-4">
-					{% include 'molecules/content.twig' with {text_white} %}
+			<div class="flex flex-col gap-8 md:grid gap-4 md:gap-6 md:grid-cols-12">
+				<div class="{{ position_content }} md:col-span-5 xl:col-span-4">
+					{% include 'molecules/content.twig' %}
 				</div>
-				<div class="md:col-span-7 max-w-[calc(100vw-32px)]">
-					{% include 'molecules/swiper.twig'  with {flow: true, classes: 'md:clip-slider-right', text_white} %}
+
+				<div class="max-w-[calc(100vw-32px)] {{ position_slider|default('md:col-span-7 lg:col-span-6') }}">
+					{% include 'molecules/swiper.twig'  with {flow: true, classes: polygon_swiper, swiper_options, overflow} %}
 				</div>
 			</div>
 		</div>

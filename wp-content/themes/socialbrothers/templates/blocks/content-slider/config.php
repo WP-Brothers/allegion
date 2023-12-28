@@ -21,7 +21,7 @@ $block_data = [
             'choices' => [
                 'left'   => __('Links', '_SBB'),
                 'right'  => __('Rechts', '_SBB'),
-                'hidden' => __('Geen Content', '_SBB'),
+                'none' => __('Geen Content', '_SBB'),
             ],
         ],
         [
@@ -34,7 +34,7 @@ $block_data = [
                     [
                         'field' => "{$prefix}_content_position",
                         'operator' => '!=',
-                        'value' => 'hidden',
+                        'value' => 'none',
                     ],
                 ],
             ],
@@ -49,7 +49,7 @@ $block_data = [
                     [
                         'field' => "{$prefix}_content_position",
                         'operator' => '!=',
-                        'value' => 'hidden',
+                        'value' => 'none',
                     ],
                 ],
             ],
@@ -67,7 +67,7 @@ $block_data = [
                     [
                         'field' => "{$prefix}_content_position",
                         'operator' => '!=',
-                        'value' => 'hidden',
+                        'value' => 'none',
                     ],
                 ],
             ],
@@ -154,7 +154,7 @@ $block_data = [
                     [
                         'field' => "{$prefix}_content_position",
                         'operator' => '!=',
-                        'value' => 'hidden',
+                        'value' => 'none',
                     ],
                 ],
             ],
@@ -237,6 +237,13 @@ $block_data = [
             'instructions' => __('Laat de slider uit de pagina komen', '_SBB'),
             'type'    => 'true_false',
             'ui'      => true,
+        ],
+        [
+            'key'     => "{$prefix}_slider_button",
+            'name'    => 'button',
+            'label'   => __('Knop', '_SBB'),
+            'instructions' => __('Knop naar alle post / producten', '_SBB'),
+            'type'    => 'link',
         ]
     ],
 ];
