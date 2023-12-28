@@ -1,9 +1,9 @@
 {
-  "name": "acf/content-slider",
-  "title": "Content slider",
+  "name": "acf/carousel",
+  "title": "Carousel",
   "category": "sections",
   "icon": "images-alt2",
-  "keywords": ["content", "slider"],
+  "keywords": ["carousel"],
   "acf": {
       "mode": "preview"
   },
