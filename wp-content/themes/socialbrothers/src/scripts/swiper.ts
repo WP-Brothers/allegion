@@ -10,7 +10,7 @@ const swiperInit = (slider: HTMLElement) => {
     const defaultOptions: SwiperOptions = {
       keyboard: true,
       spaceBetween: 16,
-      slidesPerView: 1,
+      slidesPerView: 1.2,
       loop: true,
       slideActiveClass: 'swiper-slide--active',
 
@@ -25,13 +25,14 @@ const swiperInit = (slider: HTMLElement) => {
       },
       breakpoints: {
         768: {
-          slidesPerView: 1.7,
+          slidesPerView: 2,
           spaceBetween: 24,
         },
       },
     };
 
     const extendedOptionsAttr = slider.getAttribute('data-swiper');
+    const extendedOptions: SwiperOptions = extendedOptionsAttr ? JSON.parse(decodeURIComponent(extendedOptionsAttr)) : {};
 
     if (extendedOptionsAttr) {
       const optionsJSON = JSON.parse(decodeURIComponent(extendedOptionsAttr));
@@ -48,9 +49,6 @@ const swiperInit = (slider: HTMLElement) => {
         });
       }
     }
-
-    const extendedOptions: SwiperOptions =
-      (extendedOptionsAttr as SwiperOptions) || {};
 
     return new Swiper(swiper, {
       ...defaultOptions,
