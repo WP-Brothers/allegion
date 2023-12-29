@@ -112,6 +112,23 @@ function wpb_build_video_context(array $context): array
     return $context;
 }
 
+function wpb_add_video_context(array $context): string
+{
+    if (! empty($context['video_group']['video_type'])) {
+        if (! empty($context['video_group']['embed_video'])) {
+            $video_elm = $context['video_group']['embed_video'];
+        }
+    } elseif (! empty($context['video_group']['video'])) {
+        $video_elm = wp_video_shortcode([
+            'src'    => wp_get_attachment_url($context['video_group']['video']),
+            'poster' => wp_get_attachment_url($context['video_group']['placeholder_image_id'] ?? false),
+            'width'  => '1920',
+        ]);
+    }
+
+    return !empty($video_elm) ? $video_elm : '';
+}
+
 function wpb_build_author_context(string|int $user_id): array
 {
     $context                   = [];
