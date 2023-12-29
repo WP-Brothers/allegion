@@ -16,3 +16,10 @@ function imageVideoFieldGroup ($prefix, $tabExpand = 0) {
     return $fields;
 }
 
+function faqFieldGroup ($prefix, $tabExpand = 0) {
+
+    $fields = array_merge(getTabFields($prefix, $tabExpand, 'faq', __('FAQ', '_SBB')), getFaqFields($prefix));
+
+    return $fields;
+}
+

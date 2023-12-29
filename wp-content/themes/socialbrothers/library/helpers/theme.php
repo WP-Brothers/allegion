@@ -122,3 +122,10 @@ function get_cutoff_class($layout = 'bl-tr') {
 
     return $class;
 }
+
+add_filter('use_block_editor_for_post_type', 'wpb_disable_blockeditor_for_posttypes', 10, 2);
+function wpb_disable_blockeditor_for_posttypes($current_status, $post_type)
+{
+    if ($post_type === 'faq') return false;
+    return $current_status;
+}
