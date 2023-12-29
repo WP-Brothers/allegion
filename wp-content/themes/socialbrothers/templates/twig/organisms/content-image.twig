@@ -1,12 +1,16 @@
 <section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
     <div class="{{ container|default('container') }}">
-        <div class="flex flex-wrap md:flex-nowrap gap-4 md:gap-6 {{ layout.align.flex }} {{ layout.justify.flex }} {{ orientation }}">
-            <div class="w-full md:w-1/2 xl:w-5/12 xl:mr-[8.3333333%]">
-                {% include 'molecules/content.twig' %}
+      
+        <div class="flex flex-col gap-10 lg:gap-0 lg:flex-row relative {{order_switch ? 'justify-end' : 'justify-start'}} {{ layout.align.flex }} {{ layout.justify.flex }} {{ orientation }}">
+            <div class="w-full md:w-7/12 {{cutoff_class}}">
+                  {% include 'atoms/image.twig' %}
             </div>
-            <div class="w-full md:w-1/2 {{ big ? '' : 'xl:w-5/12 xl:mr-[8.3333333%]' }}">
-                {% include 'atoms/image.twig' %}
+
+            <div class="w-full md:w-7/12 lg:absolute top-1/2 lg:-translate-y-1/2 bg-white py-10 pl-9 pr-7 shadow-contentcard rounded-[2px] {{order_switch ? 'left-0' : 'right-0'}}">
+             {% include 'molecules/content.twig' with {heading_type: 'h3', button_classes: 'mt-6'} %}
             </div>
+
         </div>
+
     </div>
 </section>
