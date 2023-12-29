@@ -1,0 +1,26 @@
+<section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
+    <div class="{{ container|default('container') }}">
+
+        <div class="flex flex-col gap-12 {{ layout.align.flex }} {{ layout.justify.flex }} {{ orientation }}">
+
+            <div class="flex {{block_one}}">
+                <div class="w-full md:w-1/2">
+                    {% include 'molecules/content.twig' %}
+                </div>
+            </div>
+
+            <div class="flex justify-start w-full {{block_two}}">
+                <div class="w-full md:w-3/4 {{cutoff_class}}">
+
+                    {% if image_video_switch %}
+                        {% include 'molecules/video.twig' %}
+                    {% else %}
+                        {% include 'atoms/image.twig' %}
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</section>
