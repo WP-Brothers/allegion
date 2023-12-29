@@ -18,32 +18,32 @@
 					"slug": "black"
 				},
 				{
-					"color": "#ff6900",
+					"color": "#009636",
 					"name": "Primary",
 					"slug": "primary"
 				},
 				{
-					"color": "#ffefe4",
+					"color": "#a1cbb0",
 					"name": "Primary light",
 					"slug": "primary-light"
 				},
 				{
-					"color": "#ffefe4",
+					"color": "#27603c",
 					"name": "Primary dark",
 					"slug": "primary-dark"
 				},
 				{
-					"color": "#0f7c41",
+					"color": "#5b6770",
 					"name": "Secondary",
 					"slug": "secondary"
 				},
 				{
-					"color": "#ebf3f4",
+					"color": "#ededed",
 					"name": "Secondary light",
 					"slug": "secondary-light"
 				},
 				{
-					"color": "#0b4b26",
+					"color": "#2f3234",
 					"name": "Secondary dark",
 					"slug": "secondary-dark"
 				},
@@ -68,12 +68,12 @@
 					"slug": "tertiary"
 				},
 				{
-					"color": "#191919",
+					"color": "#000000",
 					"name": "Font",
 					"slug": "font"
 				},
 				{
-					"color": "#ff6900",
+					"color": "#009636",
 					"name": "Link",
 					"slug": "link"
 				},
@@ -123,42 +123,42 @@
 					"slug": "neutral-100"
 				},
 				{
-					"color": "#1966d3",
+					"color": "#dae7f8",
 					"name": "System message",
 					"slug": "system-message"
 				},
 				{
-					"color": "#dae7f8",
+					"color": "#1966d3",
 					"name": "System message 2",
 					"slug": "system-message-2"
 				},
 				{
-					"color": "#3ca355",
+					"color": "#e0f0e4",
 					"name": "System succes",
 					"slug": "system-succes"
 				},
 				{
-					"color": "#e0f0e4",
+					"color": "#3ca355",
 					"name": "System succes 2",
 					"slug": "system-succes-2"
 				},
 				{
-					"color": "#f4a525",
+					"color": "#fdf1dc",
 					"name": "System warning",
 					"slug": "system-warning"
 				},
 				{
-					"color": "#fdf1dc",
+					"color": "#f4a525",
 					"name": "System warning 2",
 					"slug": "system-warning-2"
 				},
 				{
-					"color": "#c84041",
+					"color": "#f6e0e1",
 					"name": "System error",
 					"slug": "system-error"
 				},
 				{
-					"color": "#f6e0e1",
+					"color": "#ff0000",
 					"name": "System error 2",
 					"slug": "system-error-2"
 				}
