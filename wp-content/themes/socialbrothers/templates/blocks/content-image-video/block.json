@@ -1,0 +1,62 @@
+{
+  "name": "acf/content-image-video",
+  "title": "Content afbeelding/video",
+  "category": "sections",
+  "icon": "format-image",
+  "keywords": ["content", "image", "video"],
+  "acf": {
+      "mode": "preview"
+  },
+  "supports": {
+      "anchor": true,
+      "jsx": true,
+      "align": [ "full", "wide" ],
+      "fullHeight": false,
+      "alignText": false,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": [
+              "top",
+              "bottom"
+          ]
+      },
+      "color": {
+          "background": true,
+          "text": true
+      },
+      "layout": {
+          "default": {
+              "type": "flex"
+          },
+          "allowSwitching": false,
+          "allowEditing": true,
+          "allowInheriting": false,
+          "allowSizingOnChildren": false,
+          "allowVerticalAlignment": true,
+          "allowJustification": false,
+          "allowOrientation": true
+
+      }
+  },
+  "attributes": {
+      "textColor": {
+          "type": "string",
+          "default": "font"
+      },
+      "style": {
+          "type": "object",
+          "default" : {
+              "spacing":
+              {
+                  "padding": {
+                      "top": "80px",
+                      "bottom": "80px"
+                  }
+              }
+          }
+      }
+  }
+}
