@@ -1,36 +1,72 @@
-<footer class="bg-secondary-light">
+<footer class="bg-secondary-dark">
     <div class="container">
         <div class="py-10 md:py-20">
-            <div class="grid md:grid-cols-4 lg:grid-cols-12 gap-6">
-                <div class="md:col-span-2 lg:col-span-5">
-                    <div class="grid gap-4">
-                        {% include 'molecules/content.twig' with {content_lead: true} %}
-                        {% if phone %}
-                            {% include "atoms/big-link.twig" with {title: phone, url: 'tel:' ~ phone} %}
-                        {% endif %}
-                        {% if email %}
-                            {% include "atoms/big-link.twig" with {title: email, url: 'mailto:' ~ email} %}
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="lg:col-start-7 lg:col-span-3">
+            <div class="grid lg:grid-cols-12 gap-6">
+                <div class="col-span-12 md:col-span-6 lg:col-span-3">
                     {{ menu1|raw }}
                 </div>
-
-                <div class="lg:col-span-3">
+                <div class="md:col-start-7 col-span-12 lg:col-start-4 md:col-span-6 lg:col-span-4 flex flex-col gap-10">
                     {{ menu2|raw }}
+
+                    {{ menu3|raw }}
+                </div>
+
+                <div class="lg:col-span-4">
+
+                    <div class="flex flex-col lg:gap-11">
+                        <div class="">
+                            <p class="text-[18px] text-white font-bold font-heading mb-1">{{'Bereikbaar op'|translatable}}</p>
+                            <div class="text-white font-heading font-light mb-6">
+                                {{contact_hours|raw}}
+                            </div>
+
+                            <div class="flex flex-col gap-6">
+                                {% include "molecules/icon-link.twig" with {url: 'tel:'~ phone, icon: 'phone', title: phone, class: 'text-white'} %}
+                                {% include "molecules/icon-link.twig" with {url: 'mailto:'~ email, icon: 'mail', title: email, class: 'text-white'} %}
+                            </div>
+                        </div>
+                    
+                        <div class="">
+                            <p class="text-[18px] text-white font-bold font-heading mb-1">{{business_name}}</p>
+
+                            {% if address_link %}
+                                <a class="text-white no-underline hover:underline" href="{{address_link}}">
+                                    {{address|raw}}
+                                </a>
+                            {% else %}
+                                <p class="text-white"> {{address|raw}}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 lg:col-span-1">
+                    <div class="flex flex-row lg:flex-col gap-5">
+                        {% for social, link in socials %}
+                            {% if link %}
+                                {% include "atoms/social-link.twig" with {url: link.url, color: 'fill-white', media: social, size: '32'} %}
+                            {% endif %}
+                        {% endfor %}
+
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="py-4 md:pb-6">
-            <div class="flex gap-4 flex-col md:flex-row md:justify-between flex-wrap md:items-center">
-                <div>
+        <div class="py-4 md:pb-6 border-t-[1px] border-white border-opacity-[0.12]">
+            <div class="flex gap-5 flex-col justify-between md:flex-row flex-wrap md:items-center">
+                    
+                    
+                <div class="flex flex-col lg:flex-row gap-5 items-center">
+                    <p class="mb-0 text-white font-heading font-normal text-[14px]">{{'KvK: ' ~ kvk|translatable}}</p>
+                    
                     {{ menu_bottom|raw }}
                 </div>
-                <div class="text-neutral-75">
-                    {% include "molecules/follow-icons.twig" %}
-                </div>
+
+                {% if logo %}
+                    {% include "atoms/image.twig" with {image_id: logo.ID, image_classes: 'max-h-[52px] h-full'} %}
+                {% endif %}
+        
             </div>
         </div>
+
     </div>
 </footer>

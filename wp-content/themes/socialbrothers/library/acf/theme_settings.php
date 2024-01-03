@@ -32,10 +32,24 @@ function acf_theme_settings()
                 'instructions'  => __('Voeg hier het logo toe', '_SBB'),
             ],
             [
+                'key'          => "{$prefix}_kvk",
+                'name'         => 'kvk',
+                'label'        => __('KvK', '_SBB'),
+                'type'         => 'text',
+                'prepend'         => __('KvK:', '_SBB'),
+            ],
+            [
                 'key'       => "{$prefix}_contact_tab",
                 'label'     => __('Contact', '_SBB'),
                 'type'      => 'tab',
                 'placement' => 'left',
+            ],
+            [
+                'key'          => "{$prefix}_contact_hours",
+                'name'         => 'contact_hours',
+                'label'        => __('Bereikbaar op', '_SBB'),
+                'placeholder'        => __('Bijv: Ma t/m vrij 08:00 - 17:00 uur', '_SBB'),
+                'type'         => 'text',
             ],
             [
                 'key'          => "{$prefix}_phone",
@@ -54,6 +68,12 @@ function acf_theme_settings()
                 'instructions' => __('Voeg hier het e-mailadres toe', '_SBB'),
             ],
             [
+                'key'       => "{$prefix}_business_name",
+                'name'      => 'business_name',
+                'label'     => __('Bedrijfsnaam', '_SBB'),
+                'type'      => 'text',
+            ],
+            [
                 'key'       => "{$prefix}_address",
                 'name'      => 'address',
                 'label'     => __('Adres', '_SBB'),
@@ -68,14 +88,6 @@ function acf_theme_settings()
                 'type'    => 'link',
                 'wrapper' => ['width' => 50],
             ],
-            [
-                'key'       => "{$prefix}_business",
-                'name'      => 'business',
-                'label'     => __('Zakelijk', '_SBB'),
-                'type'      => 'textarea',
-                'new_lines' => 'br',
-            ],
-
             [
                 'key'       => "{$prefix}_socials_tab",
                 'label'     => __('Social Media', '_SBB'),
@@ -247,13 +259,10 @@ function acf_theme_settings()
                 'placement' => 'left',
             ],
             [
-                'key'          => "{$prefix}_footer_content",
-                'name'         => 'footer_content',
-                'label'        => __('Content', '_SBB'),
-                'type'         => 'wysiwyg',
-                'toolbar'      => 'contentcenter',
-                'tabs'         => 'visual',
-                'media_upload' => false,
+                'key'          => "{$prefix}_footer_logo",
+                'name'         => 'footer_logo',
+                'label'        => __('Logo', '_SBB'),
+                'type'         => 'image',
             ],
 
             [
