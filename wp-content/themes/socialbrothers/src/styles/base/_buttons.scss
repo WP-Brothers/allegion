@@ -22,7 +22,7 @@
   }
 
   &--link {
-    @apply px-0 border-transparent bg-transparent text-[var(--primary)];
+    @apply px-0 border-transparent bg-transparent text-[var(--primary)] font-light;
 
     &:hover {
       @apply bg-transparent border-transparent text-[var(--secondary)];
