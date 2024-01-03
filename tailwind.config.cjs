@@ -48,7 +48,7 @@ module.exports = {
             fontWeight: 700,
           },
         ],
-        h3: ['2rem', { lineHeight: '2.5rem', fontWeight: 700 }],
+        h3: ['1.875rem', { lineHeight: '2.5rem', fontWeight: 700 }],
         h3m: ['1.5rem', { lineHeight: '2rem', fontWeight: 700 }],
         h4: ['1.5rem', { lineHeight: '1.5rem', fontWeight: 700 }],
         h5: ['1.25rem', { lineHeight: '1.5rem', fontWeight: 700 }],

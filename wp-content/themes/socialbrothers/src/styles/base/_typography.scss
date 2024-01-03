@@ -95,7 +95,7 @@ label {
 }
 
 .video {
-  @apply overflow-hidden rounded-lg;
+  @apply overflow-hidden rounded-sm;
 
   > * {
     @apply w-full aspect-video h-auto;
