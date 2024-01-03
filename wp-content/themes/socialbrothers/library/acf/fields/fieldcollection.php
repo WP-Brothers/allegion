@@ -268,4 +268,16 @@ function getVideoFields($prefix) {
     ];
     return $fields;
 }
-
+function getRelationshipFields($prefix, $posttype, $name, $label) {
+    $fields = [
+        [
+            'key'           => "{$prefix}_{$posttype}s",
+            'label'         => $label,
+            'name'          => $name,
+            'type'          => 'relationship',
+            'post_type'     => "{$posttype}",
+            'multiple'      => 1,
+        ],
+    ];
+    return $fields;
+}
