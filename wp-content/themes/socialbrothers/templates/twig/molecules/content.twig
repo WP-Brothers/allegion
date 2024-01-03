@@ -2,9 +2,11 @@
 	{% include 'atoms/heading/sub-title.twig' %}
 	{% if first_block %}
 		{% include 'atoms/heading/h1.twig' %}
+	{% elseif heading_type == 'h3' %}
+		{% include 'atoms/heading/h3.twig' %}
 	{% else %}
 		{% include 'atoms/heading/h2.twig' %}
 	{% endif %}
 	{% include 'atoms/content.twig' %}
-	{% include 'molecules/buttons.twig' %}
+	{% include 'molecules/buttons.twig' with {button_classes} %}
 </div>

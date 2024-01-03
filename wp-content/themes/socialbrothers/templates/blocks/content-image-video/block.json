@@ -1,9 +1,9 @@
 {
-  "name": "acf/content-image",
-  "title": "Content afbeelding",
+  "name": "acf/content-image-video",
+  "title": "Content afbeelding/video",
   "category": "sections",
   "icon": "format-image",
-  "keywords": ["content", "image"],
+  "keywords": ["content", "image", "video"],
   "acf": {
       "mode": "preview"
   },
@@ -38,6 +38,7 @@
           "allowVerticalAlignment": false,
           "allowJustification": false,
           "allowOrientation": false
+
       }
   },
   "attributes": {
