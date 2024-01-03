@@ -1,0 +1,42 @@
+<section id="{{ anchor }}" class="relative {{ class_name }}" style="{{ style|raw }}">
+    {% if image_id %}
+        {% include "atoms/image.twig" with {image_classes: 'w-full h-full absolute top-0 left-0 object-cover'} %}
+    {% endif %}
+    
+    {% include "organisms/breadcrumbs.twig" with {class_name: 'relative text-white'} %}
+    
+    <div class="{{ container|default('container') }}">
+      
+       <div class="relative w-full lg:w-5/12">
+            {% if title %}
+                {% if first_block %}
+                    {% include 'atoms/heading/h1.twig' with {class: 'text-white mb-1'} %}
+                {% else %}
+                    {% include 'atoms/heading/h2.twig' with {class: 'text-white mb-1'} %}
+                {% endif %}
+            {% endif %}
+
+            {% if sub_title %}
+                {% include "atoms/heading/sub-title.twig" with {class: 'text-white mb-6'} %}
+            {% endif %}
+
+            {% if phone %}
+                <span class="text-white pb-2 block">{{'Bel ons'|translatable}}</span>
+                {% include "molecules/icon-link.twig" with {url: 'tel:'~ phone, icon: 'phone', title: phone, class: 'text-white'} %}
+            {% endif %}
+
+            {% if phone and email %}
+                {% include "atoms/hr.twig" with {margin: 'my-4'} %}
+            {% endif %}
+            
+            
+            {% if email %}
+                <span class="text-white pb-2 block">{{'Stuur een mail'|translatable}}</span>
+                {% include "molecules/icon-link.twig" with {url: 'mailto:'~ email, icon: 'mail', title: email, class: 'text-white'} %}
+            {% endif %}
+            
+            
+       </div>
+
+    </div>
+</section>
