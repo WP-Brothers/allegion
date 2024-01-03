@@ -50,6 +50,89 @@ function getContentFields($prefix,) {
     ];
     return $fields;
 }
+function getButtonFields($prefix,) {
+    $fields = [
+        [
+            'key'          => "{$prefix}_buttons",
+            'label'        => __('Knoppen', '_SBB'),
+            'name'         => 'buttons',
+            'button_label' => __('Nieuwe Button', '_SBB'),
+            'type'         => 'repeater',
+            'max'          => 2,
+            'layout'       => 'block',
+            'collapsed'    => "{$prefix}_buttons_link",
+            'sub_fields'   => [
+                [
+                    'key'     => "{$prefix}_buttons_link",
+                    'name'    => 'link',
+                    'label'   => __('Link', '_SBB'),
+                    'type'    => 'link',
+                    'wrapper' => [
+                        'width' => '50%',
+                    ],
+                ],
+                [
+                    'key'     => "{$prefix}_buttons_type",
+                    'name'    => 'type',
+                    'label'   => __('Stijl', '_SBB'),
+                    'type'    => 'select',
+                    'choices' => wpb_get_button_types(),
+                    'wrapper' => [
+                        'width' => '50%',
+                    ],
+                ],
+                [
+                    'key'     => "{$prefix}_buttons_use_icon",
+                    'name'    => 'use_icon',
+                    'label'   => __('Icoon gebruiken?', '_SBB'),
+                    'type'    => 'true_false',
+                    'ui'      => true,
+                    'wrapper' => [
+                        'width' => '30%',
+                    ],
+                ],
+                [
+                    'key'     => "{$prefix}_buttons_icon",
+                    'name'    => 'icon',
+                    'label'   => __('Icoon', '_SBB'),
+                    'type'    => 'GOOGLE_MATERIAL_ICON',
+                    'wrapper' => [
+                        'width' => '40%',
+                    ],
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field'    => "{$prefix}_buttons_use_icon",
+                                'operator' => '==',
+                                'value'    => 1,
+                            ],
+                        ],
+                    ],
+                ],
+                [
+                    'key'     => "{$prefix}_buttons_icon_pos",
+                    'name'    => 'icon_pos',
+                    'label'   => __('Icoon Rechts?', '_SBB'),
+                    'type'    => 'true_false',
+                    'ui'      => true,
+                    'wrapper' => [
+                        'width' => '30%',
+                    ],
+                    'conditional_logic' => [
+                        [
+                            [
+                                'field'    => "{$prefix}_buttons_use_icon",
+                                'operator' => '==',
+                                'value'    => 1,
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ];
+    return $fields;
+}
 function getImageVideoSwitchFields($prefix) {
     $fields = [
         [
@@ -188,9 +271,9 @@ function getVideoFields($prefix) {
 function getFaqFields($prefix) {
     $fields = [
         [
-            'key'           => "{$prefix}_faq",
+            'key'           => "{$prefix}_faqs",
             'label'         => __('FAQ', '_SBB'),
-            'name'          => 'faq',
+            'name'          => 'faqs',
             'type'          => 'relationship',
             'post_type'     => 'faq',
             'multiple'      => 1,
