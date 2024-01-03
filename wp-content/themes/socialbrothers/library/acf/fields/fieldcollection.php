@@ -268,4 +268,15 @@ function getVideoFields($prefix) {
     ];
     return $fields;
 }
-
+function getFormFields($prefix) {
+    $fields = [
+        [
+            'key'     => "{$prefix}_form_id",
+            'name'    => 'form_id',
+            'label'   => __('Formulier', '_SBB'),
+            'type'    => 'select',
+            'choices' => wpb_get_gforms(),
+        ],
+    ];
+    return $fields;
+}
