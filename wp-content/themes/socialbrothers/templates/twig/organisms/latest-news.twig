@@ -1,0 +1,17 @@
+<section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
+    <div class="container">
+        {% if title %}
+            <div class="w-full">
+                {% include "atoms/heading/h3.twig" %}
+            </div>
+        {% endif %}
+
+        {% if news %}
+            <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
+                {% for article in news %}
+                    {% include "molecules/news-card.twig" with article %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</section>
