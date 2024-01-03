@@ -1,0 +1,16 @@
+<section id="{{ anchor }}" class="relative {{ class_name }}" style="{{ style|raw }}">
+    {% if image_id %}
+        {% include 'atoms/image.twig' with {image_classes: 'absolute w-full h-full top-0 left-0 object-cover'} %}
+    {% endif %}
+    
+    <div class="{{ container|default('container') }}">
+      
+        <div class="flex flex-col gap-10 lg:gap-0 lg:flex-row relative {{order_switch ? 'justify-end' : 'justify-start'}} {{ layout.align.flex }} {{ layout.justify.flex }} {{ orientation }}">
+            <div class="w-full md:w-7/12  bg-white py-10 pl-9 pr-7 shadow-contentcard rounded-[2px] {{order_switch ? 'left-0' : 'right-0'}}">
+             {% include 'molecules/content.twig' with {heading_type: 'h3', button_classes: 'mt-6'} %}
+            </div>
+        </div>
+    </div>
+
+
+</section>
