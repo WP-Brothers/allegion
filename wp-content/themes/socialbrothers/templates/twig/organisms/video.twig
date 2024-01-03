@@ -1,5 +1,21 @@
 <section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
     <div class="{{ container|default('container') }}">
-        {% include 'molecules/video.twig' %}
+        <div class="flex flex-row gap-12 justify-end">
+                <div class="w-full md:w-3/4 {{cutoff_class}}">
+
+                    {% if title %}
+                        {% include "atoms/heading/h3.twig" with {class: 'mb-6'} %}
+                    {% endif %}
+
+                    {% if video_elm %}
+                        {% include 'molecules/video.twig' %}
+                    {% endif %}
+
+                    {% if buttons %}
+                        {% include "molecules/buttons.twig" with {button_classes: 'mt-6'} %}
+                    {% endif %}
+
+                </div>
+            </div>
     </div>
 </section>
