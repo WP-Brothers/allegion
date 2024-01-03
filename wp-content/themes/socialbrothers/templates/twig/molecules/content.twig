@@ -7,6 +7,6 @@
 	{% else %}
 		{% include 'atoms/heading/h2.twig' %}
 	{% endif %}
-	{% include 'atoms/content.twig' %}
+	{% include 'atoms/content.twig' with {content_classes} %}
 	{% include 'molecules/buttons.twig' with {button_classes} %}
 </div>

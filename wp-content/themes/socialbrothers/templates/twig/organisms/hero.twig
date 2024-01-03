@@ -1,0 +1,15 @@
+<section id="{{ anchor }}" class="relative after:w-full after:h-full after:top-0 after:left-0 after:bg-[rgba(0,0,0,0.35)] after:absolute {{ class_name }}" style="{{ style|raw }}">
+    {% if image_id %}
+        {% include "atoms/image.twig" with {image_classes: 'w-full h-full absolute top-0 left-0 object-cover'} %}
+    {% endif %}
+    
+    {% include "organisms/breadcrumbs.twig" with {class_name: 'relative text-white z-10 !pb-[96px]'} %}
+    
+    <div class="relative {{ container|default('container') }} z-10">
+      
+       <div class="relative w-full lg:w-6/12">
+            {% include "molecules/content.twig" with {class: 'text-white', content_classes: 'text-white'} %}            
+       </div>
+
+    </div>
+</section>

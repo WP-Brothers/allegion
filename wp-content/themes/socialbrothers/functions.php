@@ -173,3 +173,10 @@ function wpb_frontend_admin_bar_sticky()
 }
 
 add_filter('init', 'wpb_frontend_admin_bar_sticky');
+
+add_filter( 'wpseo_breadcrumb_links', 'wpb_breadcrumbs' );
+
+function wpb_breadcrumbs( $links ) {
+    $links[0]['text'] = '<span class="font-icon">house</span>';
+    return $links;
+}
