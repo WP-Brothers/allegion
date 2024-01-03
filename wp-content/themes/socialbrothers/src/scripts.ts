@@ -8,6 +8,15 @@ const scriptsInit = () => {
     );
   }
 
+  const faqs = document.querySelectorAll('.faqs');
+  if (faqs.length) {
+    faqs?.forEach((faq) =>
+      import('./scripts/faq').then((module) =>
+        module.default(faq as HTMLElement)
+      )
+    );
+  }
+
   const formsComplex = document.querySelectorAll('.form-complex');
   if (formsComplex.length) {
     formsComplex?.forEach((formComplex) =>
