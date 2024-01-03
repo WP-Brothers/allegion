@@ -1,3 +1,5 @@
 {% if content %}
-    {{ content|raw }}
+    <div class="{{content_classes}}">
+        {{ content|raw }}
+    </div>
 {% endif %}
