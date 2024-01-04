@@ -1,0 +1,37 @@
+<section id="{{ anchor }}" class="{{ class_name }}" style="{{ style|raw }}">
+    <div class="{{ container|default('container') }}">
+      
+       <div class="flex flex-col lg:flex-row lg:justify-between"> 
+            {% if title %}
+                <div class="w-full lg:w-4/12">
+                    {% include "atoms/heading/h2.twig" %}
+                </div>
+            {% endif %}
+            
+            
+            {% if content %}
+                <div class="w-full lg:w-7/12">
+                    {% include "atoms/content.twig" %}
+                </div>
+            {% endif %}
+       </div>
+
+        <div class="flex lg:justify-between">
+            {% if buttons %}
+                <div class="w-full">
+                    {% include "molecules/buttons.twig" %}
+                </div>
+            {% endif %}
+       </div>
+
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-[68px]">
+            {% if category_products %}
+                {% for category in category_products %}
+                    {% include "molecules/category-product-card.twig" with category %}
+                {% endfor %}
+            {% endif %}
+            
+       </div>
+
+    </div>
+</section>
