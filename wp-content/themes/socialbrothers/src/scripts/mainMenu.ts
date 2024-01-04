@@ -6,7 +6,6 @@ const mainMenu = (menu: HTMLElement) => {
     if(currentdropdown) {
       dropdowns.forEach((dropdown) => {
         if(currentdropdown.id !== dropdown.id) {
-          console.log(dropdown.id)
           dropdown.classList.remove('show');
         }
       });
