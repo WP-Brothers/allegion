@@ -1,0 +1,8 @@
+<div class="flex gap-2 items-center justify-center">
+    {% for language in languages %}
+    <div class="flex gap-2 items-center justify-center">
+            {% include "atoms/flags/" ~ language.name ~ ".twig" %}
+            <a class="no-underline uppercase text-sm font-heading font-light" href="{{language.url}}">{{language.name}}</a>
+        {% endfor %}
+    </div>
+</div>
