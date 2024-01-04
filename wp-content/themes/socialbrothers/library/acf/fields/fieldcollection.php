@@ -22,7 +22,7 @@ function getSubTitleFields($prefix) {
     ];
     return $fields;
 }
-function getTabFields($prefix, $expand = 0, $name, $label) {
+function getTabFields($prefix,int $expand = 0, $name, $label) {
     
     $fields = [
         [
@@ -266,6 +266,41 @@ function getVideoFields($prefix) {
             ],
         ],
     ];
+    return $fields;
+}
+function getCategorySelect($prefix) {
+    $field['choices'] = [];
+    $terms = get_terms();
+    $choices[''] = __('Selecteer een categorie');
+
+        if ( $terms ) {
+            foreach ( $terms as $term ) {
+
+                if($term->taxonomy == 'category_product') {
+                    $choices[$term->term_id] = $term->name;
+                }
+            }
+        }
+
+    $fields = [
+        [
+            'key'           =>  "{$prefix}_category_products",
+            'label'         =>  __('Categorieën', '_SBB'),
+            'name'          =>  'category_products',
+            'type'          =>  'repeater',
+            'max'           =>  4,
+            'sub_fields'    => [
+                [
+                    'key'           =>  "{$prefix}_category",
+                    'label'         =>  __('Categorie', '_SBB'),
+                    'name'          =>  'category',
+                    'type'          =>  'select',
+                    'choices'       =>  $choices,
+                ],
+            ]
+        ],
+    ];
+
     return $fields;
 }
 
