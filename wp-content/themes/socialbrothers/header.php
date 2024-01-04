@@ -19,6 +19,25 @@ if (get_field('header_submenu_hover', 'options')) {
  *
  * @noinspection PhpUnhandledExceptionInspection
  */
+
+
+$sites = wpb_get_sites();
+
+foreach ($sites as $site) {
+    $languages[$site] = get_blog_details($site);
+}
+
+$activeLanguage = $languages[get_blog_details(get_current_blog_id())->blogname];
+unset($languages[get_blog_details(get_current_blog_id())->blogname]);
+
+
+$languageArray = [];
+foreach($languages as $language) {
+    $languageArray[$language->blog_id]['id'] = $language->blog_id;
+    $languageArray[$language->blog_id]['name'] = $language->blogname;
+    $languageArray[$language->blog_id]['url'] = $language->siteurl;
+}
+
 Twig::render(
     'header.twig',
     Theme::filter('header_context', [
@@ -29,6 +48,7 @@ Twig::render(
             'menu_top'    => wpb_menu('header_top', 1, $menu_top_classes),
             'logo_id' => get_field('logo', 'options'),
             'button'  => wpb_build_button_context(get_field('header_button', 'options') ?? []),
+            'languages'   => $languageArray,
         ],
     ])
 );
