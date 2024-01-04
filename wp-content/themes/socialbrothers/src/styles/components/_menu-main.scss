@@ -21,23 +21,23 @@
       > a {
 
         &:after {
-          @apply font-iconRound content-["\e5cf"] text-primary text-[24px];
+          @apply font-iconRound content-["\e5cf"] text-font text-[24px];
         }
       }
 
       .submenu {
-        @apply md:absolute pt-3 hidden;
+        @apply md:absolute pt-[35px] hidden;
 
         > ul {
-          @apply bg-white rounded overflow-hidden md:shadow-menu w-full md:w-[260px] py-3 md:border border-neutral-25;
+          @apply bg-white rounded-[2px] overflow-hidden md:shadow-menu w-full md:w-[260px] p-4 md:border border-neutral-25;
 
           > li {
 
             > a {
-              @apply px-6 py-3 grid grid-cols-[24px_1fr] gap-2 text-primary bg-white hover:bg-primary-light transition-colors uppercase font-bold;
+              @apply px-1 py-2 grid grid-cols-[24px_1fr] rounded-[2px] gap-4 text-font bg-white hover:bg-[#f9f9f9] hover:text-primary-dark font-heading transition-colors uppercase font-light;
 
               &::before {
-                @apply content-["\e5cc"] font-iconRound flex text-[24px] leading-4 justify-center items-center;
+                @apply content-["\e5cc"] text-primary font-iconRound flex text-[24px] leading-4 justify-center items-center;
               }
             }
 
@@ -52,6 +52,14 @@
       }
 
       &.show {
+
+        > a {
+          @apply text-primary;
+
+          &:after {
+            @apply text-primary;
+          }
+        }
 
         .submenu {
           @apply block;
