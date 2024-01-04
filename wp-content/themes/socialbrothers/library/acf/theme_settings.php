@@ -5,7 +5,7 @@ defined('ABSPATH') || exit('Forbidden');
 add_filter("acf/load_field/name=multisites", function (array $field): array {
     $field['choices'] = wpb_get_sites();
 
-    dd($field);
+
     return $field;
 });
 
@@ -304,10 +304,10 @@ function acf_theme_settings()
             [
                 'key'           => 'theme_settings_multisite_',
                 'name'          => 'multisites',
-                'label'         => __('Multisites for language switcher', '_SBB'),
+                'label'         => __('Multisites voor taalschakelaar', '_SBB'),
                 'type'          => 'checkbox',
                 'multiple'      => true,
-                'instructions'  => __('Add all multisites that will be shown in the language switcher', '_SBB'),
+                'instructions'  => __('Voeg alle sites toe die getoond moeten worden in de taalschakelaar.', '_SBB'),
             ],
         ],
         'location' => [
