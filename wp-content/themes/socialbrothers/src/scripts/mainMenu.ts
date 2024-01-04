@@ -2,10 +2,20 @@
 const mainMenu = (menu: HTMLElement) => {
   const dropdowns = menu.querySelectorAll('.menu__item--has-children');
 
-  const closeAll = () => {
-    dropdowns.forEach((dropdown) => {
-      dropdown.classList.remove('show');
-    });
+  const closeAll = (currentdropdown?: Element) => {
+    if(currentdropdown) {
+      dropdowns.forEach((dropdown) => {
+        if(currentdropdown.id !== dropdown.id) {
+          console.log(dropdown.id)
+          dropdown.classList.remove('show');
+        }
+      });
+    } else {
+
+      dropdowns.forEach((dropdown) => {
+        dropdown.classList.remove('show');
+      });
+    }
   }
 
   dropdowns.forEach((dropdown) => {
@@ -13,7 +23,7 @@ const mainMenu = (menu: HTMLElement) => {
 
     link?.addEventListener('click', (e) => {
       e.preventDefault();
-      closeAll()
+      closeAll(dropdown)
       dropdown.classList.toggle('show');
     });
   });
