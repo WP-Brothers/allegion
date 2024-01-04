@@ -2,6 +2,13 @@
 
 defined('ABSPATH') || exit('Forbidden');
 
+add_filter("acf/load_field/name=multisites", function (array $field): array {
+    $field['choices'] = wpb_get_sites();
+
+    dd($field);
+    return $field;
+});
+
 function acf_theme_settings()
 {
     $prefix = 'theme_settings';
@@ -293,6 +300,14 @@ function acf_theme_settings()
                 'tabs'          => 'visual',
                 'media_upload'  => false,
                 'default_value' => __('maar we konden de pagina nergens vinden. We helpen je graag de weg terug te vinden. ', '_SBF'),
+            ],
+            [
+                'key'           => 'theme_settings_multisite_',
+                'name'          => 'multisites',
+                'label'         => __('Multisites for language switcher', '_SBB'),
+                'type'          => 'checkbox',
+                'multiple'      => true,
+                'instructions'  => __('Add all multisites that will be shown in the language switcher', '_SBB'),
             ],
         ],
         'location' => [
