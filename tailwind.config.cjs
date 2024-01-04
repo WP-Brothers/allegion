@@ -106,6 +106,7 @@ module.exports = {
           75: '#686c73',
           100: '#353c45',
         },
+        offwhite: '#fafafa',
         supporting: {
           DEFAULT: '#7900ff',
           2: '#00ff45',
