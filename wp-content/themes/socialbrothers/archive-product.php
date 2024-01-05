@@ -87,6 +87,8 @@ $results = count($posts_data);
 $introContent =  get_field('product_archive_content', 'options') ?? '';
 
 $title = __('Producten', '_SBF');
+$footerTitle = get_field('product_archive_footer_title', 'options') ?? '';
+$footerContent = get_field('product_archive_footer_content', 'options') ?? '';
 
 Twig::render(
     'content/archive-product.twig',
@@ -103,6 +105,10 @@ Twig::render(
                 'sort'          => $sort,
                 'archive_url'   => get_post_type_archive_link($post_type),
                 'direct_submit' => true,
+            ],
+            'footer' => [
+                'title' => $footerTitle,
+                'content' => $footerContent,
             ],
             'posts'      => $posts_data,
             'results'      => $results,

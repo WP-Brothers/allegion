@@ -166,6 +166,21 @@ function acf_theme_settings()
                 'media_upload' => false,
             ],
             [
+                'key'          => "{$prefix}_product_archive_footer_title",
+                'label'        => __('Footer Titel', '_SBB'),
+                'name'         => 'product_archive_footer_title',
+                'type'         => 'text',
+            ],
+            [
+                'key'          => "{$prefix}_product_archive_footer_content",
+                'label'        => __('Footer content', '_SBB'),
+                'name'         => 'product_archive_footer_content',
+                'type'         => 'wysiwyg',
+                'toolbar'      => 'contentcenter',
+                'tabs'         => 'visual',
+                'media_upload' => false,
+            ],
+            [
                 'key'       => "{$prefix}_safety_index_tab",
                 'label'     => __('Veiligheids indexen', '_SBB'),
                 'type'      => 'tab',

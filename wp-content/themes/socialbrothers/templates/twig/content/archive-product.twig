@@ -11,6 +11,9 @@
             {% include 'organisms/archive-filters.twig' with filters %}
         
             {% include 'organisms/archive-posts.twig' with {template: 'product-card'} %}
+
+
+            {% include 'organisms/content.twig' with {title: footer.title, content: footer.content} %}
         </div>
 
 </div>
