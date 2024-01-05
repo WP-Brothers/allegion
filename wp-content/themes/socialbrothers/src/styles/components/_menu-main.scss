@@ -3,8 +3,19 @@
 
   > li {
 
+    &.megamenu {
+      > .submenu ul {
+        @apply block md:hidden;
+      }
+    }
+
     > a {
-      @apply w-full md:w-auto font-heading font-light hover:text-primary inline-flex gap-2 items-center transition-colors border-b border-white md:text-psmall lg:text-p;
+      @apply w-full md:w-auto font-heading font-light hover:text-primary inline-flex gap-2 items-center transition-colors md:border-b-0 border-white md:text-psmall lg:text-p p-6 pr-7 md:p-0 md:pl-0 text-2xl justify-between border-b-[1px] border-b-neutral-25;
+
+
+      &:after {
+        @apply -rotate-90 md:rotate-0;
+      }
     }
 
     &.current_page_item,
@@ -21,7 +32,7 @@
       > a {
 
         &:after {
-          @apply font-iconRound content-["\e5cf"] text-font text-[24px];
+          @apply font-iconRound content-["\e5cf"] text-primary md:text-font text-[24px];
         }
       }
 
@@ -34,7 +45,7 @@
           > li {
 
             > a {
-              @apply px-1 py-2 grid grid-cols-[24px_1fr] rounded-[2px] gap-4 text-font bg-white hover:bg-[#f9f9f9] hover:text-primary-dark font-heading transition-colors uppercase font-light;
+              @apply px-1 py-2 grid grid-cols-[24px_1fr] rounded-[2px] gap-4 text-font bg-white hover:bg-supporting-4 hover:text-primary-dark font-heading transition-colors font-light;
 
               &::before {
                 @apply content-["\e5cc"] text-primary font-iconRound flex text-[24px] leading-4 justify-center items-center;
