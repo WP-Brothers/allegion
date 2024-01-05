@@ -125,3 +125,22 @@ function get_cutoff_class($layout = 'bl-tr') {
 
     return $class;
 }
+
+function wpb_get_sites(): array
+{
+    $sites = [];
+
+    if (is_multisite()) {
+        foreach (get_sites() as $site) {
+            $lang = strtoupper(str_replace('/', '', $site->path));
+
+            if (empty($lang)) {
+                continue;
+            }
+
+            $sites[$site->blog_id] = $lang;
+        }
+    }
+
+    return $sites;
+}

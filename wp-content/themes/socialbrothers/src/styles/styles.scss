@@ -20,8 +20,15 @@
 
 @use "components/menu-main";
 
+@use "components/menu-header-top";
+
+@use "components/flag";
+
 @use "components/category-product-card";
 
+@use "components/megamenu-element";
+
+@use "components/mobile-submenu";
 
 
 html,

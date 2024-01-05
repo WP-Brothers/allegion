@@ -1,0 +1,10 @@
+.menu-header-top {
+  @apply flex flex-col md:flex-row gap-8 md:gap-4 mb-12 md:mb-0;
+
+  > li {
+
+    > a {
+      @apply w-full md:w-auto text-[18px] md:text-sm font-heading font-light
+    }
+  }
+}

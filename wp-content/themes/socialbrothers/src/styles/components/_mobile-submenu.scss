@@ -1,0 +1,30 @@
+.mobile-submenu {
+ @apply top-0 absolute left-0 w-full h-full bg-white p-4 pt-0;  
+
+ &__heading-wrapper {
+    @apply flex justify-between py-6;
+ }
+ &__back {
+    @apply font-icon text-primary text-2xl
+ }
+
+ &__title {
+    @apply text-2xl font-bold;
+ }
+
+
+  > li {
+    @apply list-none;
+
+
+    > a {
+    @apply w-full font-heading font-light hover:text-primary inline-flex gap-2 items-center transition-colors border-white lg:text-p p-6 pr-7 text-2xl justify-between border-b-[1px] border-b-neutral-25;
+
+
+    &:after {
+        @apply -rotate-90 ;
+    }
+
+    }
+  }
+}

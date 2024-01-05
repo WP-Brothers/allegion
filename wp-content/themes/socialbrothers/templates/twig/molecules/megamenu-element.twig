@@ -1,0 +1,22 @@
+<div class="megamenu-element submenu menu__submenu w-[100vw] absolute left-0">
+    <div class="container">
+        <div class="flex w-[105%] -translate-x-[2.5%] -translate-y-4 bg-white shadow-contentcard">
+
+            {% if highlighted_product %}
+                <div class="w-1/4 p-4 pb-3 border-r-[1px] border-neutral-25">
+                    {% include "atoms/heading/h5.twig" with {title: 'Uitgelicht'|translatable} %}
+                    
+                    {% include "molecules/highlighted-product-card.twig" with highlighted_product %}
+                </div>
+            {% endif %}
+
+            <div class="w-3/4 p-4 pb-3">
+                <div class="w-full">{% include "atoms/heading/h5.twig" with {title: 'Producten'|translatable} %}</div>
+                <div class="w-full grid megamenu-element__list-wrapper grid-rows-4 columns-3	grid-flow-col gap-5">
+                    {# List items load in dynamically via TS #}
+                    {{megamenu|raw}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
