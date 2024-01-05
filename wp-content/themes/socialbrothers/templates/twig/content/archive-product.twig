@@ -1,0 +1,20 @@
+{{ get_header(header_name|default('')) }}
+
+<div class="container">
+    <div class="w-full">{% include "organisms/breadcrumbs.twig" with {class_name: 'text-font'} %}</div>
+    <div class="flex">
+        
+        
+        <div class="w-1/4"></div>
+        <div class="w-3/4">
+            {% include 'organisms/archive-intro.twig' with {title: intro.title, content: intro.content, title_class: 'mb-3'} %}
+
+            {% include 'organisms/archive-filters.twig' with filters %}
+        
+            {% include 'organisms/archive-posts.twig' with {template: 'product-card'} %}
+        </div>
+
+</div>
+</div>
+
+{{ get_footer(footer_name|default('')) }}

@@ -18,11 +18,11 @@ add_action('init', function (): void {
         'menu_position'      => 29,
         'menu_icon'          => 'dashicons-cart',
         'has_archive'        => true,
-        'rewrite'            => ['slug' => 'nieuws'],
+        'rewrite'            => ['slug' => 'producten'],
         'publicly_queryable' => true,
         'capability_type'    => 'post',
         'show_in_rest'       => true,
-        'supports'           => ['title', 'thumbnail', 'editor', 'excerpt'],
+        'supports'           => ['title', 'thumbnail'],
     ];
 
     register_post_type('product', $options);

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="grid gap-4 md:gap-6 md:grid-cols-3">
             {% for post in posts %}
-                {% include 'molecules/post-card.twig' with post %}
+                {% include 'molecules/' ~ template|default('post-card') ~ '.twig' with post %}
             {% endfor %}
         </div>
         {% include 'molecules/pagination.twig' %}
