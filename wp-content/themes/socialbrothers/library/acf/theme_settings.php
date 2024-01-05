@@ -246,7 +246,37 @@ function acf_theme_settings()
                     ],
                 ],
             ],
-
+            [
+                'key'       => "{$prefix}_megamenu_tab",
+                'label'     => __('Mega menu', '_SBB'),
+                'type'      => 'tab',
+                'placement' => 'left',
+            ],
+            [
+                'key'   => "{$prefix}_header_megamenu_highlighted_product",
+                'label' => __('Uitgelichte product in het mega menu', '_SBB'),
+                'name'  => 'header_megamenu_highlighted_product',
+                'type'  => 'post_object',
+                'post_type' => 'product',
+                'ui'    => true,
+            ],
+            [
+                'key'   => "{$prefix}_header_megamenu_new_tag",
+                'label' => __('\'Nieuw\' Tag tonen bij het uitgelichte product', '_SBB'),
+                'name'  => 'header_megamenu_new_tag',
+                'type'  => 'true_false',
+                'ui'    => true,
+                'ui_on_text' => __('Ja', '_SBB'),
+                'ui_off_text' => __('Nee', '_SBB'),
+                'wrapper' => ['width' => 50]
+            ],
+            [
+                'key'   => "{$prefix}_header_megamenu_text",
+                'label' => __('Korte tekst bij het uitgelichte product', '_SBB'),
+                'name'  => 'header_megamenu_text',
+                'type'  => 'text',
+                'wrapper' => ['width' => 50]
+            ],
             [
                 'key'       => "{$prefix}_footer_tab",
                 'label'     => __('Footer', '_SBB'),
