@@ -1,0 +1,10 @@
+<a href="{{url}}" class="category-product-card flex flex-col items-center gap-4 px-3 py-6 pb-2 no-underline bg-supporting-4 transition-colors rounded-[2px]  {{ not image_id ? 'justify-end' : 'justify-between' }}">
+    {% if image %}
+       {{image|raw}}
+    {% endif %}
+    
+    <div class="flex flex-col w-full">
+        <span class="w-full text-xl mb-0 text-[18px]">{{ name|raw}}</span>
+        <span class="text-sm">{{ excerpt|raw }}</span>
+    </div>
+</a>
