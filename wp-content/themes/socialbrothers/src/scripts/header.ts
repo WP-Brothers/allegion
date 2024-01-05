@@ -5,6 +5,8 @@ const header = (header: HTMLElement) => {
   const toggleSearchButton = header.querySelector('#toggle-header-search');
   const search = header.querySelector('#header-search');
 
+  const logo = header.querySelector('.header__logo');
+
   toggleNavButton?.addEventListener('click', () => {
     toggleNavButton.classList.toggle('active');
     nav?.classList.toggle('hidden');
@@ -12,6 +14,8 @@ const header = (header: HTMLElement) => {
     header.classList.toggle('fixed');
     header.classList.toggle('sticky');
     document.body.classList.toggle('pt-20');
+
+    logo?.classList.toggle('hidden');
 
     if (toggleNavButton.classList.contains('active')) {
       document.body.style.maxHeight = '100vh';
