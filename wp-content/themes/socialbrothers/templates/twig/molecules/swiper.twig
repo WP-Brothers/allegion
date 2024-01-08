@@ -2,7 +2,9 @@
 	{% set slide_content = 'molecules/product-card.twig' %}
 {% endif %}
 
-<div class="slider" data-swiper="{{ swiper_options }}">
+
+
+<div class="relative slider" data-swiper="{{ swiper_options }}">
 	<div class="swiper {{ flow ? 'swiper--visible' : '' }} {{ overflow ? 'clip-slider-overflow' : ''}} {{ classes }}">
 		<div class="swiper-wrapper">
 			{% for slide in slides %}
@@ -12,7 +14,8 @@
 			{% endfor %}
 		</div>
 	</div>
-	<div class="mt-12 flex gap-9 items-center relative z-10 {{ swiper_navigation ? 'justify-center' : 'justify-end'}}">
+
+	<div class="absolute bottom-1 left-1/2 -translate-x-1/2 mt-12 flex gap-9 items-center z-10 {{ swiper_navigation ? 'justify-center' : 'justify-end'}}">
 		{% if button %}
 			{% include "atoms/button.twig" with button %}
 		{% endif %}
