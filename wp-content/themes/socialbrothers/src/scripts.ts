@@ -25,6 +25,7 @@ const scriptsInit = () => {
       )
     );
   }
+
   const menuMains = document.querySelectorAll(
     '.menu-main:not(.menu-main--hover)'
   );
@@ -35,6 +36,9 @@ const scriptsInit = () => {
       )
     );
   }
+
+
+      import('./scripts/scrollToTop').then((module) => module.default());
 };
 
 export default scriptsInit;
