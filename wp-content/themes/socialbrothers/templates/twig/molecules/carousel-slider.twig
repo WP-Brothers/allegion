@@ -1,0 +1,16 @@
+<div class="slider" data-swiper="{{ swiper_options }}">
+	<div class="swiper {{ flow ? 'swiper--visible' : '' }} {{ classes }} relative">
+		<div class="swiper-wrapper">
+			{% for slide in slides %}
+				<div class="swiper-slide {{ slide_classes }}">
+					{% include 'molecules/carousel-card.twig' with slide %}
+				</div>
+			{% endfor %}
+		</div>
+		<div class="flex gap-9 items-center -translate-y-[150%] relative z-10 justify-center">
+			<div class="swiper-button-prev {{ carousel_full_page ? 'be-white' : '' }}"></div>
+			<div class="swiper-pagination {{ carousel_full_page ? 'be-white' : '' }}"></div>
+			<div class="swiper-button-next {{ carousel_full_page ? 'be-white' : '' }}"></div>
+		</div>
+	</div>
+</div>

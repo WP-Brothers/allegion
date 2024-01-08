@@ -1,0 +1,13 @@
+<div class="relative pt-[160px] pb-[220px] h-full before:w-full before:h-full before:absolute before:top-0 before:left-0 before:bg-black before:opacity-35">
+    {% if image_id %}
+        {% include "atoms/image.twig" with {image_classes: 'absolute top-0 left-0 right-0 bottom-0 w-full h-full object-cover z-[-1]'} %}
+    {% endif %}
+    
+    <div class="container relative">
+        <div class="w-full lg:w-1/2">
+            {% include "molecules/content.twig" with {title_class: 'text-white', text_white: 1} %}
+        </div>
+    </div>
+
+
+</div>
