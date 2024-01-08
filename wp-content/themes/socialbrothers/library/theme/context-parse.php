@@ -43,14 +43,21 @@ function wpb_build_buttons_context(array $buttons, string $type = null): array
     return $context;
 }
 
-function wpb_build_post_card_context(string|int $post_id): array
+function wpb_build_news_card_context(string|int $post_id): array
 {
+
+    $tags = [];
+    foreach(get_the_terms($post_id, 'category_news') as $tag) {
+        array_push($tags, $tag->name);
+    }
+
     return [
-        'title'     => get_the_title($post_id),
-        'image_id'  => get_post_thumbnail_id($post_id),
-        'date'      => get_the_date('d/m/Y', $post_id),
-        'labels'    => wpb_build_post_category_labels($post_id),
-        'permalink' => get_the_permalink($post_id),
+        'title'         => get_the_title($post_id),
+        'excerpt'       => substr(substr(get_the_excerpt($post_id), 0, 85), 0, strrpos(get_the_excerpt($post_id), ' ')) . " ...",
+        'permalink'     => get_the_permalink($post_id),
+        'date'          => get_the_date('d/m/Y', $post_id),
+        'thumbnail'     => get_the_post_thumbnail($post_id, 'large', ['class' => "w-full object-cover rounded-[3px] max-h-[165px]"]),
+        'tags'          => $tags,
     ];
 }
 
@@ -131,16 +138,18 @@ function wpb_build_safety_index_options()
     $safetyIndexes = get_field('safety_index_repeater', 'options') ?? '';
 
     $i = 1;
-    foreach($safetyIndexes as $index) {
-        $indexArray[] = [
-            'key' => $index['safety_index_image']['url'],
-            'label' => $index['safety_index_title'],
-            'image' => $index['safety_index_image']['url'],
-        ];
-
-        $i++;
+    if(!empty($safetyIndexes)) {
+        foreach($safetyIndexes as $index) {
+            $indexArray[] = [
+                'key' => $index['safety_index_image']['url'],
+                'label' => $index['safety_index_title'],
+                'image' => $index['safety_index_image']['url'],
+            ];
+            
+            $i++;
+        }
     }
-
+        
 
     return acf_image_select_options($indexArray);
 }
