@@ -1,0 +1,35 @@
+{% block title %}
+	{# Include when hero is merged #}
+	{# {% include "organism/hero.twig" with {title: title, content: content, image_id: image_id} %} #}
+{% endblock %}
+
+{% block before_content %}{% endblock %}
+
+{% block content %}
+	<section class="py-10 md:py-20">
+		<div class="container">
+			<div class="grid md:grid-cols-12">
+				<div class="md:col-span-10">
+
+					{% if title %}
+						<div class="container">
+							{% include "atoms/heading/h2.twig" with {title, class: 'single-news__title'} %}
+						</div>
+					{% endif %}
+					
+					{% for content_block in parse_blocks(post.post_content) %}
+						{{ render_block(content_block)|raw }}
+					{% endfor %}
+
+					{# {% if author.name %}
+						{% include 'organisms/author.twig' with author %} 
+					{% endif %} #}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
+
+{% block after_content %}
+	{% include 'organisms/latest-news.twig' with {title: 'Laatste nieuws'|translatable, news, class_name: 'bg-secondary-light py-20'} %}
+{% endblock %}
