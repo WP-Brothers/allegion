@@ -1,9 +1,11 @@
 <section class="section">
     <div class="container">
-        <form action="{{ archive_url }}" class="flex flex-wrap gap-4 py-6 items-center justify-between border-b border-neutral-25">
-            <div>
-                {% include 'molecules/filters.twig' with filters %}
-            </div>
+        <form action="{{ archive_url }}" class="flex flex-wrap items-center justify-between gap-4 py-2 border-b border-neutral-25">
+            
+            {% if results %}
+                <span class="font-bold text-secondary font-heading">{{results|raw}} {{'resultaten'|raw}}</span>
+            {% endif %}
+            
             <div>
                 {% include 'molecules/sort.twig' with sort %}
             </div>

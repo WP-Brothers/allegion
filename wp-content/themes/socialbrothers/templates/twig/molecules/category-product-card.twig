@@ -1,0 +1,7 @@
+<a href="#" class="category-product-card flex flex-col items-center gap-8 px-8 py-6 no-underline border-[1px] border-neutral-25 hover:bg-secondary-light hover:border-secondary transition-colors rounded-[2px]  {{ not image_id ? 'justify-end' : 'justify-between' }}">
+    {% if image_id %}
+        {% include "atoms/image.twig" with {image_classes: 'w-auto max-h-[185px]'} %}
+    {% endif %}
+    
+    <span class="w-full text-xl">{{ name|raw}}</span>
+</a>

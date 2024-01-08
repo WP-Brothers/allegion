@@ -1,9 +1,9 @@
 {
-  "name": "acf/content-image",
-  "title": "Content afbeelding",
+  "name": "acf/latest-news",
+  "title": "Laatste nieuws",
   "category": "sections",
-  "icon": "format-image",
-  "keywords": ["content", "image"],
+  "icon": "media-text",
+  "keywords": ["latest", "news"],
   "acf": {
       "mode": "preview"
   },
@@ -38,6 +38,7 @@
           "allowVerticalAlignment": false,
           "allowJustification": false,
           "allowOrientation": false
+
       }
   },
   "attributes": {

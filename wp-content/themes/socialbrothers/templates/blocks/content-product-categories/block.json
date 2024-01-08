@@ -1,9 +1,9 @@
 {
-  "name": "acf/content-image",
-  "title": "Content afbeelding",
+  "name": "acf/content-product-categories",
+  "title": "Content product categorieën",
   "category": "sections",
-  "icon": "format-image",
-  "keywords": ["content", "image"],
+  "icon": "cart",
+  "keywords": ["content", "product", "categories"],
   "acf": {
       "mode": "preview"
   },

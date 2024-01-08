@@ -11,6 +11,12 @@ add_filter(
         if (! empty($context['buttons'])) {
             $context['buttons'] = wpb_build_buttons_context($context['buttons']);
         }
+
+        if(function_exists('get_cutoff_class')) {   
+            // $context['cutoff_class'] = get_cutoff_class('tl-br');
+            // Gaat nog niet helemeaal goed (bg color meegeven, opletten met z-index van een video bij content-image-video)
+         }
+ 
         return $context;
     }
 );

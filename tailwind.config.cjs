@@ -48,7 +48,7 @@ module.exports = {
             fontWeight: 700,
           },
         ],
-        h3: ['2rem', { lineHeight: '2.5rem', fontWeight: 700 }],
+        h3: ['1.875rem', { lineHeight: '2.5rem', fontWeight: 700 }],
         h3m: ['1.5rem', { lineHeight: '2rem', fontWeight: 700 }],
         h4: ['1.5rem', { lineHeight: '1.5rem', fontWeight: 700 }],
         h5: ['1.25rem', { lineHeight: '1.5rem', fontWeight: 700 }],
@@ -129,6 +129,7 @@ module.exports = {
         card: '16px 32px 40px 0 rgba(0, 0, 0, 0.16)',
         input:
           '0 0 0 0.5px #ff6900, inset 0 0 0 0.5px #ff6900, 0 0 0 4px #ffefe4;',
+        contentcard: '4px 4px 16px 0 rgba(0, 0, 0, 0.1);'
       },
       backgroundImage: {
         highlight:
