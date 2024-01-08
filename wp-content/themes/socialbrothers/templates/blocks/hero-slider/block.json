@@ -1,0 +1,43 @@
+{
+  "name": "acf/hero-slider",
+  "title": "Hero - slider",
+  "category": "sections",
+  "icon": "images-alt2",
+  "keywords": ["hero", "slider"],
+  "acf": {
+      "mode": "preview"
+  },
+  "supports": {
+      "anchor": true,
+      "fullHeight": false,
+      "alignText": false,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": [
+              "top",
+              "bottom"
+          ]
+      },
+      "color": {
+          "background": false,
+          "text": false
+      }
+  },
+  "attributes": {
+      "style": {
+          "type": "object",
+          "default" : {
+              "spacing":
+              {
+                  "padding": {
+                      "top": "160px",
+                      "bottom": "8px"
+                  }
+              }
+          }
+      }
+  }
+}
