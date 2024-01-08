@@ -10,14 +10,14 @@
                         </div>
                     </div>
                     <div>
-                        {% include "atoms/heading/h6.twig" with {title: 'Snel naar'|translatable} %}
+                        {% include "atoms/heading/h6.twig" with {title: 'Snel naar'|translatable, class: 'font-normal'} %}
                         {{ menu|raw }}
                     </div>
 
                 </div>
             </div>
             <div class="lg:col-span-6 lg:col-start-7">
-                {% include 'atoms/404-gears.twig' %}
+                {% include 'atoms/image.twig' %}
             </div>
         </div>
     </div>
