@@ -4,49 +4,47 @@ add_filter(
     'wpb_twig_content-slider_context',
     function (array $context): array {
         $slides   = [];
-        $post_ids = [];
 
-        if ('custom' === $context['content_option'] && !empty($context['posts'])) {
-            $post_ids = $context['posts'];
-        } else {
-            if (isset($context['post_type'])) {
-                $post_ids = wp_list_pluck(get_posts([
-                    'post_type'      => [$context['post_type']],
-                    'posts_per_page' => 10,
-                ]), 'ID');
-            } else {
-                $post_ids = [];
+        if(!empty($context['slides_tab_repeater'])) {
+            foreach($context['slides_tab_repeater'] as $slide) {
+
+                if (!empty($slide['buttons'])) {
+                    $slide['buttons'] = wpb_build_buttons_context($slide['buttons']);
+                }
+
+                $slides[] = $slide;
             }
-        }
-
-        foreach ($post_ids as $post_id) {
-            $slides[] = wpb_build_post_card_context($post_id);
         }
         $context['slides'] = $slides;
 
-        if (!empty($context['buttons'])) {
-            $context['buttons'] = wpb_build_buttons_context($context['buttons']);
-        }
 
         $swiper_options = [
-            'slidesPerView' => 2,
-            'spaceBetween'  => 16,
+            'spaceBetween'  => 0,
             'swipeDirection' => 'next',
             'navigation' => true,
             'breakpoints'   => [
                 768 => [
-                    'spaceBetween' => 24,
+                    'spaceBetween' => 0,
                 ],
             ],
         ];
 
-        if ('none' === $context['content_position']) {
-            $swiper_options['slidesPerView'] = 4;
+        if (!empty($context['slider_full_page'])) {
+            $swiper_options['slidesPerView'] = 1;
+            $swiper_options['centeredSlides'] = false;
+        } else {
+            $swiper_options['slidesPerView'] = 1.4;
+            $swiper_options['centeredSlides'] = true;
+            $swiper_options['breakpoints'][768]['spaceBetween'] = 25;
         }
-
+        
+        $context['slide_content'] = 'molecules/content-slide.twig';
+        $context['background_image'] = true;
+        $context['swiper_navigation'] = true;
+        $context['slide_classes'] = '!h-auto self-stretch';
         $context['swiper_options'] = json_encode($swiper_options);
-        $context['swiper_navigation'] = $swiper_options['navigation'];
+        $context['class_name'] = 'py-20';
 
-        return $context;
+        return $context; 
     }
 );
