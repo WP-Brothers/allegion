@@ -163,11 +163,15 @@ function getOrderSwitch($prefix) {
     return $fields;
 }
 
-function getImageFields($prefix) {
+function getImageFields($prefix, $label= '') {
+    if(empty($label) ) {
+        $label = __('Afbeelding', '_SBB');
+    }
+    
     $fields = [
         [
             'key'           => "{$prefix}_image_id",
-            'label'         => __('Afbeelding', '_SBB'),
+            'label'         => $label,
             'name'          => 'image_id',
             'type'          => 'image',
             'return_format' => 'id',
