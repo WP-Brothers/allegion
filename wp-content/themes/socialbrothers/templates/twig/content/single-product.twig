@@ -1,5 +1,7 @@
 {{ get_header(header_name|default('')) }}
 
+{% include "organisms/breadcrumbs.twig" %}
+
 {% block title %}
 	{% include 'organisms/single-product-hero.twig' with hero %}
 {% endblock %}
