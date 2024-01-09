@@ -9,24 +9,59 @@
 {% block before_content %}{% endblock %}
 
 {% block content %}
-	{# <section class="py-10 md:py-20">
-		<div class="container">
-			<div class="grid md:grid-cols-12">
-				<div class="md:col-span-10">
-					{% for content_block in parse_blocks(post.post_content) %}
-						{{ render_block(content_block)|raw }}
-					{% endfor %}
 
-					{% if author.name %}
-						{% include 'organisms/author.twig' with author %}
+	{% include "molecules/anchor-menu.twig" with anchor_menu %}
+
+	<div class="pt-10 pb-20 section">
+		<div class="container">
+			<div class="flex flex-col w-full lg:justify-between lg:flex-row">
+				<div class="w-full lg:w-1/2">
+
+			
+					{% if productinformation.content %}
+						<div class="pb-5">
+							{% include "atoms/heading/h3.twig" with {title: productinformation.title, id: productinformation.id} %}
+							{% include "atoms/content.twig" with {content: productinformation.content} %}
+						</div>
+					{% endif %}
+
+					{% if specifications.content or specifications.safety or specifications.technical %}
+						<div class="py-5">
+							{% include "atoms/heading/h3.twig" with {title: specifications.title, id: specifications.id} %}
+							{% include "atoms/content.twig" with {content: specifications.content} %}
+
+						{# Include dropdown safety #}
+						{# Include dropdown techincal #}
+						</div>
+					{% endif %}
+
+
+					{% if downloads.content or downloads.files %}
+						<div class="py-5">
+							{% include "atoms/heading/h3.twig" with {title: downloads.title, id: downloads.id} %}
+							{% include "atoms/content.twig" with {content: downloads.content} %}
+
+
+							{# Include downloads #}
+						</div>
+					{% endif %}
+					
+
+					{% if technical_drawings.drawings %}
+						<div class="py-5">
+							{% include "atoms/heading/h3.twig" with {title: technical_drawings.title, id: technical_drawings.id} %}
+						
+							{# Include drawings #}
+						</div>
 					{% endif %}
 				</div>
-				<div class="md:col-span-2 md:justify-self-end">
-					 {% include 'molecules/share.twig' with share %} 
-				</div>
+
+				<div class="w-full lg:w-5/12">a</div>
 			</div>
 		</div>
-	</section> #}
+	</div>
+
+
 {% endblock %}
 
 {% block after_content %}
