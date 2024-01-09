@@ -32,6 +32,18 @@ function acf_theme_settings()
                 'instructions'  => __('Voeg hier het logo toe', '_SBB'),
             ],
             [
+                'key'           => "{$prefix}_currency",
+                'name'          => 'currency',
+                'label'         => __('Valuta', '_SBB'),
+                'type'          => 'select',
+                'instructions'  => __('Selecteer een valuta. (Dit is alleen visueel)', '_SBB'),
+                'choices'       => [
+                    'euro' => __('€ - Euro', '_SBB'),
+                    'dollar' => __('$ - Dollar', '_SBB'),
+                    'pound' => __('£ - Pond', '_SBB'),
+                ]
+            ],
+            [
                 'key'       => "{$prefix}_contact_tab",
                 'label'     => __('Contact', '_SBB'),
                 'type'      => 'tab',
