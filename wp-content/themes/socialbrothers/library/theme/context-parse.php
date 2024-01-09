@@ -59,7 +59,7 @@ function wpb_build_product_card_context(string|int $post_id): array
     return [
         'title'     => get_the_title($post_id),
         'image_id'  => get_post_thumbnail_id($post_id),
-        'keurmerken'=> wpb_build_product_card_keurmerken($post_id),
+        'keurmerken'=> wpb_build_keurmerken($post_id),
         'permalink' => get_the_permalink($post_id),
         'article_number' => get_field('article_number', $post_id) ?? '',
         'safety_index' => get_field('safety_index', $post_id) ?? '',
@@ -108,16 +108,26 @@ function wpb_build_post_category_labels(string|int $post_id): array
     return $terms;
 }
 
-function wpb_build_product_card_keurmerken(string|int $post_id): array
+function wpb_build_keurmerken(string|int $post_id, $modal = 0): array
 {
     $returnArray = [];
     $keurmerken = get_field('keurmerken', $post_id) ?? '';
 
     if(!empty($keurmerken)) {
         foreach($keurmerken as $keurmerk) {
-            $returnArray[] = [
+            $returnArray[$keurmerk->ID] = [
                 'image' => get_the_post_thumbnail($keurmerk, 'small', ['class' => 'w-auto h-full']),
             ];
+
+            if(!empty($modal)) {
+                $returnArray[$keurmerk->ID]['modal'] = [
+                    'title' => get_the_title($keurmerk),
+                    'display_name' => get_field('display_name', $keurmerk->ID),
+                    'content' => get_field('content', $keurmerk->ID) ?? '',
+                    'image_id' => get_post_thumbnail_id($keurmerk->ID) ?? '',
+                    'extra_link' => get_field('extra_link', $keurmerk->ID) ?? '',
+                ];
+            }
         }
     }
 
