@@ -1,0 +1,29 @@
+<dialog class="keurmerken__modal w-full h-full bg-transparent !border-0 focus-visible:outline-none backdrop-opacity-40">
+    <div class="flex items-center justify-center w-full h-full">
+        <div class="container">
+            <div class="relative w-full p-8 bg-white">
+                {% if display_name %}
+                    {% include "atoms/heading/h3.twig" with {title: display_name} %}
+                {% endif %}
+
+                {% if title %}
+                    {% include "atoms/heading/h2.twig"%}
+                {% endif %}
+
+                {% if content %}
+                    {% include "atoms/content.twig"%}
+                {% endif %}
+
+                {% if image_id %}
+                    {% include "atoms/image.twig" with {image_classes: 'h-full w-auto max-h-[278px] lg:ml-[62px] mb-10 mt-6'}%}
+                {% endif %}
+
+                  {% if extra_link %}
+                    {% include "atoms/content.twig" with {content: extra_link}%}
+                {% endif %}
+
+                <button class="keurmerk__close text-[32px] font-iconRound text-primary absolute top-8 right-8 h-8 w-8 leading-[1]">close</button>
+            </div>
+        </div>
+    </div>
+</dialog>
