@@ -35,6 +35,16 @@ const scriptsInit = () => {
       )
     );
   }
+
+
+  const keurmerken = document.querySelectorAll('.keurmerk');
+  if (keurmerken.length) {
+    keurmerken?.forEach((keurmerk) =>
+      import('./scripts/keurmerk').then((module) =>
+        module.default(keurmerk as HTMLElement)
+      )
+    );
+  }
 };
 
 export default scriptsInit;
