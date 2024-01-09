@@ -2,6 +2,7 @@
 	{% set slide_content = 'molecules/product-card.twig' %}
 {% endif %}
 
+
 <div class="slider" data-swiper="{{ swiper_options }}">
 	<div class="swiper {{ flow ? 'swiper--visible' : '' }} {{ overflow ? 'clip-slider-overflow' : ''}} {{ classes }}">
 		<div class="swiper-wrapper">
@@ -16,10 +17,10 @@
 		{% if button %}
 			{% include "atoms/button.twig" with button %}
 		{% endif %}
-		<div class="swiper-button-prev {{ background_image ? 'has-background-image' : '' }}"></div>
+		<div class="swiper-button-prev {{ background_image ? 'has-background-image' : '' }}" style="{{ color|raw }}"></div>
 		{% if swiper_navigation %}
 			<div class="swiper-pagination {{ background_image ? 'has-background-image' : '' }}"></div>
 		{% endif %}
-		<div class="swiper-button-next {{ background_image ? 'has-background-image' : '' }}"></div>
+		<div class="swiper-button-next {{ background_image ? 'has-background-image' : '' }}" style="{{ color|raw }}"></div>
 	</div>
 </div></div>

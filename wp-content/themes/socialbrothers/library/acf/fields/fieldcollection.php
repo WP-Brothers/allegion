@@ -163,11 +163,15 @@ function getOrderSwitch($prefix) {
     return $fields;
 }
 
-function getImageFields($prefix) {
+function getImageFields($prefix, $label= '') {
+    if(empty($label) ) {
+        $label = __('Afbeelding', '_SBB');
+    }
+    
     $fields = [
         [
             'key'           => "{$prefix}_image_id",
-            'label'         => __('Afbeelding', '_SBB'),
+            'label'         => $label,
             'name'          => 'image_id',
             'type'          => 'image',
             'return_format' => 'id',
@@ -277,10 +281,24 @@ function getRelationshipFields($prefix, $posttype, $name, $label) {
             'type'          => 'relationship',
             'post_type'     => "{$posttype}",
             'multiple'      => 1,
+        ]
+    ];
+    return $fields;
+}
+
+function getFormFields($prefix) {
+    $fields = [
+        [
+            'key'     => "{$prefix}_form_id",
+            'name'    => 'form_id',
+            'label'   => __('Formulier', '_SBB'),
+            'type'    => 'select',
+            'choices' => wpb_get_gforms(),
         ],
     ];
     return $fields;
 }
+
 function getCategorySelect($prefix) {
     $field['choices'] = [];
     $terms = get_terms();

@@ -1,13 +1,25 @@
 .breadcrumbs {
 
   > span {
-    @apply flex gap-2 md:gap-6 items-center text-neutral-75;
+    @apply flex gap-2 md:gap-6 items-center text-white;
   }
 
   span {
-
+    @apply text-sm;
     a {
       @apply underline hover:no-underline;
+
+      &:first-of-type {
+        @apply no-underline;
+      }
     }
+  }
+
+  .breadcrumb_last {
+    @apply underline
+  }
+
+  .material-symbols-rounded, .font-icon {
+    @apply text-base
   }
 }
