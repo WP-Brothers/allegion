@@ -48,6 +48,13 @@ add_action('acf/init', function () {
         'title'  => __('Product instellingen', '_SBB'),
         'fields' => [
             [
+                'key'           => "{$posttype}_price",
+                'label'         => __('Prijs', '_SBB'),
+                'name'          => 'price',
+                'type'          => 'text',
+                'prepend'        => wpb_get_currency() ?? __('€', '_SBB'),
+            ],
+            [
                 'key'           => "{$posttype}_external_link",
                 'label'         => __('Externe bestel link', '_SBB'),
                 'name'          => 'external_link',
