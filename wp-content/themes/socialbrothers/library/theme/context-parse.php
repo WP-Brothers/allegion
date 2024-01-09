@@ -195,3 +195,19 @@ function wpb_build_author_context(string|int $user_id): array
 
     return $context;
 }
+
+function wpb_build_price(string $price):string
+ {
+    $currency = get_field('currency', 'options');
+    if($currency == 'euro' || empty($currency)) {
+        $currency = __('€', '_SBF');
+    } elseif ($currency == 'dollar') {
+        $currency = __('$', '_SBF');
+    } elseif ($currency == 'pound') {
+        $currency = __('£', '_SBF');
+    }
+
+    $price = $currency . $price;
+
+    return $price;
+ }
