@@ -3,6 +3,63 @@
 use SocialBrothers\Theme\Helper\Theme;
 use SocialBrothers\Theme\Helper\Twig;
 
+$links = [];
+$productinformation = [];
+$specifications = [];
+$downloads = [];
+$technical_drawings = [];
+
+if(!empty(get_field('product_information', get_the_ID()))) {
+    $links['productinformation'] = __('Productinformatie', '_SBF');
+    $productinformation = [
+        'id' => 'productinformation',
+        'title' => __('Product informatie'),
+        'content' => get_field('product_information', get_the_ID()),
+    ];
+}
+
+if(!empty(get_field('product_information', get_the_ID())) || !empty(get_field('specifications_safety', get_the_ID())) || !empty(get_field('specifications_technical', get_the_ID())) ) {
+    $links['specifications'] = __('Specificaties', '_SBF');
+   
+    $specifications['id'] = 'specifications';
+    $specifications['title'] = __('Specificaties');
+
+    if(!empty(get_field('product_information', get_the_ID()))) {
+        $specifications['content'] = get_field('specifications_text', get_the_ID());
+    }
+
+    if(!empty(get_field('specifications_safety', get_the_ID()))) {
+        $specifications['safety'] = get_field('specifications_safety', get_the_ID());
+    }
+
+    if(!empty(get_field('specifications_technical', get_the_ID()))) {
+        $specifications['techincal'] = get_field('specifications_technical', get_the_ID());
+    }
+}
+
+if(!empty(get_field('downloads_text', get_the_ID())) || !empty(get_field('downloads_files', get_the_ID()))) {
+    $links['downloads'] = __('Downloads', '_SBF');
+   
+    $downloads['id'] = 'downloads';
+    $downloads['title'] = __('Downloads');
+
+    if(!empty(get_field('downloads_text', get_the_ID()))) {
+        $downloads['content'] = get_field('downloads_text', get_the_ID());
+    }
+
+    if(!empty(get_field('downloads_files', get_the_ID()))) {
+        $downloads['files'] = get_field('downloads_files', get_the_ID());
+    }
+}
+
+if(!empty(get_field('technical_drawings', get_the_ID()))) {
+    $links['technical_drawings'] = __('Technische tekeningen', '_SBF');
+    $technical_drawings = [
+        'id' => 'technical_drawings',
+        'title' => __('Technische tekeningen'),
+        'drawings' => get_field('technical_drawings', get_the_ID()),
+    ];
+}
 
 Twig::render(
     'content/single-product.twig',
@@ -17,6 +74,13 @@ Twig::render(
                 'price'             => wpb_build_price(get_field("price", get_the_ID())) ?? '',
                 'keurmerken'        => wpb_build_keurmerken(get_the_ID(), 1),
             ],
+            'anchor_menu' => [
+                'links'             => $links,
+            ],
+            'productinformation'    => $productinformation,
+            'specifications'        => $specifications,
+            'downloads'             => $downloads,
+            'technical_drawings'    => $technical_drawings,
         ]
     )
 );
