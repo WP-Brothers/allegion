@@ -277,10 +277,24 @@ function getRelationshipFields($prefix, $posttype, $name, $label) {
             'type'          => 'relationship',
             'post_type'     => "{$posttype}",
             'multiple'      => 1,
+        ]
+    ];
+    return $fields;
+}
+
+function getFormFields($prefix) {
+    $fields = [
+        [
+            'key'     => "{$prefix}_form_id",
+            'name'    => 'form_id',
+            'label'   => __('Formulier', '_SBB'),
+            'type'    => 'select',
+            'choices' => wpb_get_gforms(),
         ],
     ];
     return $fields;
 }
+
 function getCategorySelect($prefix) {
     $field['choices'] = [];
     $terms = get_terms();
