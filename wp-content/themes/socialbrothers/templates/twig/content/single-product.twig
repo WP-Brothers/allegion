@@ -32,15 +32,13 @@
 
 
 						{% if specifications.safety %}
-							{% include "molecules/table.twig" with {title: 'Veiligheidsinformatie'|translatable, array: specifications.safety} %}
+							{% include "molecules/table.twig" with {title: 'Veiligheidsinformatie'|translatable, array: specifications.safety, class: 'mb-6'} %}
 						{% endif %}
 
-						{% if specifications.techincal %}
-							{% include "molecules/table.twig" with {title: 'Technische informatie'|translatable, array: specifications.techincal} %}
+						{% if specifications.technical %}
+							{% include "molecules/table.twig" with {title: 'Technische informatie'|translatable, array: specifications.technical} %}
 						{% endif %}
 						
-						{# Include dropdown safety #}
-						{# Include dropdown techincal #}
 						</div>
 					{% endif %}
 
