@@ -1,20 +1,22 @@
 {% if array %}
-    <div class="mb-2">
+    <div class="{{class}} table-dropdown overflow-hidden">
         <div class="py-1 px-2 bg-primary flex justify-between items-center w-full">
             {% if title %}
                 <span class="text-white font-heading font-bold">{{title|raw}}</span>
             {% endif %}
 
-            <button class="bg-white rounded-[2px] h-[48px] w-[48px]"><span class="font-iconRound text-primary text-2xl">expand_less</span></button>
+            <button class="bg-white rounded-[2px] h-[48px] w-[48px]"><span class="font-iconRound text-primary text-2xl transition-all block">expand_less</span></button>
             
         </div>
-        <table class="w-full">
-            {% for item in array %}
-                <tr class="odd:bg-secondary-light">
-                    <th class="w-[70%] text-left p-2 font-normal font-heading">{{item.specifications_safety_attribute|raw}}</th>
-                    <td class="w-[30%] p-2 font-normal font-heading">{{item.specifications_safety_value|raw}}</td>
-                </tr>
-            {% endfor %}
-        </table>
+        <div class="table-dropdown__wrapper transition-all duration-1000 h-0">
+            <table class="table-dropdown__table w-full">
+                {% for item in array %}
+                    <tr class="odd:bg-secondary-light">
+                        <th class="w-[70%] text-left p-2 font-normal font-heading">{{item.attribute|raw}}</th>
+                        <td class="w-[30%] p-2 font-normal font-heading">{{item.value|raw}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 {% endif %}
