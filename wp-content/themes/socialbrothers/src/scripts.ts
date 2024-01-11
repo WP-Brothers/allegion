@@ -45,6 +45,15 @@ const scriptsInit = () => {
       )
     );
   }
+
+  const tableDropdowns = document.querySelectorAll('.table-dropdown');
+  if (tableDropdowns.length) {
+    tableDropdowns?.forEach((table) =>
+      import('./scripts/tableDropdown').then((module) =>
+        module.default(table as HTMLElement)
+      )
+    );
+  }
 };
 
 export default scriptsInit;
