@@ -46,10 +46,13 @@
 					{% if downloads.content or downloads.files %}
 						<div class="py-5">
 							{% include "atoms/heading/h3.twig" with {title: downloads.title, id: downloads.id} %}
-							{% include "atoms/content.twig" with {content: downloads.content} %}
+							{% include "molecules/content.twig" with {content: downloads.content, content_classes: 'mb-6'} %}
+							{% if downloads.files %}
+								{% for item in downloads.files %}
 
-
-							{# Include downloads #}
+									{% include "atoms/download.twig" with item %}
+								{% endfor %}
+							{% endif %}
 						</div>
 					{% endif %}
 					
