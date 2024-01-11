@@ -68,7 +68,17 @@ if(!empty(get_field('downloads_text', get_the_ID())) || !empty(get_field('downlo
     }
 
     if(!empty(get_field('downloads_files', get_the_ID()))) {
-        $downloads['files'] = get_field('downloads_files', get_the_ID());
+        $files = [];
+        $filesField = get_field('downloads_files', get_the_ID());
+        foreach($filesField as $item) {
+            $files[] = [
+                'title' => $item['downloads_files_name'],
+                'url'   => $item['downloads_files_file']['url'],
+                'name'   => $item['downloads_files_file']['filename']
+            ];
+        }
+
+        $downloads['files'] = $files;
     }
 }
 
