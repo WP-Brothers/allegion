@@ -36,6 +36,7 @@ if(!empty(get_field('product_information', get_the_ID())) || !empty(get_field('s
         $specifications['techincal'] = get_field('specifications_technical', get_the_ID());
     }
 }
+dump($specifications);
 
 if(!empty(get_field('downloads_text', get_the_ID())) || !empty(get_field('downloads_files', get_the_ID()))) {
     $links['downloads'] = __('Downloads', '_SBF');

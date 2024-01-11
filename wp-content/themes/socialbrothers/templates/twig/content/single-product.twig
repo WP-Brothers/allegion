@@ -30,6 +30,15 @@
 							{% include "atoms/heading/h3.twig" with {title: specifications.title, id: specifications.id} %}
 							{% include "atoms/content.twig" with {content: specifications.content} %}
 
+
+						{% if specifications.safety %}
+							{% include "molecules/table.twig" with {title: 'Veiligheidsinformatie'|translatable, array: specifications.safety} %}
+						{% endif %}
+
+						{% if specifications.techincal %}
+							{% include "molecules/table.twig" with {title: 'Technische informatie'|translatable, array: specifications.techincal} %}
+						{% endif %}
+						
 						{# Include dropdown safety #}
 						{# Include dropdown techincal #}
 						</div>
