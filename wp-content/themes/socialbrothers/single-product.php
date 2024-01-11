@@ -29,13 +29,34 @@ if(!empty(get_field('product_information', get_the_ID())) || !empty(get_field('s
     }
 
     if(!empty(get_field('specifications_safety', get_the_ID()))) {
-        $specifications['safety'] = get_field('specifications_safety', get_the_ID());
+        $safety = [];
+        $safetyField = get_field('specifications_safety', get_the_ID());
+    
+        foreach($safetyField as $item) {
+            $safety[] = [
+                'attribute' => $item['specifications_safety_attribute'],
+                'value' => $item['specifications_safety_value']
+            ];
+        }
+
+        $specifications['safety'] = $safety;
     }
 
     if(!empty(get_field('specifications_technical', get_the_ID()))) {
-        $specifications['techincal'] = get_field('specifications_technical', get_the_ID());
+        $technical = [];
+        $technicalField = get_field('specifications_technical', get_the_ID());
+    
+        foreach($technicalField as $item) {
+            $technical[] = [
+                'attribute' => $item['specifications_technical_attribute'],
+                'value' => $item['specifications_technical_value']
+            ];
+        }
+
+        $specifications['technical'] = $technical;
     }
 }
+
 dump($specifications);
 
 if(!empty(get_field('downloads_text', get_the_ID())) || !empty(get_field('downloads_files', get_the_ID()))) {
