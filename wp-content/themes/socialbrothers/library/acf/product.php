@@ -55,6 +55,15 @@ add_action('acf/init', function () {
                 'placement'      => 'left',
             ],
             [
+                'key'           => "{$posttype}_bullet_points",
+                'label'         => __('Bullet points', '_SBB'),
+                'name'          => 'bullet_points',
+                'type'          => 'wysiwyg',
+                'media_upload'  => false,
+                'tabs'          => 'visual',
+                'toolbar'       => 'contentcenter'
+            ],
+            [
                 'key'           => "{$posttype}_price",
                 'label'         => __('Prijs', '_SBB'),
                 'name'          => 'price',

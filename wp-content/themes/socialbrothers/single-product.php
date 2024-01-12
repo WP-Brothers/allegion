@@ -130,6 +130,7 @@ Twig::render(
                 'article_number'    => get_field("article_number", get_the_ID()) ?? '',
                 'price'             => wpb_build_price(get_field("price", get_the_ID())) ?? '',
                 'keurmerken'        => wpb_build_keurmerken(get_the_ID(), 1),
+                'bullet_points'     => get_field('bullet_points', get_the_ID()) ?? '',
             ],
             'anchor_menu' => [
                 'links'             => $links,

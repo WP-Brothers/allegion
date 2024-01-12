@@ -27,6 +27,13 @@
                 {% endif %}
 
                 {% include "molecules/keurmerken.twig" with {product_single: true} %}
+
+                {% if bullet_points %}
+                    <div class="mt-9">
+                        {{bullet_points|raw}}
+                    </div>
+                {% endif %}
+                
             
             
             </div>
