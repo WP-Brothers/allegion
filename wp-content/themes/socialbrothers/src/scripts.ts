@@ -37,11 +37,11 @@ const scriptsInit = () => {
   }
 
 
-  const keurmerken = document.querySelectorAll('.keurmerk');
-  if (keurmerken.length) {
-    keurmerken?.forEach((keurmerk) =>
-      import('./scripts/keurmerk').then((module) =>
-        module.default(keurmerk as HTMLElement)
+  const modals = document.querySelectorAll('.contains-modal');
+  if (modals.length) {
+    modals?.forEach((modal) =>
+      import('./scripts/modal').then((module) =>
+        module.default(modal as HTMLElement)
       )
     );
   }
