@@ -84,12 +84,39 @@ if(!empty(get_field('downloads_text', get_the_ID())) || !empty(get_field('downlo
 
 if(!empty(get_field('technical_drawings', get_the_ID()))) {
     $links['technical_drawings'] = __('Technische tekeningen', '_SBF');
+    $drawings = [];
+
+    foreach(get_field('technical_drawings', get_the_ID()) as $drawing) {
+        $drawings[] = $drawing['technical_drawing']['ID'];
+    }
+
     $technical_drawings = [
         'id' => 'technical_drawings',
         'title' => __('Technische tekeningen'),
-        'drawings' => get_field('technical_drawings', get_the_ID()),
+        'drawings' => $drawings,
     ];
 }
+
+$ctaButtons = wpb_build_buttons_context([
+    [
+        'link' => [
+            'url' => '#',
+            'title' => __('Koop online', '_SBF'),
+            'target' => '',
+        ],
+        'type' => 'btn--primary',
+        'use_icon' => false,
+    ],
+    [
+        'link' => [
+            'url' => '#',
+            'title' => __('Winkel in de buurt', '_SBF'),
+            'target' => '',
+        ],
+        'type' => 'btn--secondary',
+        'use_icon' => false,
+    ]
+]);
 
 Twig::render(
     'content/single-product.twig',
@@ -106,6 +133,11 @@ Twig::render(
             ],
             'anchor_menu' => [
                 'links'             => $links,
+            ],
+            'cta' => [
+                'title'             => get_the_title(get_the_ID()),
+                'article_number'    => get_field("article_number", get_the_ID()) ?? '',
+                'buttons'           => $ctaButtons,
             ],
             'productinformation'    => $productinformation,
             'specifications'        => $specifications,
