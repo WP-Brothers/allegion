@@ -1,7 +1,11 @@
-<dialog class="keurmerken__modal w-full h-full bg-transparent !border-0 focus-visible:outline-none backdrop-opacity-40">
+<dialog class="modal w-full h-full bg-transparent !border-0 focus-visible:outline-none backdrop-opacity-40" data-modal="modal">
     <div class="flex items-center justify-center w-full h-full">
         <div class="container">
-            <div class="relative w-full p-8 bg-white">
+            <div class="relative w-full bg-white {{image_model_id ? 'p-20' : 'p-8'}}">
+            {% if image_model_id %}
+                {% include "atoms/image.twig" with {image_id: image_model_id} %}
+            {% else %}
+            
                 {% if display_name %}
                     {% include "atoms/heading/h3.twig" with {title: display_name} %}
                 {% endif %}
@@ -22,7 +26,9 @@
                     {% include "atoms/content.twig" with {content: extra_link}%}
                 {% endif %}
 
-                <button class="keurmerk__close text-[32px] font-iconRound text-primary absolute top-8 right-8 h-8 w-8 leading-[1]">close</button>
+            {% endif %}
+
+                <button class="modal__close text-[32px] font-iconRound text-primary absolute top-8 right-8 h-8 w-8 leading-[1]">close</button>
             </div>
         </div>
     </div>
