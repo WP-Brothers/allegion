@@ -61,13 +61,23 @@
 						<div class="py-5">
 							{% include "atoms/heading/h3.twig" with {title: technical_drawings.title, id: technical_drawings.id} %}
 						
-							{# Include drawings #}
+							
+							<div class="flex flex-row gap-6 mt-4 flex-wrap">
+								{% for drawing in technical_drawings.drawings %}
+									<div class="contains-modal">
+										  <div data-modal-open="modal-open">
+                      						{% include "atoms/image.twig" with {image_id: drawing, image_classes: 'w-20 h-20 rounded-[4px] hover:border-[1px] border-secondary cursor-pointer'} %}
+										</div>	
+										{% include "molecules/dialog.twig" with {image_model_id: drawing} %}
+									</div>
+								{% endfor %}
+							</div>
 						</div>
 					{% endif %}
 				</div>
 
 				<div class="w-full lg:w-5/12">
-					{# Include CTA #}
+					{% include "molecules/product-single-cta.twig" with cta %}
 				</div>
 			</div>
 		</div>
