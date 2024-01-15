@@ -54,6 +54,21 @@ const scriptsInit = () => {
       )
     );
   }
+
+
+  const imageSelector = document.getElementById('image-selector');
+  if (imageSelector) {
+      import('./scripts/imageSelector').then((module) =>
+        module.default(imageSelector as HTMLElement)
+      )
+  }
+
+  const modalSlider = document.querySelector('[data-modal="modal-swiper"]');
+  if(modalSlider) {
+    import('./scripts/modalSlider').then((module) =>
+    module.default(modalSlider as HTMLElement)
+    )
+  }
 };
 
 export default scriptsInit;
