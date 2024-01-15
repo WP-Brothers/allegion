@@ -47,10 +47,6 @@ const imageSelectorInit = (imageSelector: HTMLElement) => {
     const open = imageSelector.querySelector('[data-modal-open="modal-open"]')!
     const close = modal.querySelector('.modal__close')!
 
-    console.log(imageSelector.querySelector('[data-modal="modal-swiper"]'));
-    console.log(open)
-    console.log(close)
-
     if(open) {
 
         open.addEventListener('click', () => {
