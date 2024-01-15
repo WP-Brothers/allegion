@@ -8,6 +8,7 @@ $productinformation = [];
 $specifications = [];
 $downloads = [];
 $technical_drawings = [];
+$images = [];
 
 if(!empty(get_field('product_information', get_the_ID()))) {
     $links['productinformation'] = __('Productinformatie', '_SBF');
@@ -118,6 +119,43 @@ $ctaButtons = wpb_build_buttons_context([
     ]
 ]);
 
+if(!empty(get_field('images', get_the_ID()))) {
+    $count = 1;
+    $imagesField = get_field('images', get_the_ID());
+
+    $images['highlighted_images'][] = get_post_thumbnail_id(get_the_ID());
+    $images['images'][] = get_post_thumbnail_id(get_the_ID());
+    
+    foreach($imagesField as $image) {
+        if($count <= 3) {
+            $images['highlighted_images'][] = $image['images_image']['ID'];
+        }
+        $images['images'][] = $image['images_image']['ID'];
+        $count++;
+    }
+    if(count($imagesField) >= 3) {
+        $images['more_images'] = true;
+        $images['more_images_count'] = count($imagesField) - 3;
+    }
+    $images['arrow_selector'] =  get_template_directory_uri() . '/images/selector-arrow.svg';
+
+    $slides = $images['images'];
+}
+
+$modal_highlight_swiper_options = [
+    'slidesPerView' => 1,
+    'spaceBetween'  => 0,
+    'swipeDirection' => 'next',
+    'navigation' => true,
+    'breakpoints'   => [
+        768 => [
+            'slidesPerView' => 1,
+            'spaceBetween' => 0,
+        ],
+    ],
+];
+
+
 Twig::render(
     'content/single-product.twig',
     Theme::filter(
@@ -131,6 +169,9 @@ Twig::render(
                 'price'             => wpb_build_price(get_field("price", get_the_ID())) ?? '',
                 'keurmerken'        => wpb_build_keurmerken(get_the_ID(), 1),
                 'bullet_points'     => get_field('bullet_points', get_the_ID()) ?? '',
+                'images'            => $images,
+                'slides'            => $slides,
+                'modal_highlight_swiper_options' => json_encode($modal_highlight_swiper_options),
             ],
             'anchor_menu' => [
                 'links'             => $links,
