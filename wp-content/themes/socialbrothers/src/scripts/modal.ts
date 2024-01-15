@@ -1,4 +1,4 @@
-const keurmerkInit = (modalWrapper: HTMLElement) => {
+const modalInit = (modalWrapper: HTMLElement) => {
 
     const modal:HTMLDialogElement = modalWrapper.querySelector('[data-modal="modal"]')!
     const open = modalWrapper.querySelector('[data-modal-open="modal-open"]')!
@@ -13,4 +13,4 @@ const keurmerkInit = (modalWrapper: HTMLElement) => {
     })
 }
 
-export default keurmerkInit;
+export default modalInit;
