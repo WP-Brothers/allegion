@@ -98,6 +98,27 @@ add_action('acf/init', function () {
                 'type'          => 'text',
             ],
             [
+                'key'           => "{$posttype}_images_tab",
+                'label'         => __('Afbeeldingen', '_SBB'),
+                'name'          => 'images_tab',
+                'type'          => 'tab',
+                'placement'      => 'left',
+            ],
+            [
+                'key'           => "{$posttype}_images",
+                'label'         => __('Afbeeldingen', '_SBB'),
+                'name'          => 'images',
+                'type'          => 'repeater',
+                'sub_fields'    => [
+                    [
+                        'key'           => "{$posttype}_images_image",
+                        'label'         => __('Afbeelding', '_SBB'),
+                        'name'          => 'images_image',
+                        'type'          => 'image',
+                    ],
+                ],
+            ],
+            [
                 'key'           => "{$posttype}_product_information_tab",
                 'label'         => __('Productinformatie', '_SBB'),
                 'name'          => 'product_information_tab',
