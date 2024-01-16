@@ -1,6 +1,8 @@
 import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+// import { SwiperOptions } from 'swiper/types';
 
-// Swiper.use([Navigation]);
+Swiper.use([Navigation, Pagination]);
 
 const modalSlider = () => {
 

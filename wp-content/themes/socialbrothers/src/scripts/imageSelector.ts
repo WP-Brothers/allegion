@@ -40,9 +40,6 @@ const imageSelectorInit = (imageSelector: HTMLElement) => {
         })
     });
 
-
-
-
     const modal:HTMLDialogElement = document.querySelector('[data-modal="modal-swiper"]')!
     const open = imageSelector.querySelector('[data-modal-open="modal-open"]')!
     const close = modal.querySelector('.modal__close')!

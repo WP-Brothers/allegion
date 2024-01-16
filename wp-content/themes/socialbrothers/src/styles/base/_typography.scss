@@ -108,3 +108,9 @@ details summary {
     @apply hidden;
   }
 }
+
+dialog {
+  &::backdrop {
+    @apply bg-black opacity-40;
+  }
+}
