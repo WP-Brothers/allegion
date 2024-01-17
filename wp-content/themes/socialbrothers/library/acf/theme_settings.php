@@ -351,6 +351,13 @@ function acf_theme_settings()
                 'media_upload'  => false,
                 'default_value' => __('maar we konden de pagina nergens vinden. We helpen je graag de weg terug te vinden. ', '_SBF'),
             ],
+            [
+                'key'           => "{$prefix}_404_image",
+                'name'          => '404_image',
+                'label'         => __('Afbeelding', '_SBB'),
+                'type'          => 'image',
+                'return_format' => 'id'
+            ],
         ],
         'location' => [
             [
