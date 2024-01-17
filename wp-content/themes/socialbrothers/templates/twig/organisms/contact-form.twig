@@ -1,69 +1,53 @@
 <section class="form-complex {{ margin }}">
-	<div class="relative form-top bg-secondary-light" style="{{ color }} {{ padding }} {{ background }} ">
-		{% if image_id %}
-			<div class="absolute top-0 left-0 w-full h-full before:content-[''] before:absolute before:w-full before:h-full before:bg-[var(--primary-DEFAULT)] before:bg-opacity-70">
-				{{ wp_get_attachment_image(image_id, 'full', null, {class: 'w-full h-full object-cover'})|raw }}
-			</div>
-		{% endif %}
-		<div class="container relative">
-			<div class="grid md:grid-cols-2 lg:grid-cols-12">
-				<div class="lg:col-span-5">
-					<div class="content">
-						{% include "molecules/content.twig" %}
-					</div>
+    <div class="container">
+        <div class="flex">
 
-					<div class="mb-6 md:mb-0">
-						{% if phone %}
-							{% include "atoms/heading/h6.twig" with {title: 'Bel ons'|translatable} %}
-							{% include 'molecules/icon-link.twig' with {title: phone, icon: 'phone', url: 'tel:' ~ phone, color: 'text-primary'} %}
-						{% endif %}
-						{% if phone and email %}
-							{% include 'atoms/hr.twig' %}
-						{% endif %}
-						{% if email %}
-							{% include "atoms/heading/h6.twig" with {title: 'Stuur een mail'|translatable} %}
-							{% include 'molecules/icon-link.twig' with {title: email, icon: 'mail', url: 'mailto:' ~ email, color: 'text-primary'} %}
-						{% endif %}
-					</div>
-				</div>
-				<div class="lg:col-start-7 lg:col-span-6 relative">
-					{% include 'molecules/form-card.twig' with {float: true, title: form_title} %}
-				</div>
-			</div>
-		</div>
-	</div>
+        <div class="w-full lg:w-5/12">
+            {% if locations %}
+            <div class="flex flex-col mt-20">
+                {% for location in locations %}
+                    <div class="flex flex-col gap-2">
+                            {% include "atoms/heading/h6.twig" with {title: location.name, class: 'mb-0'} %}
+                            {% include "molecules/icon-link.twig" with {url: 'tel:'~ location.phone, icon: 'phone', title: location.phone, class: 'text-[var(--primary-DEFAULT)]', text_color: 'text-font'} %}
+                            {% include "molecules/icon-link.twig" with {url: 'mailto:'~ location.email, icon: 'mail', title: location.email, class: 'text-[var(--primary-DEFAULT)]', text_color: 'text-font'} %}
+                           
+                            <div class="no-underline group grid grid-cols-[24px_1fr] gap-4 {{class}}">
+                                {% include 'atoms/icon.twig' with {icon: 'location_on', color: 'text-[var(--primary-DEFAULT)]'} %}
+                                <span class="group-hover:underline {{text_color}}">
+                                    {{location.address|raw}}
+                                </span>
+                            </div>
 
-	<div class="form-bottom" style="{{ padding }}">
-		<div class="container">
-			<div class="grid md:grid-cols-2 lg:grid-cols-12">
-				<div class="lg:col-span-5">
-					{% if address %}
-						{% include "atoms/heading/h6.twig" with {title: 'Bezoek ons'|translatable} %}
-						{% include 'atoms/p.twig' with {content: address} %}
-						{% if address_link %}
-							{% include 'atoms/link.twig' with address_link %}
-						{% endif %}
-					{% endif %}
+                            <a class="ml-10" href="{{location.address_link.url}}" target="{{location.address_link.target}}">{{location.address_link.title}}</a>
 
-					{% if address and business %}
-						{% include 'atoms/hr.twig' %}
-					{% endif %}
+                            {% include "atoms/hr.twig" with {margin: 'my-4', color: 'border-neutral-25'} %}
 
-					{% if business %}
-						{% include "atoms/heading/h6.twig" with {title: 'Zakelijk'|translatable} %}
-						{% include 'atoms/p.twig' with {content: business} %}
-					{% endif %}
+                    </div>
+                {% endfor %}
+                </div>
+            {% endif %}
 
-					{% if socials and business or socials and address %}
-						{% include 'atoms/hr.twig' %}
-					{% endif %}
 
-					{% if socials %}
-						{% include 'molecules/follow-links.twig' %}
-					{% endif %}
+            <span class="mb-2 block font-light">{{'Volg ons'|translatable}}</span>
+             <div class="flex flex-row gap-5">
+                {% for social, link in socials %}
+                    {% if link %}
+                        {% include "atoms/social-link.twig" with {url: link.url, color: 'fill-[var(--primary-DEFAULT)]', media: social, size: '32', hide_title: 1} %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+            
 
-				</div>
-			</div>
-		</div>
-	</div>
-</div></section>
+        </div>
+        
+        
+            <div class="full lg:w-7/12">
+                <div class="lg:col-start-7 relative">
+                    {% include 'molecules/form-card.twig' with {float: false, title: title, sub_title: sub_title, card_class: '-translate-y-[100px] bg-white'} %}
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>

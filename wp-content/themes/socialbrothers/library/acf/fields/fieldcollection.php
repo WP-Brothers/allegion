@@ -268,52 +268,16 @@ function getVideoFields($prefix) {
     ];
     return $fields;
 }
-function getRelationshipFields($prefix, $posttype, $name, $label) {
+
+function getFormFields($prefix) {
     $fields = [
         [
-            'key'           => "{$prefix}_{$posttype}s",
-            'label'         => $label,
-            'name'          => $name,
-            'type'          => 'relationship',
-            'post_type'     => "{$posttype}",
-            'multiple'      => 1,
+            'key'     => "{$prefix}_form_id",
+            'name'    => 'form_id',
+            'label'   => __('Formulier', '_SBB'),
+            'type'    => 'select',
+            'choices' => wpb_get_gforms(),
         ],
     ];
     return $fields;
 }
-function getCategorySelect($prefix) {
-    $field['choices'] = [];
-    $terms = get_terms();
-    $choices[''] = __('Selecteer een categorie');
-
-        if ( $terms ) {
-            foreach ( $terms as $term ) {
-
-                if($term->taxonomy == 'category_product') {
-                    $choices[$term->term_id] = $term->name;
-                }
-            }
-        }
-
-    $fields = [
-        [
-            'key'           =>  "{$prefix}_category_products",
-            'label'         =>  __('Categorieën', '_SBB'),
-            'name'          =>  'category_products',
-            'type'          =>  'repeater',
-            'max'           =>  4,
-            'sub_fields'    => [
-                [
-                    'key'           =>  "{$prefix}_category",
-                    'label'         =>  __('Categorie', '_SBB'),
-                    'name'          =>  'category',
-                    'type'          =>  'select',
-                    'choices'       =>  $choices,
-                ],
-            ]
-        ],
-    ];
-
-    return $fields;
-}
-
