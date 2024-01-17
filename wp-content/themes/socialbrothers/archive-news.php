@@ -45,7 +45,7 @@ $sort = [
     ],
 ];
 
-if (! empty($filter_terms)) {
+if (!empty($filter_terms)) {
     $filters = [
         'label'    => __('Filter op', '_SBF'),
         'name'     => 'category',
