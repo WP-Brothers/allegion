@@ -25,6 +25,7 @@ const scriptsInit = () => {
       )
     );
   }
+
   const menuMains = document.querySelectorAll(
     '.menu-main:not(.menu-main--hover)'
   );
@@ -35,7 +36,6 @@ const scriptsInit = () => {
       )
     );
   }
-
 
   const modals = document.querySelectorAll('.contains-modal');
   if (modals.length) {
@@ -69,6 +69,7 @@ const scriptsInit = () => {
     module.default(modalSlider as HTMLElement)
     )
   }
+  import('./scripts/scrollToTop').then((module) => module.default());
 };
 
 export default scriptsInit;

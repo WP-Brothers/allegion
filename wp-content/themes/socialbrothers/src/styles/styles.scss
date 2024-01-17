@@ -20,11 +20,13 @@
 
 @use "components/menu-main";
 
-@use "components/category-product-card";
-
 @use "components/keurmerken";
 
+@use "components/category-product-card";
 
+@use "components/scroll-to-top";
+
+@use "layout/footer";
 
 html,
 body {
