@@ -209,11 +209,11 @@ function wpb_build_author_context(string|int $user_id): array
 function wpb_build_price(string $price): string
 {
     $currency = get_field('currency', 'options') ?? '';
-    if ($currency == 'euro' || empty($currency)) {
+    if ($currency === 'euro' || empty($currency)) {
         $currency = __('€', '_SBF');
-    } elseif ($currency == 'dollar') {
+    } elseif ($currency === 'dollar') {
         $currency = __('$', '_SBF');
-    } elseif ($currency == 'pound') {
+    } elseif ($currency === 'pound') {
         $currency = __('£', '_SBF');
     }
 
@@ -224,11 +224,11 @@ function wpb_build_price(string $price): string
 function wpb_get_currency()
 {
     $currency = get_field('currency', 'options') ?? '';
-    if ($currency == 'euro' || empty($currency)) {
+    if ($currency === 'euro' || empty($currency)) {
         $currency = __('€', '_SBF');
-    } elseif ($currency == 'dollar') {
+    } elseif ($currency === 'dollar') {
         $currency = __('$', '_SBF');
-    } elseif ($currency == 'pound') {
+    } elseif ($currency === 'pound') {
         $currency = __('£', '_SBF');
     }
     return $currency;
