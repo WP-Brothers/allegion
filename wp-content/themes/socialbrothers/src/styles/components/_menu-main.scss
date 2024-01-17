@@ -11,7 +11,7 @@
     &.current-menu-parent {
 
       > a {
-        @apply border-[var(--primary-dark)] text-primary-dark;
+        @apply border-[var(--primary-dark)] text-[var(--primary-dark)];
       }
     }
 
@@ -44,7 +44,7 @@
             &.current_page_item {
 
               > a {
-                @apply text-primary-dark;
+                @apply text-[var(--primary-dark)];
               }
             }
           }

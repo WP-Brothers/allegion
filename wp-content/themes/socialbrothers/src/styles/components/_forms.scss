@@ -58,7 +58,7 @@
     @apply border border-[var(--primary-DEFAULT)] bg-[var(--primary-light)] text-center p-4;
 
     .gform_button_select_files {
-      @apply bg-[var(--primary-DEFAULT)] text-white py-1 px-3 rounded-md transition-colors hover:bg-primary-dark;
+      @apply bg-[var(--primary-DEFAULT)] text-white py-1 px-3 rounded-md transition-colors hover:bg-[var(--primary-dark)];
     }
   }
 
@@ -101,7 +101,7 @@
 
       .add_list_item,
       .delete_list_item {
-        @apply bg-[var(--primary-DEFAULT)] text-white py-1 px-3 rounded-md transition-colors hover:bg-primary-dark;
+        @apply bg-[var(--primary-DEFAULT)] text-white py-1 px-3 rounded-md transition-colors hover:bg-[var(--primary-dark)];
       }
     }
   }
@@ -198,7 +198,7 @@ input[type="file"] {
   &:hover {
 
     &::file-selector-button {
-      @apply bg-primary-dark;
+      @apply bg-[var(--primary-dark)];
     }
   }
 }

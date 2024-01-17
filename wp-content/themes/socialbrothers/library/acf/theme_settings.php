@@ -34,8 +34,8 @@ function acf_theme_settings()
             [
                 'key'           => "{$prefix}_brand_style",
                 'name'          => 'brand_style',
-                'label'         => __('Merk', '_SBB'),
-                'instructions'  => __('Kies van welk merk de styling toegepast moet worden', '_SBB'),
+                'label'         => __('Brand', '_SBB'),
+                'instructions'  => __("Select the branding style that corresponds to the site you're currently on.", '_SBB'),
                 'type'          => 'select',
                 'choices'       => [
                     ''                          => __('AXA — Home Security', '_SBB'),

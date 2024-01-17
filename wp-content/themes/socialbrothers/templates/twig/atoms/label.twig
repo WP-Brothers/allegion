@@ -5,7 +5,7 @@
 	{% set icon_color = 'text-white' %}
 	{% set label_type = 'border-transparent text-white py-2' %}
 {% elseif type == 'clean' %}
-	{% set icon_color = 'text-secondary' %}
+	{% set icon_color = 'text-secondary' %}primary
 	{% set label_type = 'border-transparent' %}
 {% elseif type == 'clean-white' %}
 	{% set icon_color = 'text-white' %}
@@ -14,7 +14,7 @@
 	{% set icon_color = 'text-white' %}
 	{% set label_type = 'px-4 bg-[var(--primary-DEFAULT)] border-[var(--primary-DEFAULT)] text-white py-2' %}
 {% elseif type == 'primary-outline' %}
-	{% set icon_color = 'text-primary' %}
+	{% set icon_color = 'text-[var(--primary-DEFAULT)]' %}
 	{% set label_type = 'px-4 bg-[var(--primary-light)] border-[var(--primary-DEFAULT)] py-2' %}
 {% elseif type == 'secondary' %}
 	{% set icon_color = 'text-white' %}

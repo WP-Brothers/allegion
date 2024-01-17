@@ -8,7 +8,7 @@
 				{% if place.iconFile %}
 					{% include 'atoms/icon/' ~ place.iconFile ~ '.twig' with {size: '32'} %}
 				{% else %}
-					{% include 'atoms/icon.twig' with {size: '32', icon: place.icon|default('mail'), color: 'text-[var(--primary-DEFAULT)] hover:text-primary-dark'} %}
+					{% include 'atoms/icon.twig' with {size: '32', icon: place.icon|default('mail'), color: 'text-[var(--primary-DEFAULT)] hover:text-[var(--primary-dark)]'} %}
 				{% endif %}
 			</a>
 		{% endif %}
