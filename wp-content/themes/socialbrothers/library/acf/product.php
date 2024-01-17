@@ -167,7 +167,7 @@ add_action('acf/init', function () {
                         'toolbar'      => 'contentcenter',
                         'tabs'         => 'visual',
                         'media_upload' => false,
-                        'label'        => __('Teskt', '_SBB'),
+                        'label'        => __('Tekst', '_SBB'),
                     ],
                 ],
             ],
