@@ -1,0 +1,61 @@
+{
+  "name": "acf/content-product-categories",
+  "title": "Content product categorieën",
+  "category": "sections",
+  "icon": "cart",
+  "keywords": ["content", "product", "categories"],
+  "acf": {
+      "mode": "preview"
+  },
+  "supports": {
+      "anchor": true,
+      "jsx": true,
+      "align": [ "full", "wide" ],
+      "fullHeight": false,
+      "alignText": false,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": [
+              "top",
+              "bottom"
+          ]
+      },
+      "color": {
+          "background": true,
+          "text": true
+      },
+      "layout": {
+          "default": {
+              "type": "flex"
+          },
+          "allowSwitching": false,
+          "allowEditing": false,
+          "allowInheriting": false,
+          "allowSizingOnChildren": false,
+          "allowVerticalAlignment": false,
+          "allowJustification": false,
+          "allowOrientation": false
+      }
+  },
+  "attributes": {
+      "textColor": {
+          "type": "string",
+          "default": "font"
+      },
+      "style": {
+          "type": "object",
+          "default" : {
+              "spacing":
+              {
+                  "padding": {
+                      "top": "80px",
+                      "bottom": "80px"
+                  }
+              }
+          }
+      }
+  }
+}

@@ -22,7 +22,7 @@ function getSubTitleFields($prefix) {
     ];
     return $fields;
 }
-function getTabFields($prefix, $expand = 0, $name, $label) {
+function getTabFields($prefix,int $expand = 0, $name, $label) {
     
     $fields = [
         [
@@ -268,6 +268,7 @@ function getVideoFields($prefix) {
     ];
     return $fields;
 }
+
 function getFormFields($prefix) {
     $fields = [
         [

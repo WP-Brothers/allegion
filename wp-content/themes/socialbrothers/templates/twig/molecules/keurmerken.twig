@@ -1,0 +1,20 @@
+{% if size == '32' %}
+    {% set class = 'w-8 h-8' %}
+{% endif %}
+
+{% if keurmerken %}
+    <div class="flex flex-row flex-wrap gap-2">
+        {% for keurmerk in keurmerken %}
+            {% if keurmerk.link %}
+                <a href="">
+
+                </a>
+            {% else %}
+                <div class="flex justify-center items-center {{class}}">
+                    {{keurmerk.image|raw}}
+                </div>
+            {% endif %}
+            
+        {% endfor %}
+    </div>
+{% endif %}
