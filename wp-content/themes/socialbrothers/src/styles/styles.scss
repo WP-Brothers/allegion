@@ -20,10 +20,13 @@
 
 @use "components/menu-main";
 
+@use "layout/footer";
+
 @use "components/category-product-card";
 
-
 @use "components/single-news";
+
+@use "components/scroll-to-top";
 
 html,
 body {

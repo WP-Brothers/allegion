@@ -1,0 +1,38 @@
+footer {
+ .menu {
+     &__item {
+        @apply text-white font-heading font-light text-[16px];
+ 
+        &--has-children {
+            @apply font-heading text-[18px] font-bold; 
+            & > a {
+                @apply block mb-4;
+            }
+        }
+
+        a {
+            &:hover {
+                @apply underline;
+            }
+            @apply no-underline;
+        }
+
+
+        .submenu {
+            &__list {
+                @apply flex flex-col gap-2; 
+            }
+        }
+    }
+ }   
+
+ .menu-bottom {
+    @apply gap-5 items-center;
+    .menu__item {
+        a {
+            @apply text-white font-heading font-normal text-[14px] no-underline;
+        }
+    }
+ }
+
+}
