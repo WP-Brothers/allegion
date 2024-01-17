@@ -22,7 +22,7 @@ Twig::render(
     'header.twig',
     Theme::filter('header_context', [
         'language_attributes' => get_language_attributes(),
-        'html_class'          => esc_attr(wpb_apply_theme()),
+        'html_class'          => esc_attr(get_field('brand_style', 'options') ?? ''),
         'body_class'          => esc_attr(implode(' ', get_body_class('after:hidden after:fixed after:top-0 after:left-0 after:h-screen after:w-screen after:bg-black/30 after:z-[90]'))),
         'header'              => [
             'menu'    => wpb_menu('primary', 2, $menu_classes),

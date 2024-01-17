@@ -32,6 +32,19 @@ function acf_theme_settings()
                 'instructions'  => __('Voeg hier het logo toe', '_SBB'),
             ],
             [
+                'key'           => "{$prefix}_brand_style",
+                'name'          => 'brand_style',
+                'label'         => __('Merk', '_SBB'),
+                'instructions'  => __('Kies van welk merk de styling toegepast moet worden', '_SBB'),
+                'type'          => 'select',
+                'choices'       => [
+                    ''                          => __('AXA — Home Security', '_SBB'),
+                    'axa-bike-security-theme'   => __('AXA — Bike Security', '_SBB'),
+                    'axa-corporate-theme'       => __('AXA — Corporate', '_SBB'),
+                    'trelock-theme'             => __('Trelock', '_SBB'),
+                ],
+            ],
+            [
                 'key'       => "{$prefix}_contact_tab",
                 'label'     => __('Contact', '_SBB'),
                 'type'      => 'tab',
@@ -204,7 +217,7 @@ function acf_theme_settings()
                         'label'     => __('Veiligheids index titel', '_SBB'),
                         'name'         => 'safety_index_title',
                         'type'      => 'text',
-                        'wrapper'   => ['width' => 50] 
+                        'wrapper'   => ['width' => 50]
                     ],
                 ]
             ],

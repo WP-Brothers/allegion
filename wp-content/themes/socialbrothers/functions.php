@@ -173,19 +173,3 @@ function wpb_frontend_admin_bar_sticky()
 }
 
 add_filter('init', 'wpb_frontend_admin_bar_sticky');
-
-function wpb_apply_theme()
-{
-    $blog_id = get_current_blog_id();
-    $themes = [
-        '',
-        'axa-bike-security-theme',
-        'axa-corporate-theme',
-        'trelock-theme',
-    ];
-
-    // $theme = $themes[($blog_id - 1)] ?? '';
-    $theme = $themes[3] ?? '';
-
-    return $theme;
-}
