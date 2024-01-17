@@ -116,9 +116,18 @@ function get_cutoff_class($layout = 'bl-tr') {
     if($layout == 'bl-tr') {
         $before = "before:w-[256px] before:h-[256px] before:rotate-[45deg] before:hidden before:md:block before:bottom-[-40%] before:left-[-25%] before:md:left-[-25%] before:lg:left-[-20%] before:xl:left-[-16%] before:bg-white before:content-[''] before:absolute before:z-[4]";
         $after = "after:w-[256px] after:h-[256px] after:rotate-[45deg] after:hidden after:md:block after:top-[-40%] after:right-[-25%] after:md:right-[-25%] after:lg:right-[-20%] after:xl:right-[-16%] after:bg-white after:content-[''] after:absolute after:z-[4]";
-    } 
+    } elseif ($layout == 'tl-br') {
+        $before = "before:w-[256px] before:h-[256px] before:rotate-[45deg] before:hidden before:md:block before:top-[-40%] before:left-[-25%] before:md:left-[-25%] before:lg:left-[-20%] before:xl:left-[-16%] before:bg-white before:content-[''] before:absolute before:z-[4]";
+        $after = "after:w-[256px] after:h-[256px] after:rotate-[45deg] after:hidden after:md:block after:bottom-[-40%] after:right-[-25%] after:md:right-[-25%] after:lg:right-[-20%] after:xl:right-[-16%] after:bg-white after:content-[''] after:absolute after:z-[4]";
+    }
 
     $class = 'relative overflow-hidden' . ' ' . $before . ' ' . $after;
 
     return $class;
+}
+add_filter('use_block_editor_for_post_type', 'wpb_disable_gutenberg', 10, 2);
+function wpb_disable_gutenberg($current_status, $post_type)
+{
+    if ($post_type === 'keurmerk' || $post_type === 'product') return false;
+    return $current_status;
 }

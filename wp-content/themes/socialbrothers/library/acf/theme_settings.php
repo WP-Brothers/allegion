@@ -162,7 +162,64 @@ function acf_theme_settings()
                     ],
                 ],
             ],
-
+            [
+                'key'       => "{$prefix}_product_archive_tab",
+                'label'     => __('Producten Archief', '_SBB'),
+                'type'      => 'tab',
+                'placement' => 'left',
+            ],
+            [
+                'key'          => "{$prefix}_product_archive_content",
+                'name'         => 'product_archive_content',
+                'label'        => __('Intro content', '_SBB'),
+                'type'         => 'wysiwyg',
+                'toolbar'      => 'contentcenter',
+                'tabs'         => 'visual',
+                'media_upload' => false,
+            ],
+            [
+                'key'          => "{$prefix}_product_archive_footer_title",
+                'label'        => __('Footer Titel', '_SBB'),
+                'name'         => 'product_archive_footer_title',
+                'type'         => 'text',
+            ],
+            [
+                'key'          => "{$prefix}_product_archive_footer_content",
+                'label'        => __('Footer content', '_SBB'),
+                'name'         => 'product_archive_footer_content',
+                'type'         => 'wysiwyg',
+                'toolbar'      => 'contentcenter',
+                'tabs'         => 'visual',
+                'media_upload' => false,
+            ],
+            [
+                'key'       => "{$prefix}_safety_index_tab",
+                'label'     => __('Veiligheids indexen', '_SBB'),
+                'type'      => 'tab',
+                'placement' => 'left',
+            ],
+            [
+                'key'       => "{$prefix}_safety_index_repeater",
+                'label'     => __('Veiligheids indexen', '_SBB'),
+                'name'         => 'safety_index_repeater',
+                'type'      => 'repeater',
+                'sub_fields' => [
+                    [
+                        'key'       => "{$prefix}_safety_index_image",
+                        'label'     => __('Veiligheids index', '_SBB'),
+                        'name'         => 'safety_index_image',
+                        'type'      => 'image',
+                        'wrapper'   => ['width' => 50]
+                    ],
+                    [
+                        'key'       => "{$prefix}_safety_index_title",
+                        'label'     => __('Veiligheids index titel', '_SBB'),
+                        'name'         => 'safety_index_title',
+                        'type'      => 'text',
+                        'wrapper'   => ['width' => 50] 
+                    ],
+                ]
+            ],
             [
                 'key'       => "{$prefix}_header_tab",
                 'label'     => __('Header', '_SBB'),
@@ -302,6 +359,13 @@ function acf_theme_settings()
                 'tabs'          => 'visual',
                 'media_upload'  => false,
                 'default_value' => __('maar we konden de pagina nergens vinden. We helpen je graag de weg terug te vinden. ', '_SBF'),
+            ],
+            [
+                'key'           => "{$prefix}_404_image",
+                'name'          => '404_image',
+                'label'         => __('Afbeelding', '_SBB'),
+                'type'          => 'image',
+                'return_format' => 'id'
             ],
         ],
         'location' => [

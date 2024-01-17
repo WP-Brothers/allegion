@@ -54,6 +54,19 @@ function wpb_build_post_card_context(string|int $post_id): array
     ];
 }
 
+function wpb_build_product_card_context(string|int $post_id): array
+{
+    return [
+        'title'     => get_the_title($post_id),
+        'image_id'  => get_post_thumbnail_id($post_id),
+        'keurmerken'=> wpb_build_product_card_keurmerken($post_id),
+        'permalink' => get_the_permalink($post_id),
+        'article_number' => get_field('article_number', $post_id) ?? '',
+        'safety_index' => get_field('safety_index', $post_id) ?? '',
+        'external_link' => get_field('external_link', $post_id) ?? '',
+    ];
+}
+
 function wpb_build_single_head_context(string|int $post_id, bool $show_date = true, bool $show_author = true): array
 {
     $context = wpb_build_post_card_context($post_id);
@@ -93,6 +106,43 @@ function wpb_build_post_category_labels(string|int $post_id): array
     }
 
     return $terms;
+}
+
+function wpb_build_product_card_keurmerken(string|int $post_id): array
+{
+    $returnArray = [];
+    $keurmerken = get_field('keurmerken', $post_id) ?? '';
+
+    if(!empty($keurmerken)) {
+        foreach($keurmerken as $keurmerk) {
+            $returnArray[] = [
+                'image' => get_the_post_thumbnail($keurmerk, 'small', ['class' => 'w-auto h-full']),
+            ];
+        }
+    }
+
+    return $returnArray;
+}
+
+
+function wpb_build_safety_index_options()
+{
+    $indexArray = [];
+    $safetyIndexes = get_field('safety_index_repeater', 'options') ?? '';
+
+    $i = 1;
+    foreach($safetyIndexes as $index) {
+        $indexArray[] = [
+            'key' => $index['safety_index_image']['url'],
+            'label' => $index['safety_index_title'],
+            'image' => $index['safety_index_image']['url'],
+        ];
+
+        $i++;
+    }
+
+
+    return acf_image_select_options($indexArray);
 }
 
 function wpb_build_video_context(array $context): array

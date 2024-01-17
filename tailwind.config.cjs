@@ -129,6 +129,7 @@ module.exports = {
         card: '16px 32px 40px 0 rgba(0, 0, 0, 0.16)',
         input:
           '0 0 0 0.5px #ff6900, inset 0 0 0 0.5px #ff6900, 0 0 0 4px #ffefe4;',
+        contentcard: '4px 4px 16px 0 rgba(0, 0, 0, 0.1);'
       },
       backgroundImage: {
         highlight:
