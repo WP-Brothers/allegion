@@ -1,6 +1,6 @@
-<a href="{{ url }}" target="_blank" class="flex gap-2 items-center {{ color|default('fill-primary hover:fill-primary-dark') }} no-underline hover:underline">
-    {% include 'atoms/icon/' ~ media|default('facebook') ~ '.twig' with {color: 'fill-inherit'} %}
-    {% if not hide_title %}
-        {{ title }}
-    {% endif %}
+<a href="{{ url }}" target="_blank" class="flex gap-2 items-center {{ color|default('fill-[var(--primary-DEFAULT)] hover:fill-primary-dark') }} no-underline hover:underline">
+	{% include 'atoms/icon/' ~ media|default('facebook') ~ '.twig' with {color: 'fill-inherit'} %}
+	{% if not hide_title %}
+		{{ title }}
+	{% endif %}
 </a>

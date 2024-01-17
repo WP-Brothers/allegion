@@ -1,69 +1,69 @@
 <section class="form-complex {{ margin }}">
-    <div class="relative form-top bg-secondary-light" style="{{ color }} {{ padding }} {{ background }} ">
-        {% if image_id %}
-            <div class="absolute top-0 left-0 w-full h-full before:content-[''] before:absolute before:w-full before:h-full before:bg-primary before:bg-opacity-70">
-                {{ wp_get_attachment_image(image_id, 'full', null, {class: 'w-full h-full object-cover'})|raw }}
-            </div>
-        {% endif %}
-        <div class="container relative">
-            <div class="grid md:grid-cols-2 lg:grid-cols-12">
-                <div class="lg:col-span-5">
-                    <div class="content">
-                        {% include "molecules/content.twig" %}
-                    </div>
+	<div class="relative form-top bg-secondary-light" style="{{ color }} {{ padding }} {{ background }} ">
+		{% if image_id %}
+			<div class="absolute top-0 left-0 w-full h-full before:content-[''] before:absolute before:w-full before:h-full before:bg-[var(--primary-DEFAULT)] before:bg-opacity-70">
+				{{ wp_get_attachment_image(image_id, 'full', null, {class: 'w-full h-full object-cover'})|raw }}
+			</div>
+		{% endif %}
+		<div class="container relative">
+			<div class="grid md:grid-cols-2 lg:grid-cols-12">
+				<div class="lg:col-span-5">
+					<div class="content">
+						{% include "molecules/content.twig" %}
+					</div>
 
-                    <div class="mb-6 md:mb-0">
-                        {% if phone %}
-                            {% include "atoms/heading/h6.twig" with {title: 'Bel ons'|translatable} %}
-                            {% include 'molecules/icon-link.twig' with {title: phone, icon: 'phone', url: 'tel:' ~ phone, color: 'text-primary'} %}
-                        {% endif %}
-                        {% if phone and email %}
-                            {% include 'atoms/hr.twig' %}
-                        {% endif %}
-                        {% if email %}
-                            {% include "atoms/heading/h6.twig" with {title: 'Stuur een mail'|translatable} %}
-                            {% include 'molecules/icon-link.twig' with {title: email, icon: 'mail', url: 'mailto:' ~ email, color: 'text-primary'} %}
-                        {% endif %}
-                    </div>
-                </div>
-                <div class="lg:col-start-7 lg:col-span-6 relative">
-                    {% include 'molecules/form-card.twig' with {float: true, title: form_title} %}
-                </div>
-            </div>
-        </div>
-    </div>
+					<div class="mb-6 md:mb-0">
+						{% if phone %}
+							{% include "atoms/heading/h6.twig" with {title: 'Bel ons'|translatable} %}
+							{% include 'molecules/icon-link.twig' with {title: phone, icon: 'phone', url: 'tel:' ~ phone, color: 'text-primary'} %}
+						{% endif %}
+						{% if phone and email %}
+							{% include 'atoms/hr.twig' %}
+						{% endif %}
+						{% if email %}
+							{% include "atoms/heading/h6.twig" with {title: 'Stuur een mail'|translatable} %}
+							{% include 'molecules/icon-link.twig' with {title: email, icon: 'mail', url: 'mailto:' ~ email, color: 'text-primary'} %}
+						{% endif %}
+					</div>
+				</div>
+				<div class="lg:col-start-7 lg:col-span-6 relative">
+					{% include 'molecules/form-card.twig' with {float: true, title: form_title} %}
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <div class="form-bottom" style="{{ padding }}">
-        <div class="container">
-            <div class="grid md:grid-cols-2 lg:grid-cols-12">
-                <div class="lg:col-span-5">
-                    {% if address %}
-                        {% include "atoms/heading/h6.twig" with {title: 'Bezoek ons'|translatable} %}
-                        {% include 'atoms/p.twig' with {content: address} %}
-                        {% if address_link %}
-                            {% include 'atoms/link.twig' with address_link %}
-                        {% endif %}
-                    {% endif %}
+	<div class="form-bottom" style="{{ padding }}">
+		<div class="container">
+			<div class="grid md:grid-cols-2 lg:grid-cols-12">
+				<div class="lg:col-span-5">
+					{% if address %}
+						{% include "atoms/heading/h6.twig" with {title: 'Bezoek ons'|translatable} %}
+						{% include 'atoms/p.twig' with {content: address} %}
+						{% if address_link %}
+							{% include 'atoms/link.twig' with address_link %}
+						{% endif %}
+					{% endif %}
 
-                    {% if address and business %}
-                        {% include 'atoms/hr.twig' %}
-                    {% endif %}
+					{% if address and business %}
+						{% include 'atoms/hr.twig' %}
+					{% endif %}
 
-                    {% if business %}
-                        {% include "atoms/heading/h6.twig" with {title: 'Zakelijk'|translatable} %}
-                        {% include 'atoms/p.twig' with {content: business} %}
-                    {% endif %}
+					{% if business %}
+						{% include "atoms/heading/h6.twig" with {title: 'Zakelijk'|translatable} %}
+						{% include 'atoms/p.twig' with {content: business} %}
+					{% endif %}
 
-                    {% if socials and business or socials and address %}
-                        {% include 'atoms/hr.twig' %}
-                    {% endif %}
+					{% if socials and business or socials and address %}
+						{% include 'atoms/hr.twig' %}
+					{% endif %}
 
-                    {% if socials %}
-                        {% include 'molecules/follow-links.twig' %}
-                    {% endif %}
+					{% if socials %}
+						{% include 'molecules/follow-links.twig' %}
+					{% endif %}
 
-                </div>
-            </div>
-        </div>
-    </div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div></section>
