@@ -1,6 +1,7 @@
 <?php
 
-function getTitleFields($prefix) {
+function getTitleFields($prefix)
+{
     $fields = [
         [
             'key'   => "{$prefix}_title",
@@ -11,7 +12,8 @@ function getTitleFields($prefix) {
     ];
     return $fields;
 }
-function getSubTitleFields($prefix) {
+function getSubTitleFields($prefix)
+{
     $fields = [
         [
             'key'   => "{$prefix}_sub_title",
@@ -22,21 +24,23 @@ function getSubTitleFields($prefix) {
     ];
     return $fields;
 }
-function getTabFields($prefix,int $expand = 0, $name, $label) {
-    
+function getTabFields($prefix, $expand, $name, $label)
+{
+
     $fields = [
         [
             'key'          => "{$prefix}_{$name}_tab",
             'label'        => __($label, '_SBB'),
             'name'         => "{$name}_tab",
             'type'         => 'accordion',
-            'open'         => $expand,
+            'open'         => $expand ?? 0,
             'multi_expand' => 1,
         ],
     ];
     return $fields;
 }
-function getContentFields($prefix,) {
+function getContentFields($prefix,)
+{
     $fields = [
         [
             'key'          => "{$prefix}_content",
@@ -50,7 +54,8 @@ function getContentFields($prefix,) {
     ];
     return $fields;
 }
-function getButtonFields($prefix,) {
+function getButtonFields($prefix,)
+{
     $fields = [
         [
             'key'          => "{$prefix}_buttons",
@@ -133,7 +138,8 @@ function getButtonFields($prefix,) {
     ];
     return $fields;
 }
-function getImageVideoSwitchFields($prefix) {
+function getImageVideoSwitchFields($prefix)
+{
     $fields = [
         [
             'key'           => "{$prefix}_image_video_switch",
@@ -148,7 +154,8 @@ function getImageVideoSwitchFields($prefix) {
     return $fields;
 }
 
-function getOrderSwitch($prefix) {
+function getOrderSwitch($prefix)
+{
     $fields = [
         [
             'key'           => "{$prefix}_order_switch",
@@ -163,7 +170,8 @@ function getOrderSwitch($prefix) {
     return $fields;
 }
 
-function getImageFields($prefix) {
+function getImageFields($prefix)
+{
     $fields = [
         [
             'key'           => "{$prefix}_image_id",
@@ -181,11 +189,19 @@ function getImageFields($prefix) {
                 ],
             ],
         ],
+        [
+            'key'           => "{$prefix}_media_cutoff",
+            'label'         => __('Media cutoff', '_SBB'),
+            'name'          => 'media_cutoff',
+            'type'          => 'true_false',
+            'ui'            => '1',
+        ],
     ];
     return $fields;
 }
 
-function getVideoFields($prefix) {
+function getVideoFields($prefix)
+{
     $fields = [
 
         [
@@ -204,7 +220,7 @@ function getVideoFields($prefix) {
                     'ui_off_text'   => __('Upload', '_SBB'),
                     'default_value' => 1,
                 ],
-        
+
                 [
                     'key'               => "{$prefix}_embed_video",
                     'name'              => 'embed_video',
@@ -264,12 +280,20 @@ function getVideoFields($prefix) {
                     ],
                 ],
             ],
+            [
+                'key'           => "{$prefix}_media_cutoff",
+                'label'         => __('Media cutoff', '_SBB'),
+                'name'          => 'media_cutoff',
+                'type'          => 'true_false',
+                'ui'            => '1',
+            ],
         ],
     ];
     return $fields;
 }
 
-function getFormFields($prefix) {
+function getFormFields($prefix)
+{
     $fields = [
         [
             'key'     => "{$prefix}_form_id",

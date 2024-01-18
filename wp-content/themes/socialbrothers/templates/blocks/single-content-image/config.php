@@ -140,6 +140,13 @@ $block_data = [
                 'aspect-3/4 object-cover'    => __('3/4', '_SBB'),
             ],
         ],
+        [
+            'key'   => "{$prefix}_media_cutoff",
+            'label' => __('Media Cutoff', '_SBB'),
+            'name'  => 'media_cutoff',
+            'type'  => 'true_false',
+            'ui'    => 1,
+        ]
     ],
 ];
 

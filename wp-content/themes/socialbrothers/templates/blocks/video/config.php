@@ -73,6 +73,13 @@ $block_data = [
                 ],
             ],
         ],
+        [
+            'key'           => "{$prefix}_media_cutoff",
+            'label'         => __('Media cutoff', '_SBB'),
+            'name'          => 'media_cutoff',
+            'type'          => 'true_false',
+            'ui'            => '1',
+        ],
     ],
 ];
 

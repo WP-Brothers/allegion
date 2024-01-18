@@ -1,3 +1,7 @@
+{% if media_cutoff %}
+	{% set image_classes = image_classes|default('w-full') ~ ' media-cutoff' %}
+{% endif %}
+
 {% if image_id %}
-    {{ wp_get_attachment_image(image_id, size|default('large'), false, {class: image_classes|default('w-full') ~ ' ' ~ ratio})|raw }}
+	{{ wp_get_attachment_image(image_id, size|default('large'), false, {class: image_classes|default('w-full') ~ ' ' ~ ratio})|raw }}
 {% endif %}

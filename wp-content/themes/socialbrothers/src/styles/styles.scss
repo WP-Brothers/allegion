@@ -26,6 +26,8 @@
 
 @use "components/scroll-to-top";
 
+@use "components/media-cutoff";
+
 html,
 body {
   --wp--preset--spacing--20: 20px;

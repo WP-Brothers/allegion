@@ -44,6 +44,13 @@ $block_data = [
                 'grid-cols-2 md:grid-cols-4' => __('4 naast elkaar', '_SBB'),
             ],
         ],
+        [
+            'key'   => "{$prefix}_media_cutoff",
+            'label' => __('Media Cutoff', '_SBB'),
+            'name'  => 'media_cutoff',
+            'type'  => 'true_false',
+            'ui'    => 1,
+        ]
     ],
 ];
 
