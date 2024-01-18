@@ -1,0 +1,21 @@
+<section class="container py-20">
+	<div class="flex flex-col md:grid grid-cols-4 gap-4 md:items-end">
+		<div class="col-span-3">
+			{% include "atoms/heading/h4.twig" %}
+			{% include "atoms/p.twig" %}
+			<div class="flex gap-x-8 gap-y-4 flex-wrap">
+				<div class="flex gap-4">
+					{% include "atoms/icon.twig" %}
+					{% include "atoms/p.twig" %}
+				</div>
+				<div class="flex gap-4">
+					{% include "atoms/heading/h6.twig" %}
+					{% include "atoms/p.twig" %}
+				</div>
+			</div>
+		</div>
+		<div class="md:ml-auto">
+			{% include "atoms/button.twig" %}
+		</div>
+	</div>
+</section>

@@ -14,6 +14,7 @@ function wpb_register_menus_init(): void
         '404'           => __('404 Links', '_SBB'),
         'footer_1'      => __('Footer Menu 1', '_SBB'),
         'footer_2'      => __('Footer Menu 2', '_SBB'),
+        'footer_3'      => __('Footer Menu 3', '_SBB'),
         'footer_bottom' => __('Footer Menu Beneden', '_SBB'),
     ]);
 }

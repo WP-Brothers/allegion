@@ -3,3 +3,27 @@
 @import "tailwind.css";
 
 @include meta.load-css("styles");
+
+:root {
+  --primary-light: #a1cbb0;
+  --primary-DEFAULT: #009636;
+  --primary-dark: #27603c;
+}
+
+.axa-bike-security-theme {
+  --primary-light: #ffb678;
+  --primary-DEFAULT: #f4811f;
+  --primary-dark: #cc5e02;
+}
+
+.axa-corporate-theme {
+  --primary-light: #a1cbb0;
+  --primary-DEFAULT: #348bba;
+  --primary-dark: #16445d;
+}
+
+.trelock-theme {
+  --primary-light: #ffa9b4;
+  --primary-DEFAULT: #d4021d;
+  --primary-dark: #980014;
+}

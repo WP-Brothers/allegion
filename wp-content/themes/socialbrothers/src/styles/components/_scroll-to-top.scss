@@ -1,0 +1,7 @@
+.scroll-to-top {
+    @apply p-2 bg-secondary-dark fixed bottom-10 right-10 w-10 h-10 shadow-[2px_2px_8px_0_rgba(0,0,0,0.1)];
+
+    &::after {
+       @apply font-iconRound content-["\e5ce"] text-[24px] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white;
+    }
+}

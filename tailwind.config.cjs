@@ -69,9 +69,9 @@ module.exports = {
       },
       colors: {
         primary: {
-          light: '#a1cbb0',
-          DEFAULT: '#009636',
-          dark: '#27603c',
+          light: 'var(--color-primary-light)',
+          DEFAULT: '--var(--color-primary-DEFAULT)',
+          dark: 'var(--color-primary-dark)',
         },
         secondary: {
           light: '#ededed',
@@ -110,6 +110,7 @@ module.exports = {
           DEFAULT: '#7900ff',
           2: '#00ff45',
           3: '#00c6ff',
+          5: '#f8f8f8'
         },
         overlay: {
           10: 'rgba(0, 0, 0, 0.1)',

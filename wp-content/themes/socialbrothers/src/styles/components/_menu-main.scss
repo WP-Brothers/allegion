@@ -4,14 +4,14 @@
   > li {
 
     > a {
-      @apply w-full md:w-auto px-4 py-[14px] uppercase font-bold hover:text-primary h-12 inline-flex gap-2 items-center transition-colors border-b border-white md:text-psmall lg:text-p;
+      @apply w-full md:w-auto px-4 py-[14px] uppercase font-bold hover:text-[var(--primary-DEFAULT)] h-12 inline-flex gap-2 items-center transition-colors border-b border-white md:text-psmall lg:text-p;
     }
 
     &.current_page_item,
     &.current-menu-parent {
 
       > a {
-        @apply border-primary-dark text-primary-dark;
+        @apply border-[var(--primary-dark)] text-[var(--primary-dark)];
       }
     }
 
@@ -21,7 +21,7 @@
       > a {
 
         &:after {
-          @apply font-iconRound content-["\e5cf"] text-primary text-[24px];
+          @apply font-iconRound content-["\e5cf"] text-[var(--primary-DEFAULT)] text-[24px];
         }
       }
 
@@ -34,7 +34,7 @@
           > li {
 
             > a {
-              @apply px-6 py-3 grid grid-cols-[24px_1fr] gap-2 text-primary bg-white hover:bg-primary-light transition-colors uppercase font-bold;
+              @apply px-6 py-3 grid grid-cols-[24px_1fr] gap-2 text-[var(--primary-DEFAULT)] bg-white hover:bg-[var(--primary-light)] transition-colors uppercase font-bold;
 
               &::before {
                 @apply content-["\e5cc"] font-iconRound flex text-[24px] leading-4 justify-center items-center;
@@ -44,7 +44,7 @@
             &.current_page_item {
 
               > a {
-                @apply text-primary-dark;
+                @apply text-[var(--primary-dark)];
               }
             }
           }
