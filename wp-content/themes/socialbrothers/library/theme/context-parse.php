@@ -58,7 +58,7 @@ function wpb_build_news_card_context(string|int $post_id): array
 {
 
     $tags = [];
-    foreach(get_the_terms($post_id, 'category_news') as $tag) {
+    foreach (get_the_terms($post_id, 'category_news') as $tag) {
         array_push($tags, $tag->name);
     }
 
@@ -157,23 +157,20 @@ function wpb_build_keurmerken(string|int $post_id, $modal = 0): array
     return $returnArray;
 }
 
-
 function wpb_build_safety_index_options()
 {
     $indexArray = [];
     $safetyIndexes = get_field('safety_index_repeater', 'options') ?? '';
 
-    $i = 1;
-    foreach ($safetyIndexes as $index) {
-        $indexArray[] = [
-            'key' => $index['safety_index_image']['url'],
-            'label' => $index['safety_index_title'],
-            'image' => $index['safety_index_image']['url'],
-        ];
-
-        $i++;
+    if (!empty($safetyIndexes)) {
+        foreach ($safetyIndexes as $index) {
+            $indexArray[] = [
+                'key' => $index['safety_index_image']['url'],
+                'label' => $index['safety_index_title'],
+                'image' => $index['safety_index_image']['url'],
+            ];
+        }
     }
-
 
     return acf_image_select_options($indexArray);
 }

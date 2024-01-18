@@ -1,4 +1,4 @@
-<article class="relative bg-white rounded-[3px]">
+<article class="relative bg-white rounded-[3px] border-[1px] border-neutral-25">
 	{% if thumbnail %}
 		{{thumbnail|raw}}
 	{% endif %}
@@ -21,7 +21,7 @@
 		<div class="flex flex-col p-6 pb-7">
 
 			{% if title %}
-				{% include "atoms/heading/h4.twig" with {class: 'mb-3'} %}
+				{% include "atoms/heading/h4.twig" with {class: 'mb-3 leading-[1.33]'} %}
 			{% endif %}
 
 			{% if excerpt %}
