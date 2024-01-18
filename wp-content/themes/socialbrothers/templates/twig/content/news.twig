@@ -1,5 +1,4 @@
-{% block title %}
-	{# Include when hero is merged #}
+{% block title %}{# Include when hero is merged #}
 	{# {% include "organism/hero.twig" with {title: title, content: content, image_id: image_id} %} #}
 {% endblock %}
 
@@ -16,14 +15,11 @@
 							{% include "atoms/heading/h2.twig" with {title, class: 'single-news__title'} %}
 						</div>
 					{% endif %}
-					
+
 					{% for content_block in parse_blocks(post.post_content) %}
 						{{ render_block(content_block)|raw }}
 					{% endfor %}
 
-					{# {% if author.name %}
-						{% include 'organisms/author.twig' with author %} 
-					{% endif %} #}
 				</div>
 			</div>
 		</div>
