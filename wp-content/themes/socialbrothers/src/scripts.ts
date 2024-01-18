@@ -56,17 +56,19 @@ const scriptsInit = () => {
   }
 
 
-  const imageSelector = document.getElementById('image-selector');
-  if (imageSelector) {
+  const imageSelector = document.querySelectorAll('.image-selector');
+  if (imageSelector.length) {
+    imageSelector.forEach(selector => {
       import('./scripts/imageSelector').then((module) =>
-        module.default(imageSelector as HTMLElement)
+        module.default(selector as HTMLElement)
       )
+    });
   }
 
   const modalSlider = document.querySelector('[data-modal="modal-swiper"]');
   if(modalSlider) {
     import('./scripts/modalSlider').then((module) =>
-    module.default(modalSlider as HTMLElement)
+      module.default()
     )
   }
 };

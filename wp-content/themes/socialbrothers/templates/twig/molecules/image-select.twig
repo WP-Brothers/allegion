@@ -1,20 +1,31 @@
-<div id="image-selector" class="pt-3 pb-12 relative">
+<div class="image-selector pt-3 pb-12 relative ">
     {% if highlighted_images %}
-        <div id="image-selector__highlighted-images" class="flex gap-6">
+        <div class="image-selector__highlighted-images flex gap-6">
             {% for image_id in highlighted_images %}
-                <div class="image-selector__highlighted-image w-20 h-20 relative after:w-full after:h-full after:absolute after:top-0 after:left-0 after:bg-white after:opacity-0 hover:after:opacity-50 after:transition-opacity cursor-pointer">
+                <div class="image-selector__highlighted-image w-20 h-20 relative after:w-full after:h-full after:absolute after:top-0 after:left-0 after:bg-white after:opacity-0 hover:after:opacity-50 after:transition-opacity cursor-pointer {{ highlighted_images_mobile ? 'hidden lg:block'}}">
                     {% include "atoms/image.twig" with {image_classes: 'w-20 h-20 object-contain'} %}
                 </div>
             {% endfor %}
+            
+            {% if highlighted_images_mobile %}
+                {% for image_id in highlighted_images_mobile %}
+                    <div class="block lg:hidden image-selector__highlighted-image w-20 h-20 relative after:w-full after:h-full after:absolute after:top-0 after:left-0 after:bg-white after:opacity-0 hover:after:opacity-50 after:transition-opacity cursor-pointer">
+                        {% include "atoms/image.twig" with {image_classes: 'w-20 h-20 object-contain'} %}
+                    </div>
+                {% endfor %}
+            {% endif %}
        
         {% if more_images %}
-            <div data-modal-open="modal-open" id="image-selector__open-modal" class="w-20 h-20 flex justify-center items-center rounded-[4px] border-[1px] border-secondary-light font-heading font-light cursor-pointer">+ {{more_images_count}}</div>
+            <div data-modal-open="modal-open" class="image-selector__open-modal w-20 h-20 flex justify-center items-center rounded-[4px] border-[1px] border-secondary-light font-heading font-light cursor-pointer gap-2">
+                <span>+</span>
+                <span class="hidden lg:block">{{more_images_count}}</span><span class="block lg:hidden">{{more_images_count_mobile}}</span>
+            </div>
         {% endif %}
         </div>
     {% endif %}
 
     
-    <div id="image-selector__arrow" class="w-20 absolute top-0 left-0 -translate-y-full transition-all">
+    <div class="image-selector__arrow w-20 absolute top-0 left-0 -translate-y-full transition-all">
         <img src="{{arrow_selector}}" alt="arrow_selector">
     </div>
 </div>

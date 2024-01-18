@@ -124,11 +124,15 @@ if(!empty(get_field('images', get_the_ID()))) {
     $imagesField = get_field('images', get_the_ID());
 
     $images['highlighted_images'][] = get_post_thumbnail_id(get_the_ID());
+    $images['highlighted_images_mobile'][] = get_post_thumbnail_id(get_the_ID());
     $images['images'][] = get_post_thumbnail_id(get_the_ID());
     
     foreach($imagesField as $image) {
         if($count <= 3) {
             $images['highlighted_images'][] = $image['images_image']['ID'];
+        }
+        if($count <= 1) {
+            $images['highlighted_images_mobile'][] = $image['images_image']['ID'];
         }
         $images['images'][] = $image['images_image']['ID'];
         $count++;
@@ -136,6 +140,7 @@ if(!empty(get_field('images', get_the_ID()))) {
     if(count($imagesField) >= 3) {
         $images['more_images'] = true;
         $images['more_images_count'] = count($imagesField) - 3;
+        $images['more_images_count_mobile'] = count($imagesField) - 1;
     }
     $images['arrow_selector'] =  get_template_directory_uri() . '/images/selector-arrow.svg';
 
@@ -172,6 +177,7 @@ Twig::render(
                 'images'            => $images,
                 'slides'            => $slides,
                 'modal_highlight_swiper_options' => json_encode($modal_highlight_swiper_options),
+                'buttons'           => $ctaButtons,
             ],
             'anchor_menu' => [
                 'links'             => $links,

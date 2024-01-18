@@ -1,7 +1,7 @@
 {% if links %}
     <section>
         <div class="container">
-            <div class="flex border-b border-b-neutral-50">
+            <div class="flex border-b border-b-neutral-50 overflow-scroll">
                 {% for anchor, link in links %}
                     <a href="#{{anchor}}" class="p-3 font-light font-heading">{{link}}</a>
                 {% endfor %}

@@ -1,16 +1,16 @@
 const imageSelectorInit = (imageSelector: HTMLElement) => {
-    const arrow = document.getElementById('image-selector__arrow');
-    const highlightedImages = imageSelector.querySelectorAll('#image-selector__highlighted-images .image-selector__highlighted-image')
+    const arrow:HTMLElement = imageSelector.querySelector('.image-selector__arrow')!;
+    const highlightedImages = imageSelector.querySelectorAll('.image-selector__highlighted-images .image-selector__highlighted-image')
     
     const removeActive = () => {
-        const activeImage = imageSelector.querySelector('#image-selector__highlighted-images .image-selector__highlighted-image.active');
+        const activeImage = imageSelector.querySelector('.image-selector__highlighted-images .image-selector__highlighted-image.active');
         if(activeImage) {
             activeImage.classList.remove('active');
         }
     }
 
     const moveArrow = () => {
-        const activeImage = imageSelector.querySelector('#image-selector__highlighted-images .image-selector__highlighted-image.active');
+        const activeImage = imageSelector.querySelector('.image-selector__highlighted-images .image-selector__highlighted-image.active');
 
         if(activeImage && arrow) {
             const wrapperPosition = imageSelector.getBoundingClientRect().left;
@@ -22,12 +22,13 @@ const imageSelectorInit = (imageSelector: HTMLElement) => {
 
     const changeActiveDisplayImage = () => {
         const displayImage:HTMLImageElement = document.querySelector('.product-single__display-image')!;
-        const activeImage:HTMLImageElement = imageSelector.querySelector('#image-selector__highlighted-images .image-selector__highlighted-image.active img')!;
+        const activeImage:HTMLImageElement = imageSelector.querySelector('.image-selector__highlighted-images .image-selector__highlighted-image.active img')!;
         const activeSrc = activeImage.src;
 
         displayImage.src = activeSrc;
         displayImage.srcset = activeImage.srcset;
     }
+
 
     highlightedImages[0].classList.add('active');
 
@@ -42,6 +43,9 @@ const imageSelectorInit = (imageSelector: HTMLElement) => {
 
     const modal:HTMLDialogElement = document.querySelector('[data-modal="modal-swiper"]')!
     const open = imageSelector.querySelector('[data-modal-open="modal-open"]')!
+    
+    
+    // THERE IS NOT YET A DESIGN FOR A CLOSE BUTTON
     const close = modal.querySelector('.modal__close')!
 
     if(open) {

@@ -1,8 +1,10 @@
-<div class="w-full py-6 px-7 border-[1px] border-neutral-25 rounded-[4px] shadow-contentcard lg:sticky top-[196px]">
+<div class="w-full py-6 px-7 border-[1px] border-neutral-25 rounded-[4px] shadow-contentcard sticky bg-white {{mobile ? 'block lg:hidden mb-2 top-unset bottom-0 lg:top-[196px]' : 'hidden lg:block top-[196px]'}}">
 
-    {% include "atoms/heading/h5.twig" with {class:'mb-2'} %}
+    {% if not mobile %}
+        {% include "atoms/heading/h5.twig" with {class:'mb-2'} %}
 
-    <span class="mb-6 mt-2 block">{{article_number|raw}}</span>
+        <span class="mb-6 mt-2 block">{{article_number|raw}}</span>
+    {% endif %}
 
 
     {% include "molecules/buttons.twig" %}

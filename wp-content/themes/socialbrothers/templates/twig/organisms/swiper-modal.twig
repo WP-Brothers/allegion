@@ -4,15 +4,15 @@
 
         <div class="w-full flex flex-col lg:flex-row">
             
-            <div class="w-1/12 flex justify-center items-end">
+            <div class="w-full lg:w-1/12 flex justify-center items-end">
                 <div class="w-20 h-20 flex justify-center items-center">
-                    <div class="swiper-button-prev select-none !w-8 !h-8 after:w-8 after:h-8"></div>
+                    <div class="swiper-button-prev select-none !w-8 !h-8 after:w-8 after:h-8 !hidden lg:!block"></div>
                 </div>
             </div>
 
-            <div class="w-5/12">
+            <div class="w-full lg:w-5/12">
             
-                    <div class="modal-swiper__image-slider overflow-hidden">
+                    <div class="modal-swiper__image-slider overflow-hidden relative">
                         <div class="swiper-wrapper modal-swiper__image-slider-wrapper">
                             {% for slide in slides %}
                                 <div class="swiper-slide modal-swiper__image-slider-image-wrapper bg-white !h-[451px] select-none">
@@ -20,24 +20,31 @@
                                 </div>
                             {% endfor %}
                         </div>
+                         <button class="modal__close text-[32px] font-iconRound text-primary absolute top-8 right-8 h-8 w-8 leading-[1] z-10">close</button>
                     </div>
 
 
-                    <div class="modal-swiper__nav-slider overflow-hidden pt-10 w-full">
-                        <div class="swiper-wrapper">
-                             {% for slide in slides %}
-                                <div class="swiper-slide aspect-square bg-white flex justify-between items-center cursor-pointer p-3 select-none">
-                                    {% include 'atoms/image.twig' with {image_id: slide, image_classes: '!aspect-square !h-auto !w-full object-contain', size: 'thumbnail'} %}
-                                </div>
-                            {% endfor %}
+                    <div class="flex items-center pt-10">
+                        <div class="swiper-button-prev select-none !flex lg:!hidden"></div>
+
+                        <div class="modal-swiper__nav-slider overflow-hidden w-full">
+                            <div class="swiper-wrapper">
+                                {% for slide in slides %}
+                                    <div class="swiper-slide aspect-square bg-white flex justify-between items-center cursor-pointer p-3 select-none">
+                                        {% include 'atoms/image.twig' with {image_id: slide, image_classes: '!aspect-square !h-auto !w-full object-contain', size: 'thumbnail'} %}
+                                    </div>
+                                {% endfor %}
+                            </div>
                         </div>
+
+                        <div class="swiper-button-next select-none !flex lg:!hidden"></div>
                     </div>
 
             </div>
 
-            <div class="w-1/12 flex justify-center items-end">
+            <div class="w-full lg:w-1/12 flex justify-center items-end">
                 <div class="w-20 h-20 flex justify-center items-center">
-                    <div class="swiper-button-next select-none !w-8 !h-8 after:w-8 after:h-8"></div>
+                    <div class="swiper-button-next select-none !w-8 !h-8 after:w-8 after:h-8 !hidden lg:!block"></div>
                 </div>
             </div>
             
