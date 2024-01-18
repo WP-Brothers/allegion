@@ -16,7 +16,7 @@
 				{{ menu|raw }}
 
 				<div class="flex flex-col md:flex-row md:justify-end md:items-center gap-4 md:gap-6 flex-grow">
-					<button id="toggle-header-search" class="hidden text-primary hover:text-primary-dark transition-colors h-12 w-12 md:flex justify-center items-center">
+					<button id="toggle-header-search" class="hidden text-[var(--primary-DEFAULT)] hover:text-[var(--primary-dark)] transition-colors h-12 w-12 md:flex justify-center items-center">
 						{% include 'atoms/icon.twig' with {icon: 'search', size: '32'} %}
 					</button>
 					<div class="md:hidden">

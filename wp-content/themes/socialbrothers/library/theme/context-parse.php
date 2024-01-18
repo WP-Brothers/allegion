@@ -54,12 +54,35 @@ function wpb_build_post_card_context(string|int $post_id): array
     ];
 }
 
+function wpb_build_news_card_context(string|int $post_id): array
+{
+
+    $tags = [];
+    foreach (get_the_terms($post_id, 'category_news') as $tag) {
+        array_push($tags, $tag->name);
+    }
+
+    return [
+        'title'     => get_the_title($post_id),
+        'image_id'  => get_post_thumbnail_id($post_id),
+        'date'      => get_the_date('d/m/Y', $post_id),
+        'labels'    => wpb_build_post_category_labels($post_id),
+        'permalink' => get_the_permalink($post_id),
+        'title'         => get_the_title($post_id),
+        'excerpt'       => substr(substr(get_the_excerpt($post_id), 0, 85), 0, strrpos(get_the_excerpt($post_id), ' ')) . " ...",
+        'permalink'     => get_the_permalink($post_id),
+        'date'          => get_the_date('d/m/Y', $post_id),
+        'thumbnail'     => get_the_post_thumbnail($post_id, 'large', ['class' => "w-full object-cover rounded-[3px] max-h-[165px]"]),
+        'tags'          => $tags,
+    ];
+}
+
 function wpb_build_product_card_context(string|int $post_id): array
 {
     return [
         'title'     => get_the_title($post_id),
         'image_id'  => get_post_thumbnail_id($post_id),
-        'keurmerken' => wpb_build_product_card_keurmerken($post_id),
+        'keurmerken' => wpb_build_keurmerken($post_id),
         'permalink' => get_the_permalink($post_id),
         'article_number' => get_field('article_number', $post_id) ?? '',
         'safety_index' => get_field('safety_index', $post_id) ?? '',
@@ -108,16 +131,26 @@ function wpb_build_post_category_labels(string|int $post_id): array
     return $terms;
 }
 
-function wpb_build_product_card_keurmerken(string|int $post_id): array
+function wpb_build_keurmerken(string|int $post_id, $modal = 0): array
 {
     $returnArray = [];
     $keurmerken = get_field('keurmerken', $post_id) ?? '';
 
     if (!empty($keurmerken)) {
         foreach ($keurmerken as $keurmerk) {
-            $returnArray[] = [
+            $returnArray[$keurmerk->ID] = [
                 'image' => get_the_post_thumbnail($keurmerk, 'small', ['class' => 'w-auto h-full']),
             ];
+
+            if (!empty($modal)) {
+                $returnArray[$keurmerk->ID]['modal'] = [
+                    'title' => get_the_title($keurmerk) ?? '',
+                    'display_name' => get_field('display_name', $keurmerk->ID) ?? '',
+                    'content' => get_field('content', $keurmerk->ID) ?? '',
+                    'image_id' => get_post_thumbnail_id($keurmerk->ID) ?? '',
+                    'extra_link' => get_field('extra_link', $keurmerk->ID) ?? '',
+                ];
+            }
         }
     }
 
@@ -191,4 +224,32 @@ function wpb_build_author_context(string|int $user_id): array
     $context['button']['type'] = 'btn--link btn--white';
 
     return $context;
+}
+
+function wpb_build_price(string $price): string
+{
+    $currency = get_field('currency', 'options') ?? '';
+    if ($currency === 'euro' || empty($currency)) {
+        $currency = __('€', '_SBF');
+    } elseif ($currency === 'dollar') {
+        $currency = __('$', '_SBF');
+    } elseif ($currency === 'pound') {
+        $currency = __('£', '_SBF');
+    }
+
+    $price = $currency . $price;
+
+    return $price;
+}
+function wpb_get_currency()
+{
+    $currency = get_field('currency', 'options') ?? '';
+    if ($currency === 'euro' || empty($currency)) {
+        $currency = __('€', '_SBF');
+    } elseif ($currency === 'dollar') {
+        $currency = __('$', '_SBF');
+    } elseif ($currency === 'pound') {
+        $currency = __('£', '_SBF');
+    }
+    return $currency;
 }

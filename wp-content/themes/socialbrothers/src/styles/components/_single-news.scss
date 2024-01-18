@@ -1,0 +1,30 @@
+.single-news {
+    h2,h3,h4,h5,h6 {
+        @apply font-heading font-light;
+    }
+
+    h2:not(.single-news__title) {
+        @apply text-[30px] mb-2; 
+    }
+
+    .single-news__title {
+        @apply font-bold text-4xl leading-[1.2] mb-6;
+    }
+
+    h3 {
+        @apply text-2xl mb-2;
+    }
+
+    p, p > *, ul, ul > li {
+        @apply font-heading font-light;
+    }
+    p > strong {
+        @apply font-bold;
+    }
+
+
+    .content > ul > li {
+        @apply relative list-none ml-10 before:w-1 before:h-1 before:bg-black before:rounded-full before:absolute before:top-1/2 before:-translate-y-1/2 before:-left-7;
+    }
+
+}

@@ -50,17 +50,20 @@ $more_slider['buttons'] = [
     ],
 ];
 
+$current_id = get_the_ID();
+
 $more_slider['class_name'] = 'py-10 md:py-20';
 $recent_posts              = new WP_Query([
     'post_type'      => $post_type,
-    'post__not_in'   => [get_the_ID()],
     'posts_per_page' => 10,
 ]);
 
 if ($recent_posts->have_posts()) {
     while ($recent_posts->have_posts()) {
         $recent_posts->the_post();
-        $more_slider['slides'][] = wpb_build_post_card_context(get_the_ID());
+        if(get_the_ID() !== $current_id) {
+            $more_slider['slides'][] = wpb_build_post_card_context(get_the_ID());
+        }
     }
 }
 wp_reset_query();

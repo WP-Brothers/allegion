@@ -1,4 +1,4 @@
-<div class="content {{ content_small ? 'content--small' : '' }} {{ content_lead ? 'content--lead' : '' }} {{ content_single_lead ? 'content--single-lead' : '' }} {{ text_white ? 'text-white' : ''}}">
+<div class="content {{content_classes}} {{ content_small ? 'content--small' : '' }} {{ content_lead ? 'content--lead' : '' }} {{ content_single_lead ? 'content--single-lead' : '' }} {{ text_white ? 'text-white' : ''}}">
 	{% include 'atoms/heading/sub-title.twig' %}
 	{% if first_block %}
 		{% include 'atoms/heading/h1.twig' with {class: title_class} %}
@@ -7,6 +7,6 @@
 	{% else %}
 		{% include 'atoms/heading/h2.twig' with {class: title_class} %}
 	{% endif %}
-	{% include 'atoms/content.twig' %}
+	{% include 'atoms/content.twig' with {content_classes} %}
 	{% include 'molecules/buttons.twig' with {button_classes} %}
 </div>

@@ -1,0 +1,61 @@
+{
+  "name": "acf/content-background-image",
+  "title": "Content achtergrond afbeelding",
+  "category": "sections",
+  "icon": "cover-image",
+  "keywords": ["content", "background", "image"],
+  "acf": {
+      "mode": "preview"
+  },
+  "supports": {
+      "anchor": true,
+      "jsx": true,
+      "align": [ "full", "wide" ],
+      "fullHeight": false,
+      "alignText": false,
+      "spacing": {
+          "margin": [
+              "top",
+              "bottom"
+          ],
+          "padding": [
+              "top",
+              "bottom"
+          ]
+      },
+      "color": {
+          "background": true,
+          "text": true
+      },
+      "layout": {
+          "default": {
+              "type": "flex"
+          },
+          "allowSwitching": false,
+          "allowEditing": false,
+          "allowInheriting": false,
+          "allowSizingOnChildren": false,
+          "allowVerticalAlignment": false,
+          "allowJustification": false,
+          "allowOrientation": false
+      }
+  },
+  "attributes": {
+      "textColor": {
+          "type": "string",
+          "default": "font"
+      },
+      "style": {
+          "type": "object",
+          "default" : {
+              "spacing":
+              {
+                  "padding": {
+                      "top": "140px",
+                      "bottom": "136px"
+                  }
+              }
+          }
+      }
+  }
+}

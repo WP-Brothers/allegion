@@ -28,11 +28,11 @@ defined('ABSPATH') || exit;
  */
 require_once __DIR__ . '/inc/bootstrap.php';
 
-if (! defined('THEME_PACKAGE_NAME')) {
+if (!defined('THEME_PACKAGE_NAME')) {
     define('THEME_PACKAGE_NAME', 'sb-starter-theme');
 }
 
-if (! defined('DISALLOW_FILE_EDIT')) {
+if (!defined('DISALLOW_FILE_EDIT')) {
     define('DISALLOW_FILE_EDIT', true);
 }
 
@@ -51,7 +51,7 @@ if (! defined('DISALLOW_FILE_EDIT')) {
  *
  * @see FileLoaderInterface
  */
-if (! function_exists('sb_starter_load_theme_includes')) {
+if (!function_exists('sb_starter_load_theme_includes')) {
     function sb_starter_load_theme_includes(): void
     {
         ThemeFileLoader::createFileLoader(
@@ -84,8 +84,8 @@ function wpb_vite_init(): void
 {
     try {
         $vite = service(ViteService::class);
-    } catch (NotFoundExceptionInterface|ReflectionException|ContainerExceptionInterface $e) {
-        if (! Theme::isDebug()) {
+    } catch (NotFoundExceptionInterface | ReflectionException | ContainerExceptionInterface $e) {
+        if (!Theme::isDebug()) {
             error_log($e->getMessage());
 
             return;
@@ -127,7 +127,7 @@ function sb_vite_admin_init(): void
 
 add_action('admin_head', 'sb_vite_admin_init');
 
-if (! function_exists('render_twig')) {
+if (!function_exists('render_twig')) {
     /**
      * @param array<string, mixed> $context
      *
@@ -159,9 +159,9 @@ function wpb_admin_body_class(string $classes): string
 add_filter('admin_body_class', 'wpb_admin_body_class');
 function wpb_frontend_admin_bar_sticky()
 {
-    if (is_admin_bar_showing() && ! empty(get_option('options_header-class'))) {
+    if (is_admin_bar_showing() && !empty(get_option('options_header-class'))) {
         echo '<style>.'
-. esc_attr(get_option('options_header-class')) . '{
+            . esc_attr(get_option('options_header-class')) . '{
   margin-top: 32px;
 
   @media (width <= 782px) {
@@ -173,3 +173,10 @@ function wpb_frontend_admin_bar_sticky()
 }
 
 add_filter('init', 'wpb_frontend_admin_bar_sticky');
+
+add_filter( 'wpseo_breadcrumb_links', 'wpb_breadcrumbs' );
+
+function wpb_breadcrumbs( $links ) {
+    $links[0]['text'] = '<span class="font-icon">house</span>';
+    return $links;
+}

@@ -1,0 +1,25 @@
+{% if flow is not defined  %}
+	{% set flow = 1 %}
+{% endif %}
+
+
+<section id="{{ anchor }}" class="{{ class_name }} relative" style="{{ style|raw }}">
+	{% if image_id %}
+		{% include "atoms/image.twig" with {image_classes: 'absolute inset-0 object-cover h-full w-full'} %}
+		<div class="bg-overlay inset-0 absolute w-full h-full"></div>
+	{% endif %}
+	<div class="full-container relative md:overflow-hidden">
+		<div class="{{ container|default('container') }}">
+			<div class="flex flex-col lg:flex-row justify-between gap-4 w-full {{order_switch ? 'lg:flex-row-reverse'}}">
+				<div class="w-full lg:w-1/3 flex flex-col lg:items-center lg:justify-center">
+					{% include 'molecules/content.twig' %}
+				</div>
+
+
+				<div class="w-full lg:w-1/2">
+					{% include 'molecules/swiper.twig'  with {flow, classes: polygon_swiper, swiper_options, overflow} %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
