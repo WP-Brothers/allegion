@@ -69,9 +69,9 @@ module.exports = {
       },
       colors: {
         primary: {
-          light: '#a1cbb0',
-          DEFAULT: '#009636',
-          dark: '#27603c',
+          light: 'var(--color-primary-light)',
+          DEFAULT: '--var(--color-primary-DEFAULT)',
+          dark: 'var(--color-primary-dark)',
         },
         secondary: {
           light: '#ededed',
