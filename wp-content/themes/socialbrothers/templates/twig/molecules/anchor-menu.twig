@@ -1,0 +1,11 @@
+{% if links %}
+    <section>
+        <div class="container">
+            <div class="flex border-b border-b-neutral-50">
+                {% for anchor, link in links %}
+                    <a href="#{{anchor}}" class="p-3 font-light font-heading">{{link}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endif %}

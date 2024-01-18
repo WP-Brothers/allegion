@@ -110,6 +110,7 @@ module.exports = {
           DEFAULT: '#7900ff',
           2: '#00ff45',
           3: '#00c6ff',
+          5: '#f8f8f8'
         },
         overlay: {
           10: 'rgba(0, 0, 0, 0.1)',

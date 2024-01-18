@@ -37,8 +37,39 @@ const scriptsInit = () => {
     );
   }
 
+  const modals = document.querySelectorAll('.contains-modal');
+  if (modals.length) {
+    modals?.forEach((modal) =>
+      import('./scripts/modal').then((module) =>
+        module.default(modal as HTMLElement)
+      )
+    );
+  }
 
-      import('./scripts/scrollToTop').then((module) => module.default());
+  const tableDropdowns = document.querySelectorAll('.table-dropdown');
+  if (tableDropdowns.length) {
+    tableDropdowns?.forEach((table) =>
+      import('./scripts/tableDropdown').then((module) =>
+        module.default(table as HTMLElement)
+      )
+    );
+  }
+
+
+  const imageSelector = document.getElementById('image-selector');
+  if (imageSelector) {
+      import('./scripts/imageSelector').then((module) =>
+        module.default(imageSelector as HTMLElement)
+      )
+  }
+
+  const modalSlider = document.querySelector('[data-modal="modal-swiper"]');
+  if(modalSlider) {
+    import('./scripts/modalSlider').then((module) =>
+    module.default(modalSlider as HTMLElement)
+    )
+  }
+  import('./scripts/scrollToTop').then((module) => module.default());
 };
 
 export default scriptsInit;
