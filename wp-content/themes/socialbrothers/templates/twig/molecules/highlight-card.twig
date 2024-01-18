@@ -1,9 +1,9 @@
 <article class="aspect-4/3">
-    <a href="{{ permalink }}" class="relative bg-primary-light no-underline block group">
-        {% include 'atoms/image.twig' with {ratio: 'aspect-4/3 object-cover'} %}
-        <div class="absolute top-0 left-0 w-full h-full p-4 md:p-8 flex flex-col justify-between bg-highlight">
-            {% include 'molecules/labels.twig' %}
-            {% include 'atoms/heading/h2.twig' with {class: 'text-h3m md:text-h3 font-body mb-0 text-white group-hover:text-neutral-25 transition-colors'} %}
-        </div>
-    </article>
+	<a href="{{ permalink }}" class="relative bg-[var(--primary-light)] no-underline block group">
+		{% include 'atoms/image.twig' with {ratio: 'aspect-4/3 object-cover'} %}
+		<div class="absolute top-0 left-0 w-full h-full p-4 md:p-8 flex flex-col justify-between bg-highlight">
+			{% include 'molecules/labels.twig' %}
+			{% include 'atoms/heading/h2.twig' with {class: 'text-h3m md:text-h3 font-body mb-0 text-white group-hover:text-neutral-25 transition-colors'} %}
+		</div>
+	</article>
 </a>

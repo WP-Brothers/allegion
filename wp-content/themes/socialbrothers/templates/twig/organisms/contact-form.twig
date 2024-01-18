@@ -8,11 +8,11 @@
                 {% for location in locations %}
                     <div class="flex flex-col gap-2">
                             {% include "atoms/heading/h6.twig" with {title: location.name, class: 'mb-0'} %}
-                            {% include "molecules/icon-link.twig" with {url: 'tel:'~ location.phone, icon: 'phone', title: location.phone, class: 'text-primary', text_color: 'text-font'} %}
-                            {% include "molecules/icon-link.twig" with {url: 'mailto:'~ location.email, icon: 'mail', title: location.email, class: 'text-primary', text_color: 'text-font'} %}
+                            {% include "molecules/icon-link.twig" with {url: 'tel:'~ location.phone, icon: 'phone', title: location.phone, class: 'text-[var(--primary-DEFAULT)]', text_color: 'text-font'} %}
+                            {% include "molecules/icon-link.twig" with {url: 'mailto:'~ location.email, icon: 'mail', title: location.email, class: 'text-[var(--primary-DEFAULT)]', text_color: 'text-font'} %}
                            
                             <div class="no-underline group grid grid-cols-[24px_1fr] gap-4 {{class}}">
-                                {% include 'atoms/icon.twig' with {icon: 'location_on', color: 'text-primary'} %}
+                                {% include 'atoms/icon.twig' with {icon: 'location_on', color: 'text-[var(--primary-DEFAULT)]'} %}
                                 <span class="group-hover:underline {{text_color}}">
                                     {{location.address|raw}}
                                 </span>
@@ -32,7 +32,7 @@
              <div class="flex flex-row gap-5">
                 {% for social, link in socials %}
                     {% if link %}
-                        {% include "atoms/social-link.twig" with {url: link.url, color: 'fill-primary', media: social, size: '32', hide_title: 1} %}
+                        {% include "atoms/social-link.twig" with {url: link.url, color: 'fill-[var(--primary-DEFAULT)]', media: social, size: '32', hide_title: 1} %}
                     {% endif %}
                 {% endfor %}
             </div>

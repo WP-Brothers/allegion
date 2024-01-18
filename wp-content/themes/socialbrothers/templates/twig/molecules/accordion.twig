@@ -1,10 +1,10 @@
 <details class="cursor-pointer rounded border border-neutral-75 appearance-none marker:content-none group" {{ open ? 'open' : '' }}>
-    <summary class="appearance-none p-4 md:p-6 flex justify-between items-center after:content-['\e5cf'] after:font-iconRound after:text-primary after:md:text-[32px] after:text-h4 leading-8 after:inline-block group-open:after:content-['\e5ce']">
-        <div>
-            {% include 'atoms/heading/h3.twig' with {class: 'text-h5 mb-0'} %}
-        </div>
-    </summary>
-    <div class="px-4 pb-0 md:px-6 md:pb-0">
-        {% include 'molecules/content.twig' with {title: ''} %}
-    </div>
+	<summary class="appearance-none p-4 md:p-6 flex justify-between items-center after:content-['\e5cf'] after:font-iconRound after:text-[var(--primary-DEFAULT)] after:md:text-[32px] after:text-h4 leading-8 after:inline-block group-open:after:content-['\e5ce']">
+		<div>
+			{% include 'atoms/heading/h3.twig' with {class: 'text-h5 mb-0'} %}
+		</div>
+	</summary>
+	<div class="px-4 pb-0 md:px-6 md:pb-0">
+		{% include 'molecules/content.twig' with {title: ''} %}
+	</div>
 </details>

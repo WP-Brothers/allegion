@@ -1,42 +1,42 @@
-<article class="relative bg-white rounded-[3px]">
-    {% if thumbnail %}
-        {{thumbnail|raw}}
-    {% endif %}
+<article class="relative bg-white rounded-[3px] border-[1px] border-neutral-25">
+	{% if thumbnail %}
+		{{thumbnail|raw}}
+	{% endif %}
 
-    {% if tags or date %}
-        <div class="flex gap-3 flex-wrap flex-row absolute top-4 left-4">
-            {% if tags %}
-                {% for tag in tags %}
-                    <span class="py-1 px-2 bg-primary rounded-[4px] text-sm text-white font-light">{{tag}}</span>
-                {% endfor %}
-            {% endif %}
+	{% if tags or date %}
+		<div class="flex gap-3 flex-wrap flex-row absolute top-4 left-4">
+			{% if tags %}
+				{% for tag in tags %}
+					<span class="py-1 px-2 bg-[var(--primary-DEFAULT)] rounded-[4px] text-sm text-white font-light">{{tag}}</span>
+				{% endfor %}
+			{% endif %}
 
-            {% if date %}
-                <span class="py-1 px-2 bg-secondary-dark rounded-[4px] text-sm text-white font-light">{{date}}</span>
-            {% endif %}
-        </div>
-    {% endif %}
+			{% if date %}
+				<span class="py-1 px-2 bg-secondary-dark rounded-[4px] text-sm text-white font-light">{{date}}</span>
+			{% endif %}
+		</div>
+	{% endif %}
 
-    {% if title or excerpt or permalink %}
-        <div class="flex flex-col p-6 pb-7">
+	{% if title or excerpt or permalink %}
+		<div class="flex flex-col p-6 pb-7">
 
-            {% if title %}
-                {% include "atoms/heading/h4.twig" with {class: 'mb-3'} %}
-            {% endif %}
+			{% if title %}
+				{% include "atoms/heading/h4.twig" with {class: 'mb-3 leading-[1.33]'} %}
+			{% endif %}
 
-            {% if excerpt %}
-                <div class="mb-4">{{excerpt|raw}}</div>
-            {% endif %}
+			{% if excerpt %}
+				<div class="mb-4">{{excerpt|raw}}</div>
+			{% endif %}
 
-            {% if permalink %}
-                <div>
-                    {% include "atoms/button.twig" with {url: permalink, title: 'Lees meer'|translatable, icon: 'chevron_right', type: 'btn--link btn--icon-right'} %}
-                </div>
-            {% endif %}
-            
-            
-        </div>
-    {% endif %}
-    
-    
+			{% if permalink %}
+				<div>
+					{% include "atoms/button.twig" with {url: permalink, title: 'Lees meer'|translatable, icon: 'chevron_right', type: 'btn--link btn--icon-right'} %}
+				</div>
+			{% endif %}
+
+
+		</div>
+	{% endif %}
+
+
 </article>

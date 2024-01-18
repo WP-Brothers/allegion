@@ -77,12 +77,12 @@ add_action('acf/init', function () {
                 'label'        => __('Tekst', '_SBB'),
             ],
             [
-                'key'           => "{$prefix}_archive_highlight",
-                'name'          => "{$prefix}_archive_highlight",
-                'label'         => __('Uitgelicht bericht', '_SBB'),
-                'type'          => 'post_object',
-                'post_type'     => ['news'],
+                'key'           => "{$prefix}_archive_background",
+                'name'          => "{$prefix}_archive_background",
+                'type'          => 'image',
                 'return_format' => 'id',
+                'media_upload'  => false,
+                'label'         => __('Achtergrond afbeelding', '_SBB'),
             ],
             [
                 'key'           => "{$prefix}_archive_filters",

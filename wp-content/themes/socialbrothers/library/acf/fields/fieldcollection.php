@@ -24,7 +24,8 @@ function getSubTitleFields($prefix)
     ];
     return $fields;
 }
-function getTabFields($prefix, $expand, $name, $label)
+
+function getTabFields($prefix, int $expand = 0, $name, $label)
 {
 
     $fields = [
@@ -170,12 +171,15 @@ function getOrderSwitch($prefix)
     return $fields;
 }
 
-function getImageFields($prefix)
+function getImageFields($prefix, $label = '')
 {
+    if (empty($label)) {
+        $label = __('Afbeelding', '_SBB');
+    }
     $fields = [
         [
             'key'           => "{$prefix}_image_id",
-            'label'         => __('Afbeelding', '_SBB'),
+            'label'         => $label,
             'name'          => 'image_id',
             'type'          => 'image',
             'return_format' => 'id',
@@ -291,6 +295,36 @@ function getVideoFields($prefix)
     ];
     return $fields;
 }
+function getFaqFields($prefix)
+{
+    $fields = [
+        [
+            'key'           => "{$prefix}_faqs",
+            'label'         => __('FAQ', '_SBB'),
+            'name'          => 'faqs',
+            'type'          => 'relationship',
+            'post_type'     => 'faq',
+            'multiple'      => 1,
+
+        ]
+    ];
+    return $fields;
+}
+
+function getRelationshipFields($prefix, $posttype, $name, $label)
+{
+    $fields = [
+        [
+            'key'           => "{$prefix}_{$posttype}s",
+            'label'         => $label,
+            'name'          => $name,
+            'type'          => 'relationship',
+            'post_type'     => "{$posttype}",
+            'multiple'      => 1,
+        ]
+    ];
+    return $fields;
+}
 
 function getFormFields($prefix)
 {
@@ -303,5 +337,42 @@ function getFormFields($prefix)
             'choices' => wpb_get_gforms(),
         ],
     ];
+    return $fields;
+}
+
+function getCategorySelect($prefix)
+{
+    $field['choices'] = [];
+    $terms = get_terms();
+    $choices[''] = __('Selecteer een categorie');
+
+    if ($terms) {
+        foreach ($terms as $term) {
+
+            if ($term->taxonomy == 'category_product') {
+                $choices[$term->term_id] = $term->name;
+            }
+        }
+    }
+
+    $fields = [
+        [
+            'key'           =>  "{$prefix}_category_products",
+            'label'         =>  __('Categorieën', '_SBB'),
+            'name'          =>  'category_products',
+            'type'          =>  'repeater',
+            'max'           =>  4,
+            'sub_fields'    => [
+                [
+                    'key'           =>  "{$prefix}_category",
+                    'label'         =>  __('Categorie', '_SBB'),
+                    'name'          =>  'category',
+                    'type'          =>  'select',
+                    'choices'       =>  $choices,
+                ],
+            ]
+        ],
+    ];
+
     return $fields;
 }

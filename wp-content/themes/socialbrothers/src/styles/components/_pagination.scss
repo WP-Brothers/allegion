@@ -6,7 +6,7 @@
     @apply bg-transparent text-font w-12 h-12 no-underline flex items-center justify-center rounded-full cursor-pointer transition-colors font-heading font-bold hover:text-primary;
 
     &.current {
-      @apply text-primary cursor-default;
+      @apply text-[var(--primary-DEFAULT)] cursor-default;
     }
 
     &.prev,

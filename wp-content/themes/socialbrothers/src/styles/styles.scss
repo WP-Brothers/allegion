@@ -1,30 +1,44 @@
-@use "swiper/scss";
+@use 'swiper/scss';
 
-@use "base/typography";
+@use 'base/typography';
 
-@use "base/container";
+@use 'base/container';
 
-@use "base/buttons";
+@use 'base/buttons';
 
-@use "components/breadcrumbs";
+@use 'components/breadcrumbs';
 
-@use "components/swiper";
+@use 'components/swiper';
 
-@use "components/pagination";
+@use 'components/pagination';
 
-@use "components/forms";
+@use 'components/forms';
 
-@use "components/menu-list";
+@use 'components/menu-list';
 
-@use "components/menu-simple";
+@use 'components/menu-simple';
 
-@use "components/menu-main";
+@use 'components/menu-main';
 
-@use "layout/footer";
+@use 'components/menu-header-top';
 
-@use "components/category-product-card";
+@use 'components/flag';
 
-@use "components/scroll-to-top";
+@use 'components/category-product-card';
+
+@use 'components/megamenu-element';
+
+@use 'components/mobile-submenu';
+
+@use 'components/keurmerken';
+
+@use 'components/category-product-card';
+
+@use 'components/single-news';
+
+@use 'components/scroll-to-top';
+
+@use 'layout/footer';
 
 @use "components/media-cutoff";
 
@@ -53,7 +67,6 @@ body {
 }
 
 body {
-
   .material-symbols-rounded {
     font-size: inherit;
   }
