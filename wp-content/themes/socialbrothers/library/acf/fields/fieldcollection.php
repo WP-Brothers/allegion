@@ -297,7 +297,6 @@ function getFaqFields($prefix)
     return $fields;
 }
 
-
 function getRelationshipFields($prefix, $posttype, $name, $label)
 {
     $fields = [
