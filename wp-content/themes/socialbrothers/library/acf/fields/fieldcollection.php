@@ -281,6 +281,22 @@ function getVideoFields($prefix)
     ];
     return $fields;
 }
+function getFaqFields($prefix)
+{
+    $fields = [
+        [
+            'key'           => "{$prefix}_faqs",
+            'label'         => __('FAQ', '_SBB'),
+            'name'          => 'faqs',
+            'type'          => 'relationship',
+            'post_type'     => 'faq',
+            'multiple'      => 1,
+
+        ]
+    ];
+    return $fields;
+}
+
 function getRelationshipFields($prefix, $posttype, $name, $label)
 {
     $fields = [
