@@ -33,7 +33,7 @@ unset($languages[get_blog_details(get_current_blog_id())->blogname]);
 
 
 $languageArray = [];
-foreach($languages as $language) {
+foreach ($languages as $language) {
     $languageArray[$language->blog_id]['id'] = $language->blog_id;
     $languageArray[$language->blog_id]['name'] = $language->blogname;
     $languageArray[$language->blog_id]['url'] = $language->siteurl;
@@ -45,11 +45,11 @@ $productText = get_field('header_megamenu_text', 'options') ?? '';
 
 
 $highlightedProductArray = [];
-$highlightedProductArray['name'] = $highlightedProduct->post_title;
-$highlightedProductArray['excerpt'] = $productText;
-$highlightedProductArray['new_tag'] = $newTag;
-$highlightedProductArray['url'] = $highlightedProduct->guid;
-$highlightedProductArray['image'] = get_the_post_thumbnail($highlightedProduct->ID, 'large', ['class' => 'w-auto h-[128px]']);
+$highlightedProductArray['name'] = $highlightedProduct->post_title ?? '';
+$highlightedProductArray['excerpt'] = $productText ?? '';
+$highlightedProductArray['new_tag'] = $newTag ?? '';
+$highlightedProductArray['url'] = $highlightedProduct->guid ?? '';
+$highlightedProductArray['image'] = get_the_post_thumbnail($highlightedProduct->ID ?? '', 'large', ['class' => 'w-auto h-[128px]']);
 
 
 
