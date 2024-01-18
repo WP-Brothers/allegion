@@ -32,13 +32,12 @@
               "type": "flex"
           },
           "allowSwitching": false,
-          "allowEditing": true,
+          "allowEditing": false,
           "allowInheriting": false,
           "allowSizingOnChildren": false,
-          "allowVerticalAlignment": true,
+          "allowVerticalAlignment": false,
           "allowJustification": false,
-          "allowOrientation": true
-
+          "allowOrientation": false
       }
   },
   "attributes": {

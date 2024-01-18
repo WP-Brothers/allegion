@@ -2,6 +2,10 @@
     {% set sizeClass = 'h-12 w-12 text-[48px]' %}
 {% elseif size == '16' %}
     {% set sizeClass = 'h-4 w-4 text-p' %}
+{% elseif size == '24' %}
+    {% set sizeClass = 'h-6 w-6 text-2xl' %}
+{% elseif size == '32' %}
+    {% set sizeClass = 'h-8 w-8 text-[32px]' %}
 {% else %}
     {% set sizeClass = 'h-6 w-6 text-[24px]' %}
 {% endif %}

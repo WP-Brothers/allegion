@@ -6,7 +6,7 @@ ul.menu-list {
     @apply grid grid-cols-[24px_1fr] gap-4;
 
     &::before {
-      @apply content-["\e5cc"] font-iconRound flex text-primary text-[24px] leading-4 justify-center items-center;
+      @apply content-["\e5cc"] font-iconRound flex text-[var(--primary-DEFAULT)] text-[24px] leading-4 justify-center items-center;
     }
 
     a {

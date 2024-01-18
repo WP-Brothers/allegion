@@ -1,6 +1,6 @@
 {
 
-  "window.title": "WPB Theme ${separator}${activeEditorShort}",
+  "window.title": "WPB Theme ${separator} Allegion ${separator}${activeEditorShort}",
   "window.titleBarStyle": "native",
   "window.titleSeparator": " - ",
 }

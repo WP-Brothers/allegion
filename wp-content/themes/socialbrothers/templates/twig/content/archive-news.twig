@@ -1,0 +1,19 @@
+{{ get_header(header_name|default('')) }}
+
+{# Include hero when its merged #}
+{# {% include 'organisms/hero.twig' with {title: intro.title, content: intro.content} %} #}
+
+	<div class="container"> <div class="w-full">
+		{% include "organisms/breadcrumbs.twig" with {class_name: 'text-font'} %}
+	</div>
+
+	<div class="flex flex-col lg:flex-row">
+		<div class="w-full">
+			{% include 'organisms/archive-filters.twig' with filters %}
+			{% include 'organisms/archive-posts.twig' with {template: 'news-card'} %}
+		</div>
+	</div>
+
+</div>
+
+{{ get_footer(footer_name|default('')) }}

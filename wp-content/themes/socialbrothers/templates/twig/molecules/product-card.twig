@@ -1,6 +1,19 @@
-<article class="md:max-w-[261px] px-4 py-6 bg-white border border-neutral-25">
-	<a href="{{ permalink }}" class="grid gap-3 no-underline">
-		{% include 'molecules/image-card.twig' %}
-		{% include 'atoms/heading/h2.twig' with {class: 'font-heading text-h6 m-0'} %}
-	</a>
+<article class="relative md:max-w-[261px] px-4 py-6 bg-white border border-neutral-25">
+
+	{% if safety_index %}
+		<div class="w-[48px] h-[48px] absolute top-4 left-4 z-10">
+			<img src="{{safety_index|raw}}" alt="safety index" class="w-auto h-full">
+		</div>
+	{% endif %}
+
+	{% include 'molecules/image-card.twig' %}
+	{% include "molecules/keurmerken.twig" with {size: '32'}  %}
+	{% include 'atoms/heading/h2.twig' with {class: 'font-heading text-h6 m-0 py-1'} %}
+	<span class="text-sm font-normal font-heading">{{article_number}}</span>
+
+	{% include "atoms/hr.twig" with {color: 'border-neutral-25', margin: 'my-4'} %}
+	<div class="flex justify-between gap-4">
+		{% include "atoms/button.twig" with {url: permalink, title: 'Bekijk product'|translatable, type: 'btn--[var(--primary-DEFAULT)] btn--rounded btn--large-margin'} %}
+		{% include "atoms/button.twig" with {url: external_link, title: '', type: 'btn--secondary btn--rounded btn--square ', icon: 'shopping_cart'} %}
+	</div>
 </article>

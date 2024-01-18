@@ -69,9 +69,9 @@ module.exports = {
       },
       colors: {
         primary: {
-          light: '#a1cbb0',
-          DEFAULT: '#009636',
-          dark: '#27603c',
+          light: 'var(--color-primary-light)',
+          DEFAULT: '--var(--color-primary-DEFAULT)',
+          dark: 'var(--color-primary-dark)',
         },
         secondary: {
           light: '#ededed',
@@ -106,10 +106,13 @@ module.exports = {
           75: '#686c73',
           100: '#353c45',
         },
+        offwhite: '#fafafa',
         supporting: {
           DEFAULT: '#7900ff',
           2: '#00ff45',
           3: '#00c6ff',
+          4: '#f9f9f9',
+          5: '#f8f8f8'
         },
         overlay: {
           10: 'rgba(0, 0, 0, 0.1)',
@@ -129,6 +132,7 @@ module.exports = {
         card: '16px 32px 40px 0 rgba(0, 0, 0, 0.16)',
         input:
           '0 0 0 0.5px #ff6900, inset 0 0 0 0.5px #ff6900, 0 0 0 4px #ffefe4;',
+        contentcard: '4px 4px 16px 0 rgba(0, 0, 0, 0.1);'
       },
       backgroundImage: {
         highlight:

@@ -1,0 +1,21 @@
+<div class="gap-2 items-center justify-center hidden md:flex">
+    {% for language in languages %}
+        <div class="flex gap-2 items-center justify-center">
+                {% include "atoms/flags/" ~ language.name ~ ".twig" %}
+                <a class="no-underline uppercase text-sm font-heading font-light" href="{{language.url}}">{{language.name}}</a>
+        </div>
+    {% endfor %}
+</div>
+<div class="flex flex-col gap-2 items-center justify-start md:hidden">
+    {% for language in languages %}
+        <a href="{{language.url}}" class="flex gap-2 items-center justify-between w-full no-underline text-sm font-heading font-light">
+                {% if language.name == 'EN' %}
+                    <span class="text-[18px]">{{'Engels'|translatable}}</span>
+                {% elseif language.name == 'NL' %}
+                    <span class="text-[18px]">{{'Nederlands'|translatable}}</span>
+                {% endif %}
+
+                <span class="font-icon text-2xl">chevron_right</span>
+        </a>
+    {% endfor %}
+</div>
