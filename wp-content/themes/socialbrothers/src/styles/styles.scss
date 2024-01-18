@@ -20,13 +20,15 @@
 
 @use "components/menu-main";
 
-@use "layout/footer";
+@use "components/keurmerken";
 
 @use "components/category-product-card";
 
 @use "components/single-news";
 
 @use "components/scroll-to-top";
+
+@use "layout/footer";
 
 html,
 body {
