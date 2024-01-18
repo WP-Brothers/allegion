@@ -40,35 +40,29 @@ $share     = [
 
 $author = wpb_build_author_context(get_current_user_id());
 
-$more_slider            = get_field("{$post_type}_setting_single_other_posts", 'options');
-$more_slider['slides']  = [];
-$more_slider['buttons'] = [
-    [
-        'url'   => get_post_type_archive_link($post_type),
-        'title' => __('Toon alle', '_SBF'),
-        'type'  => 'btn--solid',
-    ],
-];
-
+$news = [];
 $current_id = get_the_ID();
 
-$more_slider['class_name'] = 'py-10 md:py-20';
+
 $recent_posts              = new WP_Query([
     'post_type'      => $post_type,
-    'posts_per_page' => 10,
+    'posts_per_page' => 4,
 ]);
+
+
+$block['style']['color']['background'] = "background-color: var(--wp--preset--color--secondary-light)";
 
 if ($recent_posts->have_posts()) {
     while ($recent_posts->have_posts()) {
         $recent_posts->the_post();
-        if(get_the_ID() !== $current_id) {
-            $more_slider['slides'][] = wpb_build_post_card_context(get_the_ID());
+        if(get_the_ID() !== $current_id && count($news) < 3) {
+            $news[] = wpb_build_news_card_context(get_the_ID());
         }
     }
 }
+
 wp_reset_query();
 wp_reset_postdata();
-
 /**
  * @noinspection PhpUnhandledExceptionInspection
  */
@@ -76,6 +70,6 @@ Twig::render(
     'index.twig',
     Theme::filter(
         'index_context',
-        compact('wp_query', 'post', 'head', 'share', 'more_slider', 'author')
+        compact('wp_query', 'post', 'news', 'author', 'block', 'title')
     )
 );
