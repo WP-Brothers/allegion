@@ -1,0 +1,27 @@
+.megamenu-element {
+    @apply hidden;
+
+    &.show {
+        @apply hidden md:block;
+    }
+    &__list-wrapper {
+
+        > li {  
+            @apply list-none;
+            > a {
+            @apply px-1 py-2 grid grid-cols-[24px_1fr] rounded-[2px] gap-4 text-font bg-white hover:bg-supporting-4 hover:text-primary-dark font-heading transition-colors font-light;
+
+            &::before {
+                @apply content-["\e5cc"] text-primary font-iconRound flex text-[24px] leading-4 justify-center items-center;
+            }
+            }
+
+            &.current_page_item {
+
+            > a {
+                @apply text-primary-dark;
+            }
+            }
+        }
+    }
+}

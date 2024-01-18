@@ -106,10 +106,12 @@ module.exports = {
           75: '#686c73',
           100: '#353c45',
         },
+        offwhite: '#fafafa',
         supporting: {
           DEFAULT: '#7900ff',
           2: '#00ff45',
           3: '#00c6ff',
+          4: '#f9f9f9',
           5: '#f8f8f8'
         },
         overlay: {

@@ -11,6 +11,7 @@ function wpb_register_menus_init(): void
 {
     register_nav_menus([
         'primary'       => __('Hoofdmenu', '_SBB'),
+        'header_top'       => __('Header Boven', '_SBB'),
         '404'           => __('404 Links', '_SBB'),
         'footer_1'      => __('Footer Menu 1', '_SBB'),
         'footer_2'      => __('Footer Menu 2', '_SBB'),

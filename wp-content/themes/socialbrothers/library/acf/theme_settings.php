@@ -2,6 +2,13 @@
 
 defined('ABSPATH') || exit('Forbidden');
 
+add_filter("acf/load_field/name=multisites", function (array $field): array {
+    $field['choices'] = wpb_get_sites();
+
+
+    return $field;
+});
+
 function acf_theme_settings()
 {
     $prefix = 'theme_settings';
@@ -301,7 +308,37 @@ function acf_theme_settings()
                     ],
                 ],
             ],
-
+            [
+                'key'       => "{$prefix}_megamenu_tab",
+                'label'     => __('Mega menu', '_SBB'),
+                'type'      => 'tab',
+                'placement' => 'left',
+            ],
+            [
+                'key'   => "{$prefix}_header_megamenu_highlighted_product",
+                'label' => __('Uitgelicht product in het mega menu', '_SBB'),
+                'name'  => 'header_megamenu_highlighted_product',
+                'type'  => 'post_object',
+                'post_type' => 'product',
+                'ui'    => true,
+            ],
+            [
+                'key'   => "{$prefix}_header_megamenu_new_tag",
+                'label' => __('\'Nieuw\' Tag tonen bij het uitgelicht product', '_SBB'),
+                'name'  => 'header_megamenu_new_tag',
+                'type'  => 'true_false',
+                'ui'    => true,
+                'ui_on_text' => __('Ja', '_SBB'),
+                'ui_off_text' => __('Nee', '_SBB'),
+                'wrapper' => ['width' => 50]
+            ],
+            [
+                'key'   => "{$prefix}_header_megamenu_text",
+                'label' => __('Korte tekst bij het uitgelicht product', '_SBB'),
+                'name'  => 'header_megamenu_text',
+                'type'  => 'text',
+                'wrapper' => ['width' => 50]
+            ],
             [
                 'key'       => "{$prefix}_footer_tab",
                 'label'     => __('Footer', '_SBB'),
@@ -360,6 +397,14 @@ function acf_theme_settings()
                 'type'          => 'image',
                 'return_format' => 'id'
             ],
+            [
+                'key'           => 'theme_settings_multisite_',
+                'name'          => 'multisites',
+                'label'         => __('Multisites voor taalschakelaar', '_SBB'),
+                'type'          => 'checkbox',
+                'multiple'      => true,
+                'instructions'  => __('Voeg alle sites toe die getoond moeten worden in de taalschakelaar.', '_SBB'),
+            ]
         ],
         'location' => [
             [

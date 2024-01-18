@@ -1,18 +1,34 @@
-<header id="header" class="top-0 sticky bg-white py-4 md:py-6 z-[100] w-full">
+<header id="header" class="top-0 sticky bg-white z-[100] w-full h-full md:h-auto">
+	<div class="w-full bg-offwhite hidden md:block ">
+		<div class="container">
+
+			<div class="flex justify-end w-full py-4 gap-7">
+				{{ menu_top|raw }}
+
+				{% include "molecules/language-switch.twig" with {languages} %}
+			</div>
+		</div>
+	</div>
+
+
 	<div class="container">
-		<div class="md:flex md:items-center gap-4 xl:gap-[60px]">
-			<div class="flex justify-between items-center">
-				<a href="/">
-					{% include 'atoms/image.twig' with {image_id: logo_id, size: 'full', image_classes: 'h-12 max-w-[300px]'} %}
+		<div class="gap-4 py-6 md:flex md:items-center xl:gap-5">
+			<div class="flex items-center justify-between">
+				<button id="" class="items-center justify-center w-6 h-6 transition-colors text-primary hover:text-primary-dark flex md:hidden">
+					{% include 'atoms/icon.twig' with {icon: 'search', size: '32', color: 'text-primary'} %}
+				</button>
+
+				<a href="/" class="">
+					{% include 'atoms/image.twig' with {image_id: logo_id, size: 'full', image_classes: 'header__logo h-[29px] max-w-[225px] object-contain'} %}
 				</a>
 
-				<button id="toggle-header-nav" class="h-12 w-12 flex items-center justify-center md:hidden">
+				<button id="toggle-header-nav" class="flex items-center justify-center w-12 h-12 md:hidden">
 					{% include 'atoms/icon.twig' with {icon: 'menu', size: '32', class: 'active:hidden', color: 'text-primary'} %}
 					{% include 'atoms/icon.twig' with {icon: 'close', size: '32', class: 'hidden active:flex', color: 'text-primary'} %}
 				</button>
 			</div>
 
-			<div id="header-nav" class="max-h-[calc(100vh_-_80px)] top-20 md:top-0 overflow-auto md:overflow-unset hidden absolute w-full right-0 p-4 md:p-0 gap-4 md:relative bg-white md:flex items-end md:items-center md:justify-between md:flex-grow">
+			<div id="header-nav" class="max-h-[calc(100vh_-_80px)] top-20 md:top-0 overflow-auto md:overflow-unset hidden absolute w-full right-0 p-4 pt-0 pb-0 md:p-0 gap-[18px] md:gap-3 md:relative bg-white md:flex items-end md:items-center md:justify-between md:flex-grow">
 				{{ menu|raw }}
 
 				<div class="flex flex-col md:flex-row md:justify-end md:items-center gap-4 md:gap-6 flex-grow">
@@ -22,10 +38,19 @@
 					<div class="md:hidden">
 						{% include "molecules/search-bar.twig" %}
 					</div>
-					{% include 'atoms/button.twig' with  button %}
+					<button id="toggle-header-search" class="items-center justify-center hidden w-6 h-6 transition-colors text-primary hover:text-primary-dark md:flex">
+						{% include 'atoms/icon.twig' with {icon: 'search', size: '24', color: 'text-font'} %}
+					</button>
 				</div>
+
+				<div class="block md:hidden bg-secondary-light h-full w-[calc(100%+32px)] -translate-x-[16px] px-9 pt-10 pb-8">
+					{{ menu_top|raw }}
+
+					{% include "molecules/language-switch.twig" with {languages} %}
+				</div>
+
 			</div>
-			<div id="header-search" class="md:absolute md:bottom-0 hidden translate-y-full pb-4 right-0 w-full bg-white">
+			<div id="header-search" class="right-0 hidden w-full pb-4 translate-y-full bg-white md:absolute md:bottom-0">
 				<div class="container">
 					<div class="flex justify-end">
 						<div class="max-w-[400px]">
@@ -36,4 +61,5 @@
 			</div>
 		</div>
 	</div>
+	{% include "molecules/megamenu-element.twig" with {highlighted_product, megamenu} %}
 </header>
