@@ -2,7 +2,6 @@
   @apply flex flex-col md:flex-row gap-4 md:gap-2 lg:gap-6 xl:gap-x-[30px]  flex-wrap;
 
   > li {
-
     &.megamenu {
       > .submenu ul {
         @apply block md:hidden;
@@ -10,8 +9,8 @@
     }
 
     > a {
-      @apply w-full md:w-auto font-heading font-light hover:text-primary inline-flex gap-2 items-center transition-colors md:border-b-0 border-white md:text-psmall lg:text-p p-6 pr-7 md:p-0 md:pl-0 text-2xl justify-between border-b-[1px] border-b-neutral-25;
-
+      @apply w-full md:w-auto font-heading font-light hover:text-[var(--primary-DEFAULT)] inline-flex gap-2 items-center transition-colors md:border-b-0 border-white md:text-psmall lg:text-p p-6 pr-7 md:p-0 md:pl-0 text-2xl justify-between border-b-[1px] border-b-neutral-25;
+      // @apply w-full md:w-auto px-4 py-[14px] uppercase font-bold hover:text-[var(--primary-DEFAULT)] h-12 inline-flex gap-2 items-center transition-colors border-b border-white md:text-psmall lg:text-p;
 
       &:after {
         @apply -rotate-90 md:rotate-0;
@@ -20,9 +19,8 @@
 
     &.current_page_item,
     &.current-menu-parent {
-
       > a {
-        @apply border-primary-dark text-primary-dark;
+        @apply border-[var(--primary-dark)] text-[var(--primary-dark)];
       }
     }
 
@@ -30,9 +28,9 @@
       @apply relative;
 
       > a {
-
         &:after {
-          @apply font-iconRound content-["\e5cf"] text-primary md:text-font text-[24px];
+          // @apply font-iconRound content-["\e5cf"] text-primary md:text-font text-[24px];
+          @apply font-iconRound content-["\e5cf"] text-[var(--primary-DEFAULT)] md:text-font text-[24px];
         }
       }
 
@@ -43,9 +41,9 @@
           @apply bg-white rounded-[2px] overflow-hidden md:shadow-menu w-full md:w-[260px] p-4 md:border border-neutral-25;
 
           > li {
-
             > a {
-              @apply px-1 py-2 grid grid-cols-[24px_1fr] rounded-[2px] gap-4 text-font bg-white hover:bg-supporting-4 hover:text-primary-dark font-heading transition-colors font-light;
+              @apply px-1 py-2 grid grid-cols-[24px_1fr] rounded-[2px] gap-4 text-[var(--primary-DEFAULT)] bg-white hover:bg-supporting-4 hover:text-primary-dark font-heading transition-colors font-light;
+              @apply px-6 py-3 grid grid-cols-[24px_1fr] gap-2 text-[var(--primary-DEFAULT)] bg-white hover:bg-[var(--primary-light)] transition-colors uppercase font-bold;
 
               &::before {
                 @apply content-["\e5cc"] text-primary font-iconRound flex text-[24px] leading-4 justify-center items-center;
@@ -53,9 +51,8 @@
             }
 
             &.current_page_item {
-
               > a {
-                @apply text-primary-dark;
+                @apply text-[var(--primary-dark)];
               }
             }
           }
@@ -63,7 +60,6 @@
       }
 
       &.show {
-
         > a {
           @apply text-primary;
 
@@ -80,17 +76,13 @@
   }
 
   &.menu-main--hover {
-
     > li {
-
       &.menu__item--has-children {
-
         .submenu {
           @apply block md:hidden;
         }
 
         &:hover {
-
           .submenu {
             @apply md:block;
           }

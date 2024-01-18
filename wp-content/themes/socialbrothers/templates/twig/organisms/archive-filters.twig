@@ -1,10 +1,24 @@
 <section class="section">
     <div class="container">
-        <form action="{{ archive_url }}" class="flex flex-wrap gap-4 py-6 items-center justify-between border-b border-neutral-25">
-            <div>
-                {% include 'molecules/filters.twig' with filters %}
-            </div>
-            <div>
+        <form action="{{ archive_url }}" class="flex flex-wrap items-center justify-between gap-4 py-6 pt-16 pt border-b border-neutral-50">
+
+            
+            {% if show_filters %}
+                 <div>
+                    {% include 'molecules/filters.twig' with filters %}
+                </div>
+            {% endif %}
+
+            {% if results and show_resuls %}
+                <span class="font-bold text-secondary font-heading">{{results|raw}} {{'resultaten'|raw}}</span>
+            {% endif %}
+            
+            <div class="flex items-center gap-6">
+                {% if sort_text %}
+                    {% include 'atoms/heading/h6.twig' with {title: sort_text, class: 'mb-0 text-secondary'} %}
+                {% endif %}
+                
+                
                 {% include 'molecules/sort.twig' with sort %}
             </div>
         </form>

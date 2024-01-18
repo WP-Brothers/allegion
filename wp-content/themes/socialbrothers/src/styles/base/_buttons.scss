@@ -9,10 +9,6 @@
     @apply bg-[var(--secondary)] border-[var(--secondary)];
   }
 
-  &--solid {
-
-  }
-
   &--outline {
     @apply border-[1px] bg-transparent text-[var(--primary)];
 
@@ -22,7 +18,7 @@
   }
 
   &--link {
-    @apply px-0 border-transparent bg-transparent text-[var(--primary)];
+    @apply px-0 border-transparent bg-transparent text-[var(--primary)] font-light;
 
     &:hover {
       @apply bg-transparent border-transparent text-[var(--secondary)];
@@ -42,8 +38,8 @@
   }
 
   &--secondary {
-    --primary: #0f7c41;
-    --secondary: #0b4b26;
+    --primary: #5b6770;
+    --secondary: #2f3234;
   }
 
   &--cta {
@@ -57,7 +53,40 @@
     @apply text-secondary-dark border-secondary-dark bg-white
   }
 
+  &--rounded {
+    @apply rounded-[2px];
+  }
+
+  &--square {
+    @apply p-[10px];
+  }
+
+  &--large-margin {
+    @apply py-[10px] px-6;
+  }
+
   &--icon-right {
     @apply flex-row-reverse;
+  }
+}
+
+.axa-bike-security-theme {
+  .btn {
+    --primary: #f4811f;
+    --secondary: #cc5e02;
+  }
+}
+
+.axa-corporate-theme {
+  .btn {
+    --primary: #348bba;
+    --secondary: #16445d;
+  }
+}
+
+.trelock-theme {
+  .btn {
+    --primary: #d4021d;
+    --secondary: #980014;
   }
 }

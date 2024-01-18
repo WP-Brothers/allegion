@@ -143,4 +143,9 @@ function wpb_get_sites(): array
     }
 
     return $sites;
+add_filter('use_block_editor_for_post_type', 'wpb_disable_gutenberg', 10, 2);
+function wpb_disable_gutenberg($current_status, $post_type)
+{
+    if ($post_type === 'keurmerk' || $post_type === 'product') return false;
+    return $current_status;
 }

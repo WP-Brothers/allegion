@@ -1,0 +1,24 @@
+{% if size == '32' %}
+    {% set class = 'w-8 h-8' %}
+{% endif %}
+
+{% if keurmerken %}
+    <div class="flex flex-row flex-wrap {{product_single ? 'gap-6' : 'gap-2'}}">
+        {% for keurmerk in keurmerken %}
+            {% if keurmerk.modal %}
+                <div class="keurmerk contains-modal">
+                    <div class="keurmerk__open flex justify-center items-center cursor-pointer relative {{product_single ? 'max-w-[48px]' : ''}} {{class}}" data-modal-open="modal-open">
+                        {{keurmerk.image|raw}}
+                    </div>
+
+                    {% include "molecules/dialog.twig" with keurmerk.modal %}
+                </div>
+            {% else %}
+                <div class="flex justify-center items-center {{class}}">
+                    {{keurmerk.image|raw}}
+                </div>
+            {% endif %}
+            
+        {% endfor %}
+    </div>
+{% endif %}

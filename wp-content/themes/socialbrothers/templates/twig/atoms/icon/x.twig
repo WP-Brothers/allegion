@@ -1,10 +1,10 @@
 {% if size == '32' %}
-    {% set sizeClass = 'h-8 w-8' %}
+	{% set sizeClass = 'h-8 w-8' %}
 {% elseif size == '24' %}
-    {% set sizeClass = 'h-6 w-6' %}
+	{% set sizeClass = 'h-6 w-6' %}
 {% else %}
-    {% set sizeClass = 'h-4 w-4' %}
+	{% set sizeClass = 'h-4 w-4' %}
 {% endif %}
-<svg width="32" height="32" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="{{ sizeClass }} {{ color|default('fill-primary hover:fill-primary-dark') }}">
-    <path d="M22.2434 6.25H25.5527L18.3246 14.5094L26.8277 25.75H20.1715L14.9543 18.9344L8.9918 25.75H5.67773L13.4074 16.9141L5.25586 6.25H12.0809L16.7918 12.4797L22.2434 6.25ZM21.0809 23.7719H22.9137L11.0824 8.125H9.11367L21.0809 23.7719Z" fill="inherit"/>
+<svg width="32" height="32" viewbox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="{{ sizeClass }} {{ color|default('fill-[var(--primary-DEFAULT)] hover:fill-[var(--primary-dark)]') }}">
+	<path d="M22.2434 6.25H25.5527L18.3246 14.5094L26.8277 25.75H20.1715L14.9543 18.9344L8.9918 25.75H5.67773L13.4074 16.9141L5.25586 6.25H12.0809L16.7918 12.4797L22.2434 6.25ZM21.0809 23.7719H22.9137L11.0824 8.125H9.11367L21.0809 23.7719Z" fill="inherit"/>
 </svg>

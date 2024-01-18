@@ -1,5 +1,5 @@
-<div class="p-4 md:p-6 aspect-square relative bg-primary-light overflow-hidden rounded">
-    {% include 'atoms/image.twig' with {ratio: 'aspect-square', image_classes: 'absolute top-0 left-0 w-full h-full'} %}
+<div class="relative p-4 overflow-hidden rounded md:p-6 aspect-square">
+    {% include 'atoms/image.twig' with {ratio: 'aspect-square', image_classes: 'absolute top-0 left-0 w-auto h-full md:max-h-[208px]'} %}
     <div class="relative">
         {% include 'molecules/labels.twig' %}
     </div>
