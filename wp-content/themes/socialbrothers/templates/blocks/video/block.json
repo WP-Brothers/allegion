@@ -3,13 +3,14 @@
   "title": "Video",
   "category": "sections",
   "icon": "format-video",
-  "keywords": ["video","youtube", "vimeo", "player"],
+  "keywords": ["video", "youtube", "vimeo", "player"],
   "acf": {
       "mode": "preview"
   },
   "supports": {
       "anchor": true,
       "jsx": true,
+      "align": [ "full", "wide" ],
       "fullHeight": false,
       "alignText": false,
       "spacing": {
@@ -23,10 +24,28 @@
           ]
       },
       "color": {
-          "background": true
+          "background": true,
+          "text": true
+      },
+      "layout": {
+          "default": {
+              "type": "flex"
+          },
+          "allowSwitching": false,
+          "allowEditing": false,
+          "allowInheriting": false,
+          "allowSizingOnChildren": false,
+          "allowVerticalAlignment": false,
+          "allowJustification": false,
+          "allowOrientation": false
+
       }
   },
   "attributes": {
+      "textColor": {
+          "type": "string",
+          "default": "font"
+      },
       "style": {
           "type": "object",
           "default" : {

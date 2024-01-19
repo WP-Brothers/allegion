@@ -1,39 +1,39 @@
 {% if type == 'transparant' %}
-    {% set icon_color = 'text-secondary' %}
-    {% set label_type = 'border-transparent py-2' %}
+	{% set icon_color = 'text-secondary' %}
+	{% set label_type = 'border-transparent py-2' %}
 {% elseif type == 'transparant-white' %}
-    {% set icon_color = 'text-white' %}
-    {% set label_type = 'border-transparent text-white py-2' %}
+	{% set icon_color = 'text-white' %}
+	{% set label_type = 'border-transparent text-white py-2' %}
 {% elseif type == 'clean' %}
-    {% set icon_color = 'text-secondary' %}
-    {% set label_type = 'border-transparent' %}
+	{% set icon_color = 'text-secondary' %}primary
+	{% set label_type = 'border-transparent' %}
 {% elseif type == 'clean-white' %}
-    {% set icon_color = 'text-white' %}
-    {% set label_type = 'border-transparent text-white' %}
+	{% set icon_color = 'text-white' %}
+	{% set label_type = 'border-transparent text-white' %}
 {% elseif type == 'primary' %}
-    {% set icon_color = 'text-white' %}
-    {% set label_type = 'px-4 bg-primary border-primary text-white py-2' %}
+	{% set icon_color = 'text-white' %}
+	{% set label_type = 'px-4 bg-[var(--primary-DEFAULT)] border-[var(--primary-DEFAULT)] text-white py-2' %}
 {% elseif type == 'primary-outline' %}
-    {% set icon_color = 'text-primary' %}
-    {% set label_type = 'px-4 bg-primary-light border-primary py-2' %}
+	{% set icon_color = 'text-[var(--primary-DEFAULT)]' %}
+	{% set label_type = 'px-4 bg-[var(--primary-light)] border-[var(--primary-DEFAULT)] py-2' %}
 {% elseif type == 'secondary' %}
-    {% set icon_color = 'text-white' %}
-    {% set label_type = 'px-4 bg-secondary border-secondary text-white py-2' %}
+	{% set icon_color = 'text-white' %}
+	{% set label_type = 'px-4 bg-secondary border-secondary text-white py-2' %}
 {% elseif type == 'secondary-outline' %}
-    {% set icon_color = 'text-secondary' %}
-    {% set label_type = 'px-4 bg-secondary-light border-secondary py-2' %}
+	{% set icon_color = 'text-secondary' %}
+	{% set label_type = 'px-4 bg-secondary-light border-secondary py-2' %}
 {% elseif type == 'cta' %}
-    {% set icon_color = 'text-white' %}
-    {% set label_type = 'px-4 bg-cta text-cta text-white py-2' %}
+	{% set icon_color = 'text-white' %}
+	{% set label_type = 'px-4 bg-cta text-cta text-white py-2' %}
 {% elseif type == 'cta-outline' %}
-    {% set icon_color = 'text-cta' %}
-    {% set label_type = 'px-4 bg-cta-light text-cta py-2' %}
+	{% set icon_color = 'text-cta' %}
+	{% set label_type = 'px-4 bg-cta-light text-cta py-2' %}
 {% else %}
-    {% set label_type = 'px-4 bg-secondary border-secondary text-white py-2' %}
-    {% set icon_color = 'text-white' %}
+	{% set label_type = 'px-4 bg-secondary border-secondary text-white py-2' %}
+	{% set icon_color = 'text-white' %}
 {% endif %}
 {% set size = '16' %}
 <div class="inline-flex gap-[6px] border-2 rounded-full leading-4 text-psmall {{ label_type }} {{ flip ? 'flex-row-reverse' : '' }}">
-    {% include 'atoms/icon.twig' with {icon: icon, color: icon_color} %}
-    {{ label|raw }}
+	{% include 'atoms/icon.twig' with {icon: icon, color: icon_color} %}
+	{{ label|raw }}
 </div>

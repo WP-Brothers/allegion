@@ -2,6 +2,13 @@
 
 defined('ABSPATH') || exit('Forbidden');
 
+add_filter("acf/load_field/name=multisites", function (array $field): array {
+    $field['choices'] = wpb_get_sites();
+
+
+    return $field;
+});
+
 function acf_theme_settings()
 {
     $prefix = 'theme_settings';
@@ -44,10 +51,35 @@ function acf_theme_settings()
                 ]
             ],
             [
+                'key'          => "{$prefix}_kvk",
+                'name'         => 'kvk',
+                'label'        => __('KvK', '_SBB'),
+                'type'         => 'text',
+                'prepend'         => __('KvK:', '_SBB'),
+                'key'           => "{$prefix}_brand_style",
+                'name'          => 'brand_style',
+                'label'         => __('Brand', '_SBB'),
+                'instructions'  => __("Select the branding style that corresponds to the site you're currently on.", '_SBB'),
+                'type'          => 'select',
+                'choices'       => [
+                    ''                          => __('AXA — Home Security', '_SBB'),
+                    'axa-bike-security-theme'   => __('AXA — Bike Security', '_SBB'),
+                    'axa-corporate-theme'       => __('AXA — Corporate', '_SBB'),
+                    'trelock-theme'             => __('Trelock', '_SBB'),
+                ],
+            ],
+            [
                 'key'       => "{$prefix}_contact_tab",
                 'label'     => __('Contact', '_SBB'),
                 'type'      => 'tab',
                 'placement' => 'left',
+            ],
+            [
+                'key'          => "{$prefix}_contact_hours",
+                'name'         => 'contact_hours',
+                'label'        => __('Bereikbaar op', '_SBB'),
+                'placeholder'        => __('Bijv: Ma t/m vrij 08:00 - 17:00 uur', '_SBB'),
+                'type'         => 'text',
             ],
             [
                 'key'          => "{$prefix}_phone",
@@ -66,6 +98,12 @@ function acf_theme_settings()
                 'instructions' => __('Voeg hier het e-mailadres toe', '_SBB'),
             ],
             [
+                'key'       => "{$prefix}_business_name",
+                'name'      => 'business_name',
+                'label'     => __('Bedrijfsnaam', '_SBB'),
+                'type'      => 'text',
+            ],
+            [
                 'key'       => "{$prefix}_address",
                 'name'      => 'address',
                 'label'     => __('Adres', '_SBB'),
@@ -80,14 +118,6 @@ function acf_theme_settings()
                 'type'    => 'link',
                 'wrapper' => ['width' => 50],
             ],
-            [
-                'key'       => "{$prefix}_business",
-                'name'      => 'business',
-                'label'     => __('Zakelijk', '_SBB'),
-                'type'      => 'textarea',
-                'new_lines' => 'br',
-            ],
-
             [
                 'key'       => "{$prefix}_socials_tab",
                 'label'     => __('Social Media', '_SBB'),
@@ -163,36 +193,6 @@ function acf_theme_settings()
                 ],
             ],
             [
-                'key'       => "{$prefix}_product_archive_tab",
-                'label'     => __('Producten Archief', '_SBB'),
-                'type'      => 'tab',
-                'placement' => 'left',
-            ],
-            [
-                'key'          => "{$prefix}_product_archive_content",
-                'name'         => 'product_archive_content',
-                'label'        => __('Intro content', '_SBB'),
-                'type'         => 'wysiwyg',
-                'toolbar'      => 'contentcenter',
-                'tabs'         => 'visual',
-                'media_upload' => false,
-            ],
-            [
-                'key'          => "{$prefix}_product_archive_footer_title",
-                'label'        => __('Footer Titel', '_SBB'),
-                'name'         => 'product_archive_footer_title',
-                'type'         => 'text',
-            ],
-            [
-                'key'          => "{$prefix}_product_archive_footer_content",
-                'label'        => __('Footer content', '_SBB'),
-                'name'         => 'product_archive_footer_content',
-                'type'         => 'wysiwyg',
-                'toolbar'      => 'contentcenter',
-                'tabs'         => 'visual',
-                'media_upload' => false,
-            ],
-            [
                 'key'       => "{$prefix}_safety_index_tab",
                 'label'     => __('Veiligheids indexen', '_SBB'),
                 'type'      => 'tab',
@@ -216,7 +216,7 @@ function acf_theme_settings()
                         'label'     => __('Veiligheids index titel', '_SBB'),
                         'name'         => 'safety_index_title',
                         'type'      => 'text',
-                        'wrapper'   => ['width' => 50] 
+                        'wrapper'   => ['width' => 50]
                     ],
                 ]
             ],
@@ -308,7 +308,37 @@ function acf_theme_settings()
                     ],
                 ],
             ],
-
+            [
+                'key'       => "{$prefix}_megamenu_tab",
+                'label'     => __('Mega menu', '_SBB'),
+                'type'      => 'tab',
+                'placement' => 'left',
+            ],
+            [
+                'key'   => "{$prefix}_header_megamenu_highlighted_product",
+                'label' => __('Uitgelicht product in het mega menu', '_SBB'),
+                'name'  => 'header_megamenu_highlighted_product',
+                'type'  => 'post_object',
+                'post_type' => 'product',
+                'ui'    => true,
+            ],
+            [
+                'key'   => "{$prefix}_header_megamenu_new_tag",
+                'label' => __('\'Nieuw\' Tag tonen bij het uitgelicht product', '_SBB'),
+                'name'  => 'header_megamenu_new_tag',
+                'type'  => 'true_false',
+                'ui'    => true,
+                'ui_on_text' => __('Ja', '_SBB'),
+                'ui_off_text' => __('Nee', '_SBB'),
+                'wrapper' => ['width' => 50]
+            ],
+            [
+                'key'   => "{$prefix}_header_megamenu_text",
+                'label' => __('Korte tekst bij het uitgelicht product', '_SBB'),
+                'name'  => 'header_megamenu_text',
+                'type'  => 'text',
+                'wrapper' => ['width' => 50]
+            ],
             [
                 'key'       => "{$prefix}_footer_tab",
                 'label'     => __('Footer', '_SBB'),
@@ -316,13 +346,10 @@ function acf_theme_settings()
                 'placement' => 'left',
             ],
             [
-                'key'          => "{$prefix}_footer_content",
-                'name'         => 'footer_content',
-                'label'        => __('Content', '_SBB'),
-                'type'         => 'wysiwyg',
-                'toolbar'      => 'contentcenter',
-                'tabs'         => 'visual',
-                'media_upload' => false,
+                'key'          => "{$prefix}_footer_logo",
+                'name'         => 'footer_logo',
+                'label'        => __('Logo', '_SBB'),
+                'type'         => 'image',
             ],
 
             [
@@ -363,6 +390,21 @@ function acf_theme_settings()
                 'media_upload'  => false,
                 'default_value' => __('maar we konden de pagina nergens vinden. We helpen je graag de weg terug te vinden. ', '_SBF'),
             ],
+            [
+                'key'           => "{$prefix}_404_image",
+                'name'          => '404_image',
+                'label'         => __('Afbeelding', '_SBB'),
+                'type'          => 'image',
+                'return_format' => 'id'
+            ],
+            [
+                'key'           => 'theme_settings_multisite_',
+                'name'          => 'multisites',
+                'label'         => __('Multisites voor taalschakelaar', '_SBB'),
+                'type'          => 'checkbox',
+                'multiple'      => true,
+                'instructions'  => __('Voeg alle sites toe die getoond moeten worden in de taalschakelaar.', '_SBB'),
+            ]
         ],
         'location' => [
             [

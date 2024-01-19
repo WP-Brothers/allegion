@@ -1,6 +1,7 @@
 <?php
 
-function getTitleFields($prefix) {
+function getTitleFields($prefix)
+{
     $fields = [
         [
             'key'   => "{$prefix}_title",
@@ -11,7 +12,8 @@ function getTitleFields($prefix) {
     ];
     return $fields;
 }
-function getSubTitleFields($prefix) {
+function getSubTitleFields($prefix)
+{
     $fields = [
         [
             'key'   => "{$prefix}_sub_title",
@@ -22,8 +24,9 @@ function getSubTitleFields($prefix) {
     ];
     return $fields;
 }
-function getTabFields($prefix,int $expand = 0, $name, $label) {
-    
+function getTabFields($prefix, int $expand = 0, $name, $label)
+{
+
     $fields = [
         [
             'key'          => "{$prefix}_{$name}_tab",
@@ -36,7 +39,8 @@ function getTabFields($prefix,int $expand = 0, $name, $label) {
     ];
     return $fields;
 }
-function getContentFields($prefix,) {
+function getContentFields($prefix,)
+{
     $fields = [
         [
             'key'          => "{$prefix}_content",
@@ -50,7 +54,8 @@ function getContentFields($prefix,) {
     ];
     return $fields;
 }
-function getButtonFields($prefix,) {
+function getButtonFields($prefix,)
+{
     $fields = [
         [
             'key'          => "{$prefix}_buttons",
@@ -133,7 +138,8 @@ function getButtonFields($prefix,) {
     ];
     return $fields;
 }
-function getImageVideoSwitchFields($prefix) {
+function getImageVideoSwitchFields($prefix)
+{
     $fields = [
         [
             'key'           => "{$prefix}_image_video_switch",
@@ -148,7 +154,8 @@ function getImageVideoSwitchFields($prefix) {
     return $fields;
 }
 
-function getOrderSwitch($prefix) {
+function getOrderSwitch($prefix)
+{
     $fields = [
         [
             'key'           => "{$prefix}_order_switch",
@@ -163,11 +170,16 @@ function getOrderSwitch($prefix) {
     return $fields;
 }
 
-function getImageFields($prefix) {
+function getImageFields($prefix, $label = '')
+{
+    if (empty($label)) {
+        $label = __('Afbeelding', '_SBB');
+    }
+
     $fields = [
         [
             'key'           => "{$prefix}_image_id",
-            'label'         => __('Afbeelding', '_SBB'),
+            'label'         => $label,
             'name'          => 'image_id',
             'type'          => 'image',
             'return_format' => 'id',
@@ -185,7 +197,8 @@ function getImageFields($prefix) {
     return $fields;
 }
 
-function getVideoFields($prefix) {
+function getVideoFields($prefix)
+{
     $fields = [
 
         [
@@ -204,7 +217,7 @@ function getVideoFields($prefix) {
                     'ui_off_text'   => __('Upload', '_SBB'),
                     'default_value' => 1,
                 ],
-        
+
                 [
                     'key'               => "{$prefix}_embed_video",
                     'name'              => 'embed_video',
@@ -268,7 +281,24 @@ function getVideoFields($prefix) {
     ];
     return $fields;
 }
-function getRelationshipFields($prefix, $posttype, $name, $label) {
+function getFaqFields($prefix)
+{
+    $fields = [
+        [
+            'key'           => "{$prefix}_faqs",
+            'label'         => __('FAQ', '_SBB'),
+            'name'          => 'faqs',
+            'type'          => 'relationship',
+            'post_type'     => 'faq',
+            'multiple'      => 1,
+
+        ]
+    ];
+    return $fields;
+}
+
+function getRelationshipFields($prefix, $posttype, $name, $label)
+{
     $fields = [
         [
             'key'           => "{$prefix}_{$posttype}s",
@@ -277,23 +307,39 @@ function getRelationshipFields($prefix, $posttype, $name, $label) {
             'type'          => 'relationship',
             'post_type'     => "{$posttype}",
             'multiple'      => 1,
+        ]
+    ];
+    return $fields;
+}
+
+function getFormFields($prefix)
+{
+    $fields = [
+        [
+            'key'     => "{$prefix}_form_id",
+            'name'    => 'form_id',
+            'label'   => __('Formulier', '_SBB'),
+            'type'    => 'select',
+            'choices' => wpb_get_gforms(),
         ],
     ];
     return $fields;
 }
-function getCategorySelect($prefix) {
+
+function getCategorySelect($prefix)
+{
     $field['choices'] = [];
     $terms = get_terms();
     $choices[''] = __('Selecteer een categorie');
 
-        if ( $terms ) {
-            foreach ( $terms as $term ) {
+    if ($terms) {
+        foreach ($terms as $term) {
 
-                if($term->taxonomy == 'category_product') {
-                    $choices[$term->term_id] = $term->name;
-                }
+            if ($term->taxonomy == 'category_product') {
+                $choices[$term->term_id] = $term->name;
             }
         }
+    }
 
     $fields = [
         [
@@ -316,4 +362,3 @@ function getCategorySelect($prefix) {
 
     return $fields;
 }
-

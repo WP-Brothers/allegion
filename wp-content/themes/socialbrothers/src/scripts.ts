@@ -8,6 +8,15 @@ const scriptsInit = () => {
     );
   }
 
+  const faqs = document.querySelectorAll('.faqs');
+  if (faqs.length) {
+    faqs?.forEach((faq) =>
+      import('./scripts/faq').then((module) =>
+        module.default(faq as HTMLElement)
+      )
+    );
+  }
+
   const formsComplex = document.querySelectorAll('.form-complex');
   if (formsComplex.length) {
     formsComplex?.forEach((formComplex) =>
@@ -25,6 +34,7 @@ const scriptsInit = () => {
       )
     );
   }
+
   const menuMains = document.querySelectorAll(
     '.menu-main:not(.menu-main--hover)'
   );
@@ -35,7 +45,6 @@ const scriptsInit = () => {
       )
     );
   }
-
 
   const modals = document.querySelectorAll('.contains-modal');
   if (modals.length) {
@@ -71,6 +80,7 @@ const scriptsInit = () => {
       module.default()
     )
   }
+  import('./scripts/scrollToTop').then((module) => module.default());
 };
 
 export default scriptsInit;

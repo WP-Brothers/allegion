@@ -182,6 +182,13 @@ final class TwigProvider implements ServiceProviderInterface
                  * @see home_url()
                  */
                 $get_home_url = static fn () => home_url('/');
+                
+                /**
+                 * @return string
+                 *
+                 * @see bloginfo()
+                 */
+                $bloginfo = static fn () => bloginfo('template_url');
 
                 /**
                  * @return mixed
@@ -206,6 +213,7 @@ final class TwigProvider implements ServiceProviderInterface
                     'get_footer',
                     'have_posts',
                     'get_home_url',
+                    'bloginfo',
                     'the_post',
                     'get_search_query',
                     'action',

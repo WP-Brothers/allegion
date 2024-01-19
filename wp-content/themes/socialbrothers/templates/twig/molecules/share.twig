@@ -1,16 +1,16 @@
 <div class="sticky top-6 md:top-[120px] border border-neutral-25 text-font grid gap-6 rounded-md p-5 grid-cols-4 md:grid-cols-1 md:max-w-[80px]">
-    <span class="uppercase text-center text-caption font-bold col-span-4 md:col-span-1">{{ title|raw }}</span>
-    {% for place in places %}
-        {% if place.break %}
-            <hr class="border-font hidden md:block">
-        {% else %}
-            <a href="{{ place.url }}" class="h-8 w-8 flex justify-center items-center justify-self-center no-underline">
-                {% if place.iconFile %}
-                    {% include 'atoms/icon/' ~ place.iconFile ~ '.twig' with {size: '32'} %}
-                {% else %}
-                    {% include 'atoms/icon.twig' with {size: '32', icon: place.icon|default('mail'), color: 'text-primary hover:text-primary-dark'} %}
-                {% endif %}
-            </a>
-        {% endif %}
-    {% endfor %}
+	<span class="uppercase text-center text-caption font-bold col-span-4 md:col-span-1">{{ title|raw }}</span>
+	{% for place in places %}
+		{% if place.break %}
+			<hr class="border-font hidden md:block">
+		{% else %}
+			<a href="{{ place.url }}" class="h-8 w-8 flex justify-center items-center justify-self-center no-underline">
+				{% if place.iconFile %}
+					{% include 'atoms/icon/' ~ place.iconFile ~ '.twig' with {size: '32'} %}
+				{% else %}
+					{% include 'atoms/icon.twig' with {size: '32', icon: place.icon|default('mail'), color: 'text-[var(--primary-DEFAULT)] hover:text-[var(--primary-dark)]'} %}
+				{% endif %}
+			</a>
+		{% endif %}
+	{% endfor %}
 </div>

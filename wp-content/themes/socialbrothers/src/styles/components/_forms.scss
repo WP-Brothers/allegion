@@ -55,10 +55,10 @@
   }
 
   .gform_drop_area {
-    @apply border border-primary bg-primary-light text-center p-4;
+    @apply border border-[var(--primary-DEFAULT)] bg-[var(--primary-light)] text-center p-4;
 
     .gform_button_select_files {
-      @apply bg-primary text-white py-1 px-3 rounded-md transition-colors hover:bg-primary-dark;
+      @apply bg-[var(--primary-DEFAULT)] text-white py-1 px-3 rounded-md transition-colors hover:bg-[var(--primary-dark)];
     }
   }
 
@@ -101,7 +101,7 @@
 
       .add_list_item,
       .delete_list_item {
-        @apply bg-primary text-white py-1 px-3 rounded-md transition-colors hover:bg-primary-dark;
+        @apply bg-[var(--primary-DEFAULT)] text-white py-1 px-3 rounded-md transition-colors hover:bg-[var(--primary-dark)];
       }
     }
   }
@@ -138,10 +138,10 @@
   }
 
   .gf_progressbar {
-    @apply bg-primary-light overflow-hidden rounded;
+    @apply bg-[var(--primary-light)] overflow-hidden rounded;
 
     .gf_progressbar_percentage {
-      @apply bg-primary text-white px-1;
+      @apply bg-[var(--primary-DEFAULT)] text-white px-1;
     }
   }
 }
@@ -154,7 +154,7 @@
 
     .ui-datepicker-prev,
     .ui-datepicker-next {
-      @apply p-1 bg-primary cursor-pointer hover:bg-primary-dark text-white rounded-md text-center;
+      @apply p-1 bg-[var(--primary-DEFAULT)] cursor-pointer hover:bg-[var(--primary-dark)] text-white rounded-md text-center;
     }
   }
 
@@ -192,13 +192,13 @@ input[type="file"] {
   @apply cursor-pointer;
 
   &::file-selector-button {
-    @apply bg-primary text-white py-1 px-3 rounded-md transition-colors border-0 cursor-pointer;
+    @apply bg-[var(--primary-DEFAULT)] text-white py-1 px-3 rounded-md transition-colors border-0 cursor-pointer;
   }
 
   &:hover {
 
     &::file-selector-button {
-      @apply bg-primary-dark;
+      @apply bg-[var(--primary-dark)];
     }
   }
 }
@@ -207,19 +207,36 @@ input[type="checkbox"],
 input[type="radio"] {
   @apply hidden;
 
-  &:checked + label:before {
-    @apply content-["\e834"] text-secondary;
-  }
+
 
   + label {
-    @apply font-normal flex whitespace-pre flex-wrap leading-8 cursor-pointer mb-0;
+    @apply font-normal flex whitespace-pre flex-wrap leading-8 cursor-pointer mb-0 text-secondary;
 
     &::before {
-      @apply font-iconRound content-["\e835"] text-[24px] mr-3;
+      @apply font-iconRound content-["\e835"] text-[24px] mr-3 text-primary;
+    }
+    
+    &:hover {
+      &::before {
+        @apply text-primary-light;
+      }
     }
 
     a {
-      @apply text-primary hover:no-underline;
+      @apply text-[var(--primary-DEFAULT)] hover:no-underline;
+    }
+  }
+
+  &:checked + label {
+
+    &::before {
+      @apply content-["\e834"] text-primary;
+    }
+
+    &:hover {
+      &::before {
+        @apply text-primary;
+      }
     }
   }
 }
@@ -241,6 +258,6 @@ input[type="radio"] {
 select {
 
   &:not([multiple="multiple"]) {
-    @apply pr-10 chevron appearance-none bg-no-repeat bg-[right_8px_top_50%];
+    @apply pr-10 chevron appearance-none bg-no-repeat bg-[right_8px_top_50%] text-secondary;
   }
 }

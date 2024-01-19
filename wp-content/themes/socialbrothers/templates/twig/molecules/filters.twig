@@ -1,5 +1,5 @@
-<div class="flex gap-4 md:gap-6 items-center">
-    {% include 'atoms/heading/h6.twig' with {title: label, class: 'mb-0'} %}
+<div class="flex gap-4 md:gap-6 items-center flex-wrap">
+    {% include 'atoms/heading/h6.twig' with {title: label, class: 'mb-0 text-secondary'} %}
     {% for term in terms %}
         {% include 'atoms/form/radio.twig' with term %}
     {% endfor %}
