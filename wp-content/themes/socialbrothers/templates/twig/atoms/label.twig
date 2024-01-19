@@ -5,7 +5,7 @@
 	{% set icon_color = 'text-white' %}
 	{% set label_type = 'border-transparent text-white py-2' %}
 {% elseif type == 'clean' %}
-	{% set icon_color = 'text-secondary' %}primary
+	{% set icon_color = 'text-secondary' %}
 	{% set label_type = 'border-transparent' %}
 {% elseif type == 'clean-white' %}
 	{% set icon_color = 'text-white' %}
@@ -28,6 +28,12 @@
 {% elseif type == 'cta-outline' %}
 	{% set icon_color = 'text-cta' %}
 	{% set label_type = 'px-4 bg-cta-light text-cta py-2' %}
+{% elseif type == 'secondary-outline-pointy' %}
+	{% set icon_color = 'text-[var(--primary-DEFAULT)]' %}
+	{% set label_type = 'px-4 border-secondary py-2 rounded-sm border-[1px] w-fit' %}
+{% elseif type == 'clear' %}
+	{% set icon_color = 'text-[var(--primary-DEFAULT)]' %}
+	{% set label_type = 'px-4 border-none' %}
 {% else %}
 	{% set label_type = 'px-4 bg-secondary border-secondary text-white py-2' %}
 	{% set icon_color = 'text-white' %}

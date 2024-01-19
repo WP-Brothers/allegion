@@ -28,11 +28,6 @@ add_action('init', function (): void {
     register_post_type('vacancy', $options);
 
     $type = [
-        'labels' => [
-            'name'          => __('Vacatuur categorieën', '_SBB'),
-            'singular_name' => __('Vacatuur categorie', '_SBB'),
-        ],
-
         'public'       => false,
         'show_ui'      => true,
         'rewrite'      => false,
@@ -40,5 +35,33 @@ add_action('init', function (): void {
         'show_in_rest' => true,
     ];
 
-    register_taxonomy('category_vacancy', ['vacancy'], $type);
+    $function = [
+        'labels' => [
+            'name'          => __('Functies', '_SBB'),
+            'singular_name' => __('Functie', '_SBB'),
+        ],
+
+        $type,
+    ];
+    register_taxonomy('function_vacancy', ['vacancy'], $function);
+
+    $location = [
+        'labels' => [
+            'name'          => __('Locaties', '_SBB'),
+            'singular_name' => __('Locatie', '_SBB'),
+        ],
+
+        $type,
+    ];
+    register_taxonomy('location_vacancy', ['vacancy'], $location);
+
+    $employment_types = [
+        'labels' => [
+            'name'          => __('Dienstverbanden', '_SBB'),
+            'singular_name' => __('Dienstverband', '_SBB'),
+        ],
+
+        $type,
+    ];
+    register_taxonomy('employment_type_vacancy', ['vacancy'], $employment_types);
 });

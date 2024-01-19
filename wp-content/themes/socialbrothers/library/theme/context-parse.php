@@ -139,6 +139,26 @@ function wpb_build_post_category_labels(string|int $post_id): array
     return $terms;
 }
 
+function wpb_build_vacancy_category_labels(array $vacancy_cats, string|int $post_id)
+{
+    $labels = [];
+    foreach ($vacancy_cats as $vacancy_cat) {
+        $vacancy_cat = $vacancy_cat . '_' . get_post_type($post_id);
+        $terms = get_the_terms($post_id, $vacancy_cat);
+
+        if (!empty($terms)) {
+            foreach ($terms as $term) {
+                $labels[$term->slug] = [
+                    'name' => $term->name,
+                    'icon' => get_field('vacancy_taxonomy_settings_icon', $term) ?? '',
+                    'type' => get_field('vacancy_taxonomy_settings_type', $term) ?? '',
+                ];
+            }
+        }
+    }
+    return $labels;
+}
+
 function wpb_build_keurmerken(string|int $post_id, $modal = 0): array
 {
     $returnArray = [];

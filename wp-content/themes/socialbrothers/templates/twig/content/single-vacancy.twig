@@ -1,0 +1,21 @@
+{{ get_header(header_name|default('')) }}
+
+<div class="container">
+	{% include "organisms/breadcrumbs.twig"
+      with {
+        container: 'w-full',
+      }
+  %}
+
+	{% include "organisms/single-vacancy-hero.twig" %}
+
+	<section class="my-20">
+		{% include "organisms/content.twig"
+        with {
+          container: 'w-full',
+        }
+    %}
+	</section>
+</div>
+
+{{ get_footer(footer_name|default('')) }}

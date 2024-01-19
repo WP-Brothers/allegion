@@ -1,28 +1,33 @@
 <?php
 
 declare(strict_types=1);
-
 add_action('acf/init', function () {
-    $taxonomy = 'category_vacancy';
     acf_add_local_field_group([
-        'key'    => "{$taxonomy}_settings",
-        'title'  => __('Categorie instellingen', '_SBB'),
+        'key'    => 'vacancy_taxonomy_settings',
+        'title'  => __('Vacature instellingen', '_SBB'),
         'fields' => [
             [
-                'key'           => "{$taxonomy}_image",
-                'label'         => __('Uitgelichte afbeelding', '_SBB'),
-                'name'          => 'highlight_image',
-                'type'          => 'image',
-                'return_format' => 'id'
+                'key'           => 'vacancy_taxonomy_settings_icon',
+                'label'         => __('Icoon', '_SBB'),
+                'name'          => 'vacancy_taxonomy_settings_icon',
+                'type'          => 'GOOGLE_MATERIAL_ICON',
+                'wrapper'       => [
+                    'width' => '50',
+                ],
             ],
             [
-                'key'           => "{$taxonomy}_display_name",
-                'label'         => __('Weergavenaam', '_SBB'),
-                'name'          => 'display_name',
-                'type'          => 'wysiwyg',
-                'toolbar'       => 'bold',
-                'media_upload'  => 0,
-                'tabs'          => 'visual'
+                'key'           => 'vacancy_taxonomy_settings_type',
+                'label'         => __('Type', '_SBB'),
+                'name'          => 'vacancy_taxonomy_settings_type',
+                'type'          => 'select',
+                'default_value' => 'clear',
+                'choices'       => [
+                    'clear'         => __('Clear', '_SBB'),
+                    'secondary-outline-pointy'         => __('Boxed', '_SBB'),
+                ],
+                'wrapper'       => [
+                    'width' => '50',
+                ],
             ],
         ],
         'location' => [
@@ -30,16 +35,24 @@ add_action('acf/init', function () {
                 [
                     'param'    => 'taxonomy',
                     'operator' => '==',
-                    'value'    => $taxonomy,
+                    'value'    => 'function_vacancy',
+                ],
+            ],
+            [
+                [
+                    'param'    => 'taxonomy',
+                    'operator' => '==',
+                    'value'    => 'location_vacancy',
+                ],
+            ],
+            [
+                [
+                    'param'    => 'taxonomy',
+                    'operator' => '==',
+                    'value'    => 'employment_type_vacancy',
                 ],
             ],
         ],
-        'menu_order'            => 0,
-        'position'              => 'normal',
-        'style'                 => '',
-        'label_placement'       => 'top',
-        'instruction_placement' => 'label',
-        'active'                => true,
     ]);
 
     $posttype = 'vacancy';
@@ -55,17 +68,18 @@ add_action('acf/init', function () {
                 'placement'      => 'left',
             ],
             [
+                'key'           => "{$posttype}_intro",
+                'label'         => __('Intro', '_SBB'),
+                'name'          => 'intro',
+                'type'          => 'textarea',
+                'rows'          => 2,
+            ],
+            [
                 'key'           => "{$posttype}_content",
                 'label'         => __('Content', '_SBB'),
                 'name'          => 'content',
                 'type'          => 'wysiwyg',
-            ],
-            [
-                'key'           => "{$posttype}_location",
-                'label'         => __('Locatie', '_SBB'),
-                'name'          => 'location',
-                'type'          => 'text',
-            ],
+            ]
         ],
         'location' => [
             [
