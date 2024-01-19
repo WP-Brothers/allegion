@@ -1,18 +1,23 @@
-<section class="container">
-	<div class="flex flex-col md:grid grid-cols-4 gap-4">
+{% if post %}
+	<article class="flex flex-col md:grid grid-cols-4 gap-4 border border-secondary-light p-10 rounded">
 		<div class="col-span-3">
-			{% include "atoms/heading/h4.twig" %}
-			{% include "atoms/p.twig" %}
+			{% include "atoms/heading/h1.twig" with { title: post.title, class: 'h4' }%}
+			{% include "atoms/p.twig" with { content: post.content }%}
 			<div class="flex gap-x-8 gap-y-4 flex-wrap">
-				{% include "atoms/buttons.twig" %}
+				{% include "atoms/button.twig" %}
 				<div class="flex gap-4">
-					{% include "atoms/icon.twig" %}
-					{% include "atoms/heading/h6.twig" %}
+					{% include "atoms/icon.twig"
+              with {
+                icon: 'pin_drop',
+                color: 'text-[var(--primary-DEFAULT)]',
+              }
+          %}
+					{% include "atoms/heading/h6.twig" with { title: post.location, class: 'mb-0' } %}
 				</div>
 			</div>
 		</div>
-		<div>
-			{% include "atoms/buttons.twig" %}
+		<div class="md:ml-auto md:mt-auto">
+			{% include "atoms/button.twig" with { url: post.permalink, title: 'Meer Info' }%}
 		</div>
-	</div>
-</section>
+	</article>
+{% endif %}
