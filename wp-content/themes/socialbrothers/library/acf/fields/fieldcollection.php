@@ -326,7 +326,7 @@ function getFormFields($prefix)
     return $fields;
 }
 
-function getCategorySelect($prefix)
+function getCategorySelect($prefix, $conditional_logic = '')
 {
     $field['choices'] = [];
     $terms = get_terms();
@@ -360,5 +360,19 @@ function getCategorySelect($prefix)
         ],
     ];
 
+    if(!empty($conditional_logic)) {
+        $fields['conditional_logic'] = [
+            [
+                [
+                    'field'    => "{$prefix}_{$conditional_logic['field']}",
+                    'operator' => $conditional_logic['operator'],
+                    'value'    => $conditional_logic['value'],
+                ],
+            ],
+        ];
+    }
+
+
+    dd($fields);
     return $fields;
 }
