@@ -3,7 +3,7 @@
   @apply flex items-center justify-center mt-5 md:my-5 gap-3;
 
   .page-numbers:not(.dots) {
-    @apply bg-transparent text-font w-12 h-12 no-underline flex items-center justify-center rounded-full cursor-pointer transition-colors font-heading font-bold hover:text-primary;
+    @apply bg-transparent text-font w-12 h-12 no-underline flex items-center justify-center rounded-full cursor-pointer transition-colors font-heading font-bold hover:text-[var(--primary-DEFAULT)];
 
     &.current {
       @apply text-[var(--primary-DEFAULT)] cursor-default;

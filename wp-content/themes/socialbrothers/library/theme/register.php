@@ -31,3 +31,9 @@ function wpb_register_image_sizes(): void
     add_image_size('extralarge', 1440, 810);
 }
 add_action('after_setup_theme', 'wpb_register_image_sizes');
+
+
+function woocommerce_support() {
+    add_theme_support( 'woocommerce' );
+}                               
+add_action( 'after_setup_theme', 'woocommerce_support' );

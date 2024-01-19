@@ -3,14 +3,14 @@
         <div class="image-selector__highlighted-images flex gap-6">
             {% for image_id in highlighted_images %}
                 <div class="image-selector__highlighted-image w-20 h-20 relative after:w-full after:h-full after:absolute after:top-0 after:left-0 after:bg-white after:opacity-0 hover:after:opacity-50 after:transition-opacity cursor-pointer {{ highlighted_images_mobile ? 'hidden lg:block'}}">
-                    {% include "atoms/image.twig" with {image_classes: 'w-20 h-20 object-contain'} %}
+                    {% include "atoms/image.twig" with {image_classes: '!w-20 !h-20 object-contain'} %}
                 </div>
             {% endfor %}
             
             {% if highlighted_images_mobile %}
                 {% for image_id in highlighted_images_mobile %}
                     <div class="block lg:hidden image-selector__highlighted-image w-20 h-20 relative after:w-full after:h-full after:absolute after:top-0 after:left-0 after:bg-white after:opacity-0 hover:after:opacity-50 after:transition-opacity cursor-pointer">
-                        {% include "atoms/image.twig" with {image_classes: 'w-20 h-20 object-contain'} %}
+                        {% include "atoms/image.twig" with {image_classes: '!w-20 !h-20 object-contain'} %}
                     </div>
                 {% endfor %}
             {% endif %}

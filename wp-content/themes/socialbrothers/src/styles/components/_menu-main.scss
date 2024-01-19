@@ -46,7 +46,7 @@
               // @apply px-6 py-3 grid grid-cols-[24px_1fr] gap-2 text-[var(--primary-DEFAULT)] bg-white hover:bg-[var(--primary-light)] transition-colors uppercase font-bold;
 
               &::before {
-                @apply content-["\e5cc"] text-primary font-iconRound flex text-[24px] leading-4 justify-center items-center;
+                @apply content-["\e5cc"] text-[var(--primary-DEFAULT)] font-iconRound flex text-[24px] leading-4 justify-center items-center;
               }
             }
 
@@ -61,10 +61,10 @@
 
       &.show {
         > a {
-          @apply text-primary;
+          @apply text-[var(--primary-DEFAULT)];
 
           &:after {
-            @apply text-primary;
+            @apply text-[var(--primary-DEFAULT)];
           }
         }
 

@@ -16,11 +16,11 @@
                         <div class="swiper-wrapper modal-swiper__image-slider-wrapper">
                             {% for slide in slides %}
                                 <div class="swiper-slide modal-swiper__image-slider-image-wrapper bg-white !h-[451px] select-none">
-                                    {% include 'atoms/image.twig' with {image_id: slide, image_classes: 'h-full w-full p-10 object-contain', size: 'medium'} %}
+                                    {% include 'atoms/image.twig' with {image_id: slide, image_classes: '!h-full !w-full p-10 object-contain', size: 'medium'} %}
                                 </div>
                             {% endfor %}
                         </div>
-                         <button class="modal__close text-[32px] font-iconRound text-primary absolute top-8 right-8 h-8 w-8 leading-[1] z-10">close</button>
+                         <button class="modal__close text-[32px] font-iconRound text-[var(--primary-DEFAULT)] absolute top-8 right-8 h-8 w-8 leading-[1] z-10">close</button>
                     </div>
 
 

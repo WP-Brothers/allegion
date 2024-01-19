@@ -14,8 +14,8 @@
 	<div class="container">
 		<div class="gap-4 py-6 md:flex md:items-center xl:gap-5">
 			<div class="flex items-center justify-between">
-				<button id="" class="items-center justify-center w-6 h-6 transition-colors text-primary hover:text-primary-dark flex md:hidden">
-					{% include 'atoms/icon.twig' with {icon: 'search', size: '32', color: 'text-primary'} %}
+				<button id="" class="items-center justify-center w-6 h-6 transition-colors text-[var(--primary-DEFAULT)] hover:text-primary-dark flex md:hidden">
+					{% include 'atoms/icon.twig' with {icon: 'search', size: '32', color: 'text-[var(--primary-DEFAULT)]'} %}
 				</button>
 
 				<a href="/" class="">
@@ -23,8 +23,8 @@
 				</a>
 
 				<button id="toggle-header-nav" class="flex items-center justify-center w-12 h-12 md:hidden">
-					{% include 'atoms/icon.twig' with {icon: 'menu', size: '32', class: 'active:hidden', color: 'text-primary'} %}
-					{% include 'atoms/icon.twig' with {icon: 'close', size: '32', class: 'hidden active:flex', color: 'text-primary'} %}
+					{% include 'atoms/icon.twig' with {icon: 'menu', size: '32', class: 'active:hidden', color: 'text-[var(--primary-DEFAULT)]'} %}
+					{% include 'atoms/icon.twig' with {icon: 'close', size: '32', class: 'hidden active:flex', color: 'text-[var(--primary-DEFAULT)]'} %}
 				</button>
 			</div>
 
@@ -38,7 +38,7 @@
 					<div class="md:hidden">
 						{% include "molecules/search-bar.twig" %}
 					</div>
-					<button id="toggle-header-search" class="items-center justify-center hidden w-6 h-6 transition-colors text-primary hover:text-primary-dark md:flex">
+					<button id="toggle-header-search" class="items-center justify-center hidden w-6 h-6 transition-colors text-[var(--primary-DEFAULT)] hover:text-primary-dark md:flex">
 						{% include 'atoms/icon.twig' with {icon: 'search', size: '24', color: 'text-font'} %}
 					</button>
 				</div>

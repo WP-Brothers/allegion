@@ -10,14 +10,21 @@ $downloads = [];
 $technical_drawings = [];
 $images = [];
 
-if(!empty(get_field('product_information', get_the_ID()))) {
+
+$product = wc_get_product( get_the_ID());
+
+$productData = $product->get_data();
+
+
+if(!empty($productData['description'])) {
     $links['productinformation'] = __('Productinformatie', '_SBF');
     $productinformation = [
         'id' => 'productinformation',
         'title' => __('Product informatie'),
-        'content' => get_field('product_information', get_the_ID()),
+        'content' => $productData['description'],
     ];
 }
+
 
 if(!empty(get_field('product_information', get_the_ID())) || !empty(get_field('specifications_safety', get_the_ID())) || !empty(get_field('specifications_technical', get_the_ID())) ) {
     $links['specifications'] = __('Specificaties', '_SBF');
@@ -25,7 +32,7 @@ if(!empty(get_field('product_information', get_the_ID())) || !empty(get_field('s
     $specifications['id'] = 'specifications';
     $specifications['title'] = __('Specificaties');
 
-    if(!empty(get_field('product_information', get_the_ID()))) {
+    if(!empty(get_field('specifications_text', get_the_ID()))) {
         $specifications['content'] = get_field('specifications_text', get_the_ID());
     }
 
@@ -119,6 +126,7 @@ $ctaButtons = wpb_build_buttons_context([
     ]
 ]);
 
+$slides = [];
 if(!empty(get_field('images', get_the_ID()))) {
     $count = 1;
     $imagesField = get_field('images', get_the_ID());
@@ -160,20 +168,64 @@ $modal_highlight_swiper_options = [
     ],
 ];
 
+get_header( 'shop' ); 
+do_action( 'woocommerce_before_single_product' );
+
+
+
+
+
+
+
+
+
+do_action( 'woocommerce_before_add_to_cart_form' ); ?>
+
+<form class="cart" action="<?php echo esc_url( apply_filters( 'woocommerce_add_to_cart_form_action', $product->get_permalink() ) ); ?>" method="post" enctype='multipart/form-data'>
+    <?php do_action( 'woocommerce_before_add_to_cart_button' ); ?>
+
+    <?php
+    do_action( 'woocommerce_before_add_to_cart_quantity' );
+
+    woocommerce_quantity_input(
+        array(
+            'min_value'   => apply_filters( 'woocommerce_quantity_input_min', $product->get_min_purchase_quantity(), $product ),
+            'max_value'   => apply_filters( 'woocommerce_quantity_input_max', $product->get_max_purchase_quantity(), $product ),
+            'input_value' => isset( $_POST['quantity'] ) ? wc_stock_amount( wp_unslash( $_POST['quantity'] ) ) : $product->get_min_purchase_quantity(), // WPCS: CSRF ok, input var ok.
+        )
+    );
+
+    do_action( 'woocommerce_after_add_to_cart_quantity' );
+    ?>
+
+    <button type="submit" name="add-to-cart" value="<?php echo esc_attr( $product->get_id() ); ?>" class="single_add_to_cart_button button alt<?php echo esc_attr( wc_wp_theme_get_element_class_name( 'button' ) ? ' ' . wc_wp_theme_get_element_class_name( 'button' ) : '' ); ?>"><?php echo esc_html( $product->single_add_to_cart_text() ); ?></button>
+
+    <?php do_action( 'woocommerce_after_add_to_cart_button' ); ?>
+</form>
+
+<?php do_action( 'woocommerce_after_add_to_cart_form' ); 
+
+
+
+
+
 
 Twig::render(
     'content/single-product.twig',
     Theme::filter(
         'index_context',
         [
+            'product' => [
+                'id' => get_the_ID(),
+            ],
             'hero' => [
                 'title'             => get_the_title(get_the_ID()),
                 'safety_index'      => get_field("safety_index", get_the_ID()) ?? '',
                 'product_image'     => get_post_thumbnail_id(get_the_ID()) ?? '',
                 'article_number'    => get_field("article_number", get_the_ID()) ?? '',
-                'price'             => wpb_build_price(get_field("price", get_the_ID())) ?? '',
+                'price'             => wpb_build_price($product->get_regular_price()) ?? '',
                 'keurmerken'        => wpb_build_keurmerken(get_the_ID(), 1),
-                'bullet_points'     => get_field('bullet_points', get_the_ID()) ?? '',
+                'bullet_points'     => $productData['short_description'] ?? '',
                 'images'            => $images,
                 'slides'            => $slides,
                 'modal_highlight_swiper_options' => json_encode($modal_highlight_swiper_options),
@@ -191,6 +243,10 @@ Twig::render(
             'specifications'        => $specifications,
             'downloads'             => $downloads,
             'technical_drawings'    => $technical_drawings,
+            'keurmerken'            => wpb_build_keurmerken(get_the_ID(), 1)
         ]
     )
 );
+
+do_action( 'woocommerce_after_single_product' );
+get_footer( 'shop' ); 

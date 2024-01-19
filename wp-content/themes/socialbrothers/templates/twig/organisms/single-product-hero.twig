@@ -8,7 +8,7 @@
 
             <div class="w-full lg:w-5/12 lg:ml-1/12 flex justify-center lg:block">
                 {% if product_image %}
-                    {% include "atoms/image.twig" with {image_id: product_image, image_classes: 'product-single__display-image w-[320px] h-[320px] lg:h-[499px] lg:w-[499px] object-contain'} %}
+                    {% include "atoms/image.twig" with {image_id: product_image, image_classes: 'product-single__display-image !w-[320px] !h-[320px] lg:!h-[499px] lg:!w-[499px] object-contain'} %}
                 {% endif %}      
             </div>
 

@@ -213,12 +213,12 @@ input[type="radio"] {
     @apply font-normal flex whitespace-pre flex-wrap leading-8 cursor-pointer mb-0 text-secondary;
 
     &::before {
-      @apply font-iconRound content-["\e835"] text-[24px] mr-3 text-primary;
+      @apply font-iconRound content-["\e835"] text-[24px] mr-3 text-[var(--primary-DEFAULT)];
     }
     
     &:hover {
       &::before {
-        @apply text-primary-light;
+        @apply text-[var(--primary-light)];
       }
     }
 
@@ -230,12 +230,12 @@ input[type="radio"] {
   &:checked + label {
 
     &::before {
-      @apply content-["\e834"] text-primary;
+      @apply content-["\e834"] text-[var(--primary-DEFAULT)];
     }
 
     &:hover {
       &::before {
-        @apply text-primary;
+        @apply text-[var(--primary-DEFAULT)];
       }
     }
   }

@@ -2,7 +2,7 @@
     {% for anchor in anchors %}
         <li>
             <a href="#{{ anchor.anchor }}" class="no-underline grid grid-cols-[24px_1fr] gap-4 group">
-                {% include 'atoms/icon.twig' with {color: 'text-primary'} %}
+                {% include 'atoms/icon.twig' with {color: 'text-[var(--primary-DEFAULT)]'} %}
                 <span class="group-hover:underline">
                     {{ anchor.title }}
                 </span>

@@ -25,7 +25,7 @@ add_action('init', function (): void {
         'supports'           => ['title', 'thumbnail'],
     ];
 
-    register_post_type('product', $options);
+    // register_post_type('product', $options);
 
     $type = [
         'labels' => [
@@ -40,5 +40,5 @@ add_action('init', function (): void {
         'show_in_rest' => true,
     ];
 
-    register_taxonomy('category_product', ['product'], $type);
+    // register_taxonomy('category_product', ['product'], $type);
 });

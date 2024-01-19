@@ -119,22 +119,6 @@ add_action('acf/init', function () {
                 ],
             ],
             [
-                'key'           => "{$posttype}_product_information_tab",
-                'label'         => __('Productinformatie', '_SBB'),
-                'name'          => 'product_information_tab',
-                'type'          => 'tab',
-                'placement'      => 'left',
-            ],
-            [
-                'key'           => "{$posttype}_product_information",
-                'label'         => __('Productinformatie', '_SBB'),
-                'name'          => 'product_information',
-                'type'          => 'wysiwyg',
-                'media_upload'  => false,
-                'tabs'          => 'visual',
-                'toolbar'       => 'contentcenter'
-            ],
-            [
                 'key'           => "{$posttype}_specifications_tab",
                 'label'         => __('Specificaties', '_SBB'),
                 'name'          => 'specifications_tab',
