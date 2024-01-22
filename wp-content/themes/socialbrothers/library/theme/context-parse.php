@@ -68,10 +68,7 @@ function wpb_build_news_card_context(string|int $post_id): array
         'date'      => get_the_date('d/m/Y', $post_id),
         'labels'    => wpb_build_post_category_labels($post_id),
         'permalink' => get_the_permalink($post_id),
-        'title'         => get_the_title($post_id),
         'excerpt'       => substr(substr(get_the_excerpt($post_id), 0, 85), 0, strrpos(get_the_excerpt($post_id), ' ')) . " ...",
-        'permalink'     => get_the_permalink($post_id),
-        'date'          => get_the_date('d/m/Y', $post_id),
         'thumbnail'     => get_the_post_thumbnail($post_id, 'large', ['class' => "w-full object-cover rounded-[3px] max-h-[165px]"]),
         'tags'          => $tags,
     ];
@@ -87,6 +84,17 @@ function wpb_build_product_card_context(string|int $post_id): array
         'article_number' => get_field('article_number', $post_id) ?? '',
         'safety_index' => get_field('safety_index', $post_id) ?? '',
         'external_link' => get_field('external_link', $post_id) ?? '',
+    ];
+}
+
+function wpb_build_vacancy_card_context(string|int $post_id): array
+{
+    return [
+        'title'     => get_the_title($post_id),
+        'content'   => get_field('content', $post_id) ?? '',
+        'labels'    => wpb_build_post_category_labels($post_id) ?? '',
+        'location'  => get_field('location', $post_id) ?? '',
+        'permalink' => get_the_permalink($post_id),
     ];
 }
 
@@ -129,6 +137,26 @@ function wpb_build_post_category_labels(string|int $post_id): array
     }
 
     return $terms;
+}
+
+function wpb_build_vacancy_category_labels(array $vacancy_cats, string|int $post_id)
+{
+    $labels = [];
+    foreach ($vacancy_cats as $vacancy_cat) {
+        $vacancy_cat = $vacancy_cat . '_' . get_post_type($post_id);
+        $terms = get_the_terms($post_id, $vacancy_cat);
+
+        if (!empty($terms)) {
+            foreach ($terms as $term) {
+                $labels[$term->slug] = [
+                    'name' => $term->name,
+                    'icon' => get_field('vacancy_taxonomy_settings_icon', $term) ?? '',
+                    'type' => get_field('vacancy_taxonomy_settings_type', $term) ?? '',
+                ];
+            }
+        }
+    }
+    return $labels;
 }
 
 function wpb_build_keurmerken(string|int $post_id, $modal = 0): array

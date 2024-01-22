@@ -19,7 +19,15 @@
     @apply underline
   }
 
-  .material-symbols-rounded, .font-icon {
-    @apply text-base
+  .material-symbols-rounded { // rm .font-icon
+    @apply text-base;
+  }
+}
+
+.breadcrumbs-font {
+  > .breadcrumbs {
+    > span {
+      @apply text-font;
+    }
   }
 }

@@ -56,6 +56,8 @@ function acf_theme_settings()
                 'label'        => __('KvK', '_SBB'),
                 'type'         => 'text',
                 'prepend'         => __('KvK:', '_SBB'),
+            ],
+            [
                 'key'           => "{$prefix}_brand_style",
                 'name'          => 'brand_style',
                 'label'         => __('Brand', '_SBB'),
@@ -340,6 +342,101 @@ function acf_theme_settings()
                 'wrapper' => ['width' => 50]
             ],
             [
+                'key'           => "{$prefix}_vacancy_cta_tab",
+                'label'         => __('Vacature CTA', '_SBB'),
+                'type'          => 'tab',
+            ],
+            [
+                'key'   => "{$prefix}_vacancy_cta_title",
+                'label' => __('Titel', '_SBB'),
+                'name'  => 'title',
+                'type'  => 'text',
+            ],
+            [
+                'key'   => "{$prefix}_vacancy_cta_content",
+                'label' => __('Beschrijving', '_SBB'),
+                'name'  => 'content',
+                'type'  => 'wysiwyg',
+            ],
+            [
+                'key'          => "{$prefix}_vacancy_cta_buttons",
+                'label'        => __('Knoppen', '_SBB'),
+                'name'         => 'buttons',
+                'button_label' => __('Nieuwe Button', '_SBB'),
+                'type'         => 'repeater',
+                'max'          => 2,
+                'layout'       => 'block',
+                'collapsed'    => "{$prefix}_buttons_link",
+                'sub_fields'   => [
+                    [
+                        'key'     => "{$prefix}_vacancy_cta_buttons_link",
+                        'name'    => 'link',
+                        'label'   => __('Link', '_SBB'),
+                        'type'    => 'link',
+                        'wrapper' => [
+                            'width' => '50%',
+                        ],
+                    ],
+                    [
+                        'key'     => "{$prefix}_vacancy_cta_buttons_type",
+                        'name'    => 'type',
+                        'label'   => __('Stijl', '_SBB'),
+                        'type'    => 'select',
+                        'choices' => wpb_get_button_types(),
+                        'wrapper' => [
+                            'width' => '50%',
+                        ],
+                    ],
+                    [
+                        'key'     => "{$prefix}_vacancy_cta_buttons_use_icon",
+                        'name'    => 'use_icon',
+                        'label'   => __('Icoon gebruiken?', '_SBB'),
+                        'type'    => 'true_false',
+                        'ui'      => true,
+                        'wrapper' => [
+                            'width' => '30%',
+                        ],
+                    ],
+                    [
+                        'key'     => "{$prefix}_vacancy_cta_buttons_icon",
+                        'name'    => 'icon',
+                        'label'   => __('Icoon', '_SBB'),
+                        'type'    => 'GOOGLE_MATERIAL_ICON',
+                        'wrapper' => [
+                            'width' => '40%',
+                        ],
+                        'conditional_logic' => [
+                            [
+                                [
+                                    'field'    => "{$prefix}_vacancy_cta_buttons_use_icon",
+                                    'operator' => '==',
+                                    'value'    => 1,
+                                ],
+                            ],
+                        ],
+                    ],
+                    [
+                        'key'     => "{$prefix}_vacancy_cta_buttons_icon_pos",
+                        'name'    => 'icon_pos',
+                        'label'   => __('Icoon Rechts?', '_SBB'),
+                        'type'    => 'true_false',
+                        'ui'      => true,
+                        'wrapper' => [
+                            'width' => '30%',
+                        ],
+                        'conditional_logic' => [
+                            [
+                                [
+                                    'field'    => "{$prefix}_vacancy_cta_buttons_use_icon",
+                                    'operator' => '==',
+                                    'value'    => 1,
+                                ],
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            [
                 'key'       => "{$prefix}_footer_tab",
                 'label'     => __('Footer', '_SBB'),
                 'type'      => 'tab',
@@ -404,7 +501,7 @@ function acf_theme_settings()
                 'type'          => 'checkbox',
                 'multiple'      => true,
                 'instructions'  => __('Voeg alle sites toe die getoond moeten worden in de taalschakelaar.', '_SBB'),
-            ]
+            ],
         ],
         'location' => [
             [
