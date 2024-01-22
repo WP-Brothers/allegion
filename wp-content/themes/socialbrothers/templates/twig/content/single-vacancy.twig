@@ -8,11 +8,11 @@
 
 {% include "organisms/single-vacancy-hero.twig" %}
 
-<div class="my-20">
-	{% include "organisms/content.twig" %}
-</div>
-
 <section class="container mb-20">
+	<main class="my-20 md:w-3/4">
+		{% include "atoms/content.twig" %}
+	</main>
+
 	{% include "molecules/content-card.twig"
       with {
         title: 'Interesse?',
