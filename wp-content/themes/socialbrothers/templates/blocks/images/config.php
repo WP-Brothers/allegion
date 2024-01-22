@@ -32,7 +32,6 @@ $block_data = [
                 'aspect-3/4 object-cover'    => __('3/4', '_SBB'),
             ],
         ],
-
         [
             'key'     => "{$prefix}_grid",
             'name'    => 'grid',
@@ -43,6 +42,13 @@ $block_data = [
                 'grid-cols-2 md:grid-cols-3' => __('3 naast elkaar', '_SBB'),
                 'grid-cols-2 md:grid-cols-4' => __('4 naast elkaar', '_SBB'),
             ],
+        ],
+        [
+            'key'           => "{$prefix}_media_cutoff",
+            'label'         => __('Media cutoff', '_SBB'),
+            'name'          => 'media_cutoff',
+            'type'          => 'true_false',
+            'ui'            => '1',
         ],
     ],
 ];

@@ -38,6 +38,8 @@
 
 @use 'layout/footer';
 
+@use "components/media-cutoff";
+
 html,
 body {
   --wp--preset--spacing--20: 20px;

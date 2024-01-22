@@ -24,6 +24,7 @@ function getSubTitleFields($prefix)
     ];
     return $fields;
 }
+
 function getTabFields($prefix, int $expand = 0, $name, $label)
 {
 
@@ -33,7 +34,7 @@ function getTabFields($prefix, int $expand = 0, $name, $label)
             'label'        => __($label, '_SBB'),
             'name'         => "{$name}_tab",
             'type'         => 'accordion',
-            'open'         => $expand,
+            'open'         => $expand ?? 0,
             'multi_expand' => 1,
         ],
     ];
@@ -175,7 +176,6 @@ function getImageFields($prefix, $label = '')
     if (empty($label)) {
         $label = __('Afbeelding', '_SBB');
     }
-
     $fields = [
         [
             'key'           => "{$prefix}_image_id",
@@ -192,6 +192,13 @@ function getImageFields($prefix, $label = '')
                     ],
                 ],
             ],
+        ],
+        [
+            'key'           => "{$prefix}_media_cutoff",
+            'label'         => __('Media cutoff', '_SBB'),
+            'name'          => 'media_cutoff',
+            'type'          => 'true_false',
+            'ui'            => '1',
         ],
     ];
     return $fields;
@@ -276,6 +283,13 @@ function getVideoFields($prefix)
                         'value'    => 1,
                     ],
                 ],
+            ],
+            [
+                'key'           => "{$prefix}_media_cutoff",
+                'label'         => __('Media cutoff', '_SBB'),
+                'name'          => 'media_cutoff',
+                'type'          => 'true_false',
+                'ui'            => '1',
             ],
         ],
     ];
