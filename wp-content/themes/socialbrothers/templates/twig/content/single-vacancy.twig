@@ -6,7 +6,11 @@
       }
   %}
 
-{% include "organisms/single-vacancy-hero.twig" %}
+{% include "organisms/single-vacancy-hero.twig"
+    with {
+        container_class: 'mt-10',
+    }
+%}
 
 <section class="container mb-20">
 	<main class="my-20 md:w-3/4">
@@ -22,6 +26,10 @@
   %}
 </section>
 
-{% include "organisms/contact-card.twig" %}
+{% include "organisms/contact-card.twig"
+    with {
+      container_class: 'mb-20',
+    }
+%}
 
 {{ get_footer(footer_name|default('')) }}

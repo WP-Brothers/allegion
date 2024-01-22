@@ -1,5 +1,5 @@
 {% if card.title %}
-	<section class="container">
+	<section class="container {{ container_class }}">
 		<div class="p-10  bg-[var(--primary-DEFAULT)] rounded-xl grid grid-cols-[80px,_repeat(7,_1fr)] gap-10 text-white">
 			<div class="w-20 h-20 border border-[3px] border-white rounded-full overflow-hidden">
 				{% include "atoms/image.twig"
