@@ -139,16 +139,83 @@ add_action('acf/init', function () {
                 'type'         => 'tab',
             ],
             [
+                'key'          => "{$prefix}_contact_name",
+                'label'        => __('Contact naam', '_SBB'),
+                'name'         => 'vacancy_contact_name',
+                'type'         => 'text',
+                'wrapper'      => [
+                    'width' => '50',
+                ],
+            ],
+            [
+                'key'          => "{$prefix}_contact_avatar",
+                'label'        => __('Contact Avatar', '_SBB'),
+                'name'         => 'vacancy_contact_avatar',
+                'type'         => 'image',
+                'return_format' => 'id',
+                'wrapper'      => [
+                    'width' => '50',
+                ],
+            ],
+            [
+                'key'          => "{$prefix}_contact_description",
+                'label'        => __('Contact beschrijving', '_SBB'),
+                'name'         => 'vacancy_contact_description',
+                'type'         => 'textarea',
+                'rows'         => 2,
+            ],
+            [
                 'key'          => "{$prefix}_contact_text",
                 'label'        => __('Contact tekst', '_SBB'),
                 'name'         => 'vacancy_contact_text',
                 'type'         => 'wysiwyg',
             ],
             [
+                'key'          => "{$prefix}_contact_info",
+                'label'        => __('Contact informatie', '_SBB'),
+                'name'         => 'vacancy_contact_info',
+                'type'         => 'repeater',
+                'layout'       => 'table',
+                'button_label' => __('Voeg informatie toe', '_SBB'),
+                'sub_fields'   => [
+                    [
+                        'key'          => "{$prefix}_contact_info_icon",
+                        'label'        => __('Icoon', '_SBB'),
+                        'name'         => 'vacancy_contact_info_icon',
+                        'type'         => 'GOOGLE_MATERIAL_ICON',
+                    ],
+                    [
+                        'key'          => "{$prefix}_contact_info_text",
+                        'label'        => __('Tekst', '_SBB'),
+                        'name'         => 'vacancy_contact_info_text',
+                        'type'         => 'text',
+                    ],
+                ],
+            ],
+            [
                 'key'          => "{$prefix}_contact_button",
                 'label'        => __('Contact button', '_SBB'),
                 'name'         => 'vacancy_contact_button',
                 'type'         => 'link',
+                'wrapper'      => [
+                    'width' => '50',
+                ],
+            ],
+            [
+                'key'          => "{$prefix}_contact_card_background_color",
+                'label'        => __('Contact kaart achtergrond kleur', '_SBB'),
+                'name'         => 'vacancy_contact_card_background_color',
+                'type'         => 'select',
+                'default_value' => 'white',
+                'choices'      => [
+                    'primary'       => __('Primary', '_SBB'),
+                    'secondary'     => __('Secondary', '_SBB'),
+                    'cta'           => __('CTA', '_SBB'),
+                    'ghost'          => __('Ghost', '_SBB'),
+                ],
+                'wrapper'      => [
+                    'width' => '50',
+                ],
             ]
         ],
         'location' => [
