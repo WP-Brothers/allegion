@@ -1,8 +1,15 @@
+{% if target == '_blank' %}
+	{% set icon_pos = 'flex-row-reverse' %}
+{% endif %}
+
 {% if url %}
-    <a href="{{ url }}" class="btn {{ type|default('btn--solid') }}" target="{{ target|default('_self') }}">
-        {% if icon %}
-            {% include 'atoms/icon.twig' %}
-        {% endif %}
-        {{ title|raw }}
-    </a>
+	<a href="{{ url }}" class="btn {{ type|default('btn--solid') }} {{ icon_pos }}" target="{{ target|default('_self') }}">
+		{% if icon %}
+			{% include 'atoms/icon.twig' %}
+		{% endif %}
+		{% if target == '_blank' %}
+			{% include 'atoms/icon.twig' with {icon: 'open_in_new'} %}
+		{% endif %}
+		{{ title|raw }}
+	</a>
 {% endif %}
