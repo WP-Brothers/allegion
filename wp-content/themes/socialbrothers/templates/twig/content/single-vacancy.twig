@@ -11,6 +11,17 @@
 <div class="my-20">
 	{% include "organisms/content.twig" %}
 </div>
+
+<section class="container mb-20">
+	{% include "molecules/content-card.twig"
+      with {
+        title: 'Interesse?',
+        text: hero.title,
+        button: contact.button,
+      }
+  %}
+</section>
+
 {% include "organisms/contact-card.twig" %}
 
 {{ get_footer(footer_name|default('')) }}
