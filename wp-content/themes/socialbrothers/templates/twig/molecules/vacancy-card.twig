@@ -5,7 +5,7 @@
 			{% include "atoms/p.twig" with { content: post.intro }%}
 			<div class="flex gap-x-8 gap-y-4 flex-wrap">
 				{% include "atoms/button.twig" %}
-				<div class="flex items-center gap-4">
+				<div class="flex items-center gap-4 flex-wrap">
 					{% for label in labels %}
 						{% include "atoms/label.twig"
                 with {

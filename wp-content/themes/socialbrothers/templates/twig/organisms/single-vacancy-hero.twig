@@ -6,7 +6,7 @@
           title: hero.title
         }
     %}
-			<div class="flex items-center gap-4">
+			<div class="flex items-center gap-4 flex-wrap">
 				{% for label in hero.labels %}
 					{% include "atoms/label.twig"
             with {
@@ -21,7 +21,7 @@
 		</div>
 
 		{% if contact.button %}
-			<div class="border border-secondary-light rounded p-4 flex items-center gap-4 [&_p]:mb-0">
+			<div class="border border-secondary-light rounded p-4 flex flex-wrap items-center gap-4 [&_p]:mb-0">
 				{% include "atoms/button.twig" with contact.button %}
 				{{ contact.content|raw }}
 			</div>
