@@ -5,14 +5,17 @@
 			{% include "atoms/p.twig" with { content: post.intro }%}
 			<div class="flex gap-x-8 gap-y-4 flex-wrap">
 				{% include "atoms/button.twig" %}
-				<div class="flex gap-4">
-					{% include "atoms/icon.twig"
-              with {
-                icon: 'pin_drop',
-                color: 'text-[var(--primary-DEFAULT)]',
-              }
-          %}
-					{% include "atoms/heading/h6.twig" with { title: post.location, class: 'mb-0' } %}
+				<div class="flex items-center gap-4">
+					{% for label in labels %}
+						{% include "atoms/label.twig"
+                with {
+                  label: label.name,
+                  icon: label.icon,
+                  icon_color: 'text-[var(--primary-DEFAULT)]',
+                  type: label.type
+                }
+            %}
+					{% endfor %}
 				</div>
 			</div>
 		</div>

@@ -8,18 +8,21 @@
 		<div class="flex items-center gap-4">
 			{% for label in hero.labels %}
 				{% include "atoms/label.twig"
-          with {
-            label: label.name,
-            icon: label.icon,
-            icon_color: 'text-[var(--primary-DEFAULT)]',
-            type: label.type
-          }
-      %}
+            with {
+              label: label.name,
+              icon: label.icon,
+              icon_color: 'text-[var(--primary-DEFAULT)]',
+              type: label.type
+            }
+        %}
 			{% endfor %}
 		</div>
 	</div>
-	<div class="border border-secondary-light rounded p-4 flex items-center gap-4">
-		{% include "atoms/button.twig" with contact.button %}
-		{% include "atoms/content.twig" with contact %}
-	</div>
+
+	{% if contact.button %}
+		<div class="border border-secondary-light rounded p-4 flex items-center gap-4">
+			{% include "atoms/button.twig" with contact.button %}
+			{% include "atoms/content.twig" with contact %}
+		</div>
+	{% endif %}
 </div>

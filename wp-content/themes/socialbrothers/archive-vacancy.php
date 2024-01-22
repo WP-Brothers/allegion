@@ -88,9 +88,6 @@ $title = __('Vacatures', '_SBF');
 $introContent =  get_field('vacancy_archive_content', 'options') ?? '';
 $introImage = get_field('vacancy_archive_image', 'options') ?? '';
 
-$footerTitle = get_field('vacancy_archive_footer_title', 'options') ?? '';
-$footerContent = get_field('vacancy_archive_footer_content', 'options') ?? '';
-
 Twig::render(
     'content/archive-vacancies.twig',
     Theme::filter(
@@ -102,15 +99,12 @@ Twig::render(
                 'image'       => $introImage,
                 'first_block' => true,
             ],
+            'labels' => wpb_build_vacancy_category_labels(['function', 'location', 'employment_type'], get_the_ID()),
             'filters' => [
                 'filters'       => $filters,
                 'sort'          => $sort,
                 'archive_url'   => get_post_type_archive_link($post_type),
                 'direct_submit' => true,
-            ],
-            'footer' => [
-                'title' => $footerTitle,
-                'content' => $footerContent,
             ],
             'posts'      => $posts_data,
             'results'      => $results,

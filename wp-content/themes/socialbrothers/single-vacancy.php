@@ -8,19 +8,16 @@ Twig::render(
     Theme::filter(
         'index_context',
         [
-            'hero' => [
-                'title' => get_the_title(),
-                'labels' => wpb_build_vacancy_category_labels(['function', 'location', 'employment_type'], get_the_ID()),
+            'hero'      => [
+                'title'     => get_the_title(),
+                'labels'    => wpb_build_vacancy_category_labels(['function', 'location', 'employment_type'], get_the_ID()),
             ],
-            'contact' => [
-                'content' => 'of heeft u vragen? Neem contact op met Fleur Veltman',
-                'button' => [
-                    'title' => 'Solliciteer nu',
-                    'url' => '#',
-                ],
+            'contact'   => [
+                'content'   => get_field('vacancy_contact_text', 'options') ?? '',
+                'button'    => get_field('vacancy_contact_button', 'options') ?? '',
             ],
 
-            'content' => get_field('content', get_the_ID()) ?? '',
+            'content'   => get_field('content', get_the_ID()) ?? '',
         ]
     )
 );

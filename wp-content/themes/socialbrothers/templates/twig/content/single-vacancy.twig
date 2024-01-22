@@ -1,9 +1,10 @@
 {{ get_header(header_name|default('')) }}
 
-<div class="container">
+<section class="container">
 	{% include "organisms/breadcrumbs.twig"
       with {
         container: 'w-full',
+        font_color: 'breadcrumbs-font',
       }
   %}
 
@@ -16,6 +17,6 @@
         }
     %}
 	</section>
-</div>
+</section>
 
 {{ get_footer(footer_name|default('')) }}
