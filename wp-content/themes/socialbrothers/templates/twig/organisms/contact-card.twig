@@ -1,0 +1,60 @@
+{% if card.title %}
+	<section class="container {{ container_class }}">
+		<div class="p-10  bg-[var(--primary-DEFAULT)] rounded-xl flex flex-col md:grid grid-cols-[80px,_repeat(7,_1fr)] gap-10 text-white">
+			<div class="w-20 h-20 border border-[3px] border-white rounded-full overflow-hidden">
+				{% include "atoms/image.twig"
+          with {
+            image_id: card.avatar,
+            size: 'small',
+          }
+      %}
+			</div>
+			<div class="col-span-3">
+				{% include "atoms/heading/h1.twig"
+        with {
+          title: card.title,
+          class: 'text-[24px] leading-[32px] font-[300] mb-1',
+        }
+    %}
+				{% include "atoms/content.twig"
+        with {
+          content: card.description,
+          content_classes: 'pbig',
+        }
+    %}
+			</div>
+			<div class="col-start-6 col-span-3">
+				<div class="flex flex-col gap-4">
+					{% for info in card.contact_info %}
+						<div class="flex gap-4 items-center">
+							{% include "atoms/icon.twig"
+            with {
+              icon: info.vacancy_contact_info_icon,
+              class: 'w-6 h-6',
+            }
+        %}
+							{% include "atoms/content.twig"
+            with {
+              content: info.vacancy_contact_info_text,
+              content_classes: 'text-[16px] leading-[24px] mb-0',
+            }
+        %}
+						</div>
+					{% endfor %}
+				</div>
+				{% include "atoms/hr.twig" %}
+				<div class="flex gap-4">
+					{% for social, link in socials %}
+						{% if link %}
+							{% include "atoms/social-link.twig"
+                with {
+                  url: link.url,
+                  color: 'fill-white',
+                  media: social, size: '32'} %}
+						{% endif %}
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</section>
+{% endif %}

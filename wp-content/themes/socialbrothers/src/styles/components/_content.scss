@@ -1,0 +1,15 @@
+main {
+    ul {
+      list-style: disc;
+      margin-left: 1.5rem;
+    }
+
+    ol {
+      list-style: decimal;
+      margin-left: 1.5rem;
+    }
+
+    h3,h4,h5,h6{
+      @apply font-[300] mt-10;
+    }
+}

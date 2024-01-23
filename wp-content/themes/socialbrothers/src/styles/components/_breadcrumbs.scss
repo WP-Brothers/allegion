@@ -19,7 +19,20 @@
     @apply underline
   }
 
+<<<<<<< HEAD
   .material-symbols-rounded {
     @apply text-base
+=======
+  .material-symbols-rounded { // rm .font-icon
+    @apply text-base;
+  }
+}
+
+.breadcrumbs-font {
+  > .breadcrumbs {
+    > span {
+      @apply text-font;
+    }
+>>>>>>> feature/vacancies
   }
 }

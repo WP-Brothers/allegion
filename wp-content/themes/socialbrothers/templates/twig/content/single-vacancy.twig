@@ -1,0 +1,35 @@
+{{ get_header(header_name|default('')) }}
+
+{% include "organisms/breadcrumbs.twig"
+      with {
+        font_color: 'breadcrumbs-font',
+      }
+  %}
+
+{% include "organisms/single-vacancy-hero.twig"
+    with {
+        container_class: 'mt-10',
+    }
+%}
+
+<section class="container mb-20">
+	<main class="my-20 md:w-3/4">
+		{% include "atoms/content.twig" %}
+	</main>
+
+	{% include "molecules/content-card.twig"
+      with {
+        title: 'Interesse?',
+        text: hero.title,
+        button: contact.button,
+      }
+  %}
+</section>
+
+{% include "organisms/contact-card.twig"
+    with {
+      container_class: 'mb-20',
+    }
+%}
+
+{{ get_footer(footer_name|default('')) }}
