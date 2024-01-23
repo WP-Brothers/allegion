@@ -184,7 +184,7 @@ textarea {
   @apply border border-neutral-50 rounded-sm px-4 py-3 w-full;
 
   &:focus {
-    @apply outline-0 shadow-input;
+    @apply outline-2 outline-[var(--primary-DEFAULT)];
   }
 }
 
@@ -215,7 +215,7 @@ input[type="radio"] {
     &::before {
       @apply font-iconRound content-["\e835"] text-[24px] mr-3 text-primary;
     }
-    
+
     &:hover {
       &::before {
         @apply text-primary-light;
@@ -261,3 +261,19 @@ select {
     @apply pr-10 chevron appearance-none bg-no-repeat bg-[right_8px_top_50%] text-secondary;
   }
 }
+
+.gfield:has(textarea),
+.gfield:has(input:not([type="checkbox"])) {
+  label {
+    @apply translate-y-[42px] translate-x-4
+      transition-transform duration-200 ease-in-out bg-white w-fit px-2;
+  }
+}
+
+.gfield:has(textarea:focus),
+.gfield:has(input:focus:not([type="checkbox"])) {
+  label {
+    @apply translate-y-5 -translate-x-1 scale-[.75];
+  }
+}
+
