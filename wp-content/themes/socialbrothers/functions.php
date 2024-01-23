@@ -36,6 +36,9 @@ if (!defined('DISALLOW_FILE_EDIT')) {
     define('DISALLOW_FILE_EDIT', true);
 }
 
+/** DISABLE WOOCOMMERCE STYLES */
+add_filter('woocommerce_enqueue_styles', '__return_empty_array');
+
 /**
  * Load required php function scripts.
  *
@@ -174,9 +177,10 @@ function wpb_frontend_admin_bar_sticky()
 
 add_filter('init', 'wpb_frontend_admin_bar_sticky');
 
-add_filter( 'wpseo_breadcrumb_links', 'wpb_breadcrumbs' );
+add_filter('wpseo_breadcrumb_links', 'wpb_breadcrumbs');
 
-function wpb_breadcrumbs( $links ) {
+function wpb_breadcrumbs($links)
+{
     $links[0]['text'] = '<span class="font-icon">house</span>';
     return $links;
 }

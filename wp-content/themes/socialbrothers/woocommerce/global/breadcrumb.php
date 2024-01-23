@@ -34,6 +34,8 @@ if (!empty($breadcrumb)) {
             'index_context',
             [
                 'breadcrumb' => $breadcrumb,
+                'font_color' => 'breadcrumbs-font',
+                'class_name' => 'bg-supporting-5 m-0 py-4'
             ]
         )
     );
