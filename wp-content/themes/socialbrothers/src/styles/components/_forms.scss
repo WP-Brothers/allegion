@@ -1,7 +1,7 @@
 .gform_wrapper {
 
   .gform_fields {
-    @apply grid gap-4 md:gap-y-8 md:gap-x-6;
+    @apply grid gap-4 gap-y-0 md:gap-x-6;
   }
 
   .gfield {
@@ -64,6 +64,14 @@
 
   .ginput_container_fileupload {
     @apply grid gap-1;
+  }
+
+  .ginput_container_checkbox {
+    @apply mt-4 mb-8;
+  }
+
+  .gfield_checkbox {
+    @apply flex flex-col gap-3;
   }
 
   .gfield_error {
@@ -266,14 +274,13 @@ select {
 .gfield:has(input:not([type="checkbox"])) {
   label {
     @apply translate-y-[42px] translate-x-4
-      transition-transform duration-200 ease-in-out bg-white w-fit px-2;
+      transition-transform duration-200 ease-in-out bg-white w-fit px-2 origin-left;
   }
 }
 
 .gfield:has(textarea:focus),
 .gfield:has(input:focus:not([type="checkbox"])) {
   label {
-    @apply translate-y-5 -translate-x-1 scale-[.75];
+    @apply translate-y-5 translate-x-[6px] scale-[.75];
   }
 }
-
