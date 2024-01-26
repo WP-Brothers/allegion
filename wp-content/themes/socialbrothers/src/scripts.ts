@@ -8,6 +8,15 @@ const scriptsInit = () => {
     );
   }
 
+  const inputs = document.querySelectorAll('input');
+  if (inputs.length) {
+    inputs?.forEach((input) =>
+      import('./scripts/input').then((module) =>
+        module.default(input as HTMLInputElement)
+      )
+    );
+  }
+
   const faqs = document.querySelectorAll('.faqs');
   if (faqs.length) {
     faqs?.forEach((faq) =>

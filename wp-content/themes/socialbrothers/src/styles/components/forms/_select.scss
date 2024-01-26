@@ -1,0 +1,5 @@
+select {
+  &:not([multiple="multiple"]) {
+    @apply pr-10 chevron appearance-none bg-no-repeat bg-[right_8px_top_50%] text-secondary;
+  }
+}

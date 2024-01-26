@@ -1,0 +1,94 @@
+.gfield {
+  input[type="text"],
+  input[type="number"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="password"],
+  select,
+  textarea {
+    @apply border border-neutral-50 rounded-sm px-4 py-3 w-full;
+
+    &:focus {
+      @apply outline-2 outline-[var(--primary-DEFAULT)];
+    }
+  }
+
+  &_error {
+    input[type="text"],
+    input[type="number"],
+    input[type="url"],
+    input[type="search"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="password"],
+    select,
+    textarea {
+      @apply border-error border-2;
+      &:focus {
+        @apply outline-error;
+      }
+    }
+  }
+
+  &--type-select,
+  &--type-checkbox,
+  &--type-radio {
+    @apply mt-4;
+  }
+
+  // & = .gfield
+  &:not(fieldset, .gfield--type-product, &:has(.gfield_description)) {
+    &:has(textarea),
+    &:has(input:not([type="checkbox"])) {
+      @apply relative;
+
+      label {
+        @apply
+          absolute top-0 left-0 w-fit px-2 bg-white
+          translate-y-[12px] translate-x-4
+          transition-transform duration-200 ease-in-out origin-left;
+      }
+    }
+
+    &:has(textarea:focus),
+    &:has(input:focus:not([type="checkbox"])),
+    &:has(input[data-hasvalue]) {
+      label:not(.gfield_label_before_complex, .gfield_label_before_complex > label) {
+        @apply -translate-y-[12px] translate-x-2 scale-[.75];
+      }
+    }
+  }
+
+  .ginput_complex:not(.gfield--type-product, &:has(.gfield_description)) {
+    &:has(input:not([type="checkbox"])),
+    span:has(input:not([type="checkbox"])),
+    span:has(select) {
+      @apply relative;
+
+      label {
+        @apply
+          absolute top-0 left-0 bg-white w-fit px-2
+          translate-y-[12px] translate-x-4 scale-100
+          transition-transform duration-200 ease-in-out origin-left;
+      }
+    }
+    &:has(input:not([type="checkbox"])),
+    &:has(input:focus),
+    span:has(input[data-hasvalue]),
+    span:has(input:focus:not([type="checkbox"])) {
+      label {
+        @apply -translate-y-[12px] translate-x-2 scale-[.75];
+      }
+    }
+  }
+
+  .gfield_description {
+    @apply text-sm text-neutral-100 mb-2;
+  }
+}
+
+fieldset {
+  @apply mt-4;
+}

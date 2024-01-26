@@ -1,0 +1,20 @@
+.ui-datepicker {
+  @apply bg-white p-2;
+
+  .ui-datepicker-header {
+    @apply grid grid-cols-2 gap-2;
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+      @apply p-1 bg-[var(--primary-DEFAULT)] cursor-pointer hover:bg-[var(--primary-dark)] text-white rounded-md text-center;
+    }
+  }
+
+  .ui-datepicker-title {
+    @apply grid grid-cols-2 gap-2 col-span-2;
+
+    select {
+      @apply p-1 pr-6;
+    }
+  }
+}

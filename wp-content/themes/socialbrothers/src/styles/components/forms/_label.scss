@@ -1,0 +1,20 @@
+.gfield_label {
+  > .gfield_required {
+    @apply before:content-["*"] inline-block before:text-error before:ml-2;
+
+    .gfield_required_text {
+      @apply hidden;
+    }
+  }
+}
+
+label,
+legend {
+  @apply font-bold mb-[6px] block;
+}
+
+.gfield:has(.ginput_complex) {
+  legend {
+    @apply mb-3;
+  }
+}
