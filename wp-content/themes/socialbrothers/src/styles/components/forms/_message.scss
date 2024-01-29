@@ -1,0 +1,22 @@
+.gform_validation_errors {
+  @apply bg-error-2 border-l-4 border-error p-4 grid gap-4 md:gap-6 my-4;
+
+  .gform_submission_error {
+    @apply text-h5 font-body mb-0;
+  }
+}
+
+.gfield_validation_message {
+  @apply translate-y-[10px] translate-x-2
+    bg-white text-error text-sm w-fit px-2;
+}
+
+.gfield:has(.gfield_validation_message) {
+  label {
+    @apply hidden;
+  }
+}
+
+.gfield:has(.gfield_validation_message) {
+  @apply flex-col-reverse;
+}

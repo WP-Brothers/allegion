@@ -1,0 +1,7 @@
+{% if title %}
+	{% if heading_type %}
+		{% include "atoms/heading/#{heading_type}.twig" %}
+	{% else %}
+		{% include "atoms/heading/h2.twig" %}
+	{% endif %}
+{% endif %}

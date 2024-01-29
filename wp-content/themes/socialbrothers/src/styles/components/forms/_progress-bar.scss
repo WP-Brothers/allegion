@@ -1,0 +1,11 @@
+.gf_progressbar_wrapper {
+  @apply mb-4 md:mb-6;
+}
+
+.gf_progressbar {
+  @apply bg-[var(--primary-light)] overflow-hidden rounded;
+
+  .gf_progressbar_percentage {
+    @apply bg-[var(--primary-DEFAULT)] text-white px-1;
+  }
+}

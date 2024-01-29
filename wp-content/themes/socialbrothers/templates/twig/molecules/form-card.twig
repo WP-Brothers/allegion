@@ -1,6 +1,6 @@
 <div class="bg-white rounded-sm p-6 md:p-10 border border-neutral-25 w-full  {{card_class}} {{ float ? 'md:absolute form-card shadow-card' : '' }}">
-    {% if title %}
-        {% include 'atoms/heading/h2.twig' %}
-    {% endif %}
-    {{ form|raw }}
+	{% if title %}
+		{% include 'atoms/heading/h2.twig' %}
+	{% endif %}
+	{{ form|raw }}
 </div>
