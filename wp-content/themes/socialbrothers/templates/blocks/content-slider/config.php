@@ -55,6 +55,29 @@ $block_data = [
             ],
         ],
         [
+            'key'   => "{$prefix}_heading_type",
+            'label' => __('Titel Type', '_SBB'),
+            'name'  => 'heading_type',
+            'type'  => 'select',
+            'choices' => [
+                'h1' => 'H1',
+                'h2' => 'H2 (default)',
+                'h3' => 'H3',
+                'h4' => 'H4',
+                'h5' => 'H5',
+                'h6' => 'H6',
+            ],
+            'conditional_logic' => [
+                [
+                    [
+                        'field' => "{$prefix}_content_position",
+                        'operator' => '!=',
+                        'value' => 'none',
+                    ],
+                ],
+            ],
+        ],
+        [
             'key'          => "{$prefix}_content",
             'label'        => __('Tekst', '_SBB'),
             'name'         => 'content',

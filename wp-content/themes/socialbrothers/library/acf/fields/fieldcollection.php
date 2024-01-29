@@ -9,9 +9,24 @@ function getTitleFields($prefix)
             'name'  => 'title',
             'type'  => 'text',
         ],
+        [
+            'key'   => "{$prefix}_heading_type",
+            'label' => __('Titel Type', '_SBB'),
+            'name'  => 'heading_type',
+            'type'  => 'select',
+            'choices' => [
+                'h1' => 'H1',
+                'h2' => 'H2 (default)',
+                'h3' => 'H3',
+                'h4' => 'H4',
+                'h5' => 'H5',
+                'h6' => 'H6',
+            ],
+        ],
     ];
     return $fields;
 }
+
 function getSubTitleFields($prefix)
 {
     $fields = [
@@ -25,7 +40,7 @@ function getSubTitleFields($prefix)
     return $fields;
 }
 
-function getTabFields($prefix, int $expand = 0, $name, $label)
+function getTabFields($prefix, $expand, $name, $label)
 {
 
     $fields = [
