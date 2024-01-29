@@ -1,0 +1,24 @@
+.gfield--type-fileupload{
+  @apply py-4;
+
+  input[type="file"] {
+    @apply cursor-pointer;
+
+    &::file-selector-button {
+      @apply bg-neutral-25 text-font py-1 px-3 rounded-md transition-colors border-0 cursor-pointer mr-6;
+    }
+
+    &:hover {
+      &::file-selector-button {
+        @apply bg-neutral-50;
+      }
+    }
+  }
+}
+.gform_drop_area {
+  @apply border border-[var(--primary-DEFAULT)] bg-[var(--primary-light)] text-center p-4;
+
+  .gform_button_select_files {
+    @apply bg-[var(--primary-DEFAULT)] text-white py-1 px-3 rounded-md transition-colors hover:bg-[var(--primary-dark)];
+  }
+}

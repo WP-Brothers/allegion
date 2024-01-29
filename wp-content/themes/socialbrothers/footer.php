@@ -18,7 +18,7 @@ $menu2       = wpb_menu('footer_2', 2, '') ?? '';
 $menu3       = wpb_menu('footer_3', 2, '') ?? '';
 $menu_bottom = wpb_menu('footer_bottom', 1, 'menu-simple menu-bottom') ?? '';
 
-$logo = get_field('footer_logo', 'options') ?? '';
+$logo = get_field('logo', 'options') ?? '';
 
 $socials     = get_field('socials', 'options') ?? '';
 $kvk     = get_field('kvk', 'options') ?? '';

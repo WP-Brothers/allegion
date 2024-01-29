@@ -11,10 +11,10 @@
   &.acf-block-preview {
     @import "styles.scss";
 
-  .acf-block-preview {
-    @include meta.load-css("styles");
+    .acf-block-preview {
+      @include meta.load-css("styles");
+    }
   }
-}
 
   .acf-block-preview {
     margin: 0 !important;

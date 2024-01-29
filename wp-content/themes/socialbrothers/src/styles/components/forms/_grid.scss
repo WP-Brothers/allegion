@@ -1,0 +1,77 @@
+.gform_wrapper {
+
+  .gform_fields {
+    @apply grid gap-4 gap-y-8 md:gap-x-6;
+  }
+
+  .gfield {
+    @apply col-span-12 flex flex-col justify-end;
+
+    &--width-quarter {
+      @apply col-span-3;
+    }
+
+    &--width-third {
+      @apply col-span-4;
+    }
+
+    &--width-five-twelfths {
+      @apply col-span-5;
+    }
+
+    &--width-half {
+      @apply col-span-6;
+    }
+
+    &--width-seven-twelfths {
+      @apply col-span-7;
+    }
+
+    &--width-two-thirds {
+      @apply col-span-8;
+    }
+
+    &--width-three-quarter {
+      @apply col-span-9;
+    }
+
+    &--type-time {
+
+      .gform-grid-row {
+        @apply grid-cols-[1fr_10px_1fr_1fr];
+      }
+
+      .hour_minute_colon {
+        @apply self-center;
+      }
+    }
+
+    &.hidden_label {
+
+      .gfield_label {
+        @apply hidden;
+      }
+    }
+  }
+
+  .gfield_list_groups {
+    @apply grid gap-4 md:gap-6;
+  }
+
+  .gform-grid-row {
+    @apply grid grid-cols-2 gap-4 md:gap-6;
+
+    .gfield_list_cell {
+      @apply col-span-2;
+    }
+
+    .gfield_list_icons {
+      @apply flex gap-4 flex-wrap col-span-2;
+
+      .add_list_item,
+      .delete_list_item {
+        @apply bg-[var(--primary-DEFAULT)] text-white py-1 px-3 rounded-md transition-colors hover:bg-[var(--primary-dark)];
+      }
+    }
+  }
+}

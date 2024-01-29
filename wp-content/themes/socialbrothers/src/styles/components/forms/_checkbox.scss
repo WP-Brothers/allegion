@@ -1,0 +1,34 @@
+input[type="checkbox"] {
+  @apply hidden;
+
+  + label {
+    @apply font-normal flex whitespace-pre flex-wrap leading-8 cursor-pointer mb-0 text-secondary;
+
+    &::before {
+      @apply font-iconRound content-["\e835"] text-[24px] mr-3 text-[var(--primary-DEFAULT)];
+    }
+
+    &:hover {
+      &::before {
+        @apply text-[var(--primary-light)];
+      }
+    }
+
+    a {
+      @apply text-[var(--primary-DEFAULT)] hover:no-underline;
+    }
+  }
+
+  &:checked + label {
+
+    &::before {
+      @apply content-["\e834"] text-[var(--primary-DEFAULT)];
+    }
+
+    &:hover {
+      &::before {
+        @apply text-[var(--primary-DEFAULT)];
+      }
+    }
+  }
+}
