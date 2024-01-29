@@ -1,11 +1,9 @@
-<section class="container py-20">
-	<div class="flex flex-col md:grid grid-cols-4 gap-4 bg-secondary-dark text-white p-10 rounded-lg">
-		<div class="col-span-3 [&_p]:m-0">
-			{% include "atoms/heading/h1.twig" with {class: 'h3'} %}
-			{% include "atoms/content.twig" %}
-		</div>
-		<div class="ml-0 md:m-auto">
-			{% include "molecules/buttons.twig" %}
-		</div>
+<article class="flex flex-col md:grid grid-cols-4 gap-4 bg-secondary-dark text-white p-10 rounded-lg">
+	<div class="col-span-3 [&_p]:m-0">
+		{% include "atoms/heading/h1.twig" with {class: 'h3'} %}
+		{% include "atoms/content.twig" %}
 	</div>
-</section>
+	<div class="ml-0 md:m-auto">
+		{% include "molecules/buttons.twig" %}
+	</div>
+</article>

@@ -43,6 +43,7 @@ yarn.lock
 .twig-cs-fixer.cache
 composer.lock
 tools
+auth.json
 
 .htaccess
 conf
