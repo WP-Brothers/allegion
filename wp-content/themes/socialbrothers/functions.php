@@ -174,9 +174,50 @@ function wpb_frontend_admin_bar_sticky()
 
 add_filter('init', 'wpb_frontend_admin_bar_sticky');
 
-add_filter( 'wpseo_breadcrumb_links', 'wpb_breadcrumbs' );
+add_filter('wpseo_breadcrumb_links', 'wpb_breadcrumbs');
 
-function wpb_breadcrumbs( $links ) {
+function wpb_breadcrumbs($links)
+{
     $links[0]['text'] = '<span class="font-icon">house</span>';
     return $links;
+};
+
+// ? Add custom field to Gravity Forms checkbox
+if (class_exists('GF_Field')) {
+    class TrueFalse extends GF_Field {
+        public $type = 'true_false';
+
+        public function get_form_editor_field_title() {
+            return esc_attr__( 'True/False', 'gravityforms' );
+        }
+
+        public function get_form_editor_field_settings() {
+            return array(
+                'label_setting',
+                'description_setting',
+                'rules_setting',
+                'css_class_setting',
+            );
+        }
+
+        public function is_conditional_logic_supported() {
+            return true;
+        }
+
+        public function get_field_input( $form, $value = '', $entry = null ) {
+            $form_id  = $form['id'];
+            $id       = intval( $this->id );
+            $field_id = 'input_' . $form_id . "_$id";
+
+            $html = '<div class="ginput_container ginput_container_true-false">';
+            $html .= sprintf( '<input name="input_%s" id="%s" type="checkbox" class="true_false" %s />', $id, $field_id, checked( $value, true, false ) );
+            $html .= sprintf( '<label for="%s" id="%s_label">%s</label>', $field_id, $field_id, $this->label );
+            $html .= '</div>';
+
+            return $html;
+        }
+    }
+
+    GF_Fields::register(new TrueFalse());
 }
+

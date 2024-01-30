@@ -38,7 +38,6 @@
     @apply mt-4;
   }
 
-  // & = .gfield
   &:not(fieldset, .gfield--type-product, &:has(.gfield_description)) {
     &:has(textarea),
     &:has(input:not([type="checkbox"])) {
@@ -54,7 +53,7 @@
 
     &:has(textarea:focus),
     &:has(input:focus:not([type="checkbox"])),
-    &:has(input[data-hasvalue]) {
+    &:has(input[data-hasvalue]:not([type="checkbox"])) {
       label:not(.gfield_label_before_complex, .gfield_label_before_complex > label) {
         @apply -translate-y-[12px] translate-x-2 scale-[.75];
       }
@@ -76,7 +75,7 @@
     }
     &:has(input:not([type="checkbox"])),
     &:has(input:focus),
-    span:has(input[data-hasvalue]),
+    span:has(input[data-hasvalue]:not([type="checkbox"])),
     span:has(input:focus:not([type="checkbox"])) {
       label {
         @apply -translate-y-[12px] translate-x-2 scale-[.75];
