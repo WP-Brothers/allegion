@@ -32,3 +32,60 @@ input[type="checkbox"] {
     }
   }
 }
+
+.gfield--type-true_false {
+  input[type="checkbox"] {
+    @apply hidden;
+
+    .disabled {
+      @apply opacity-50;
+    }
+
+    + label {
+      @apply relative font-normal flex flex-row-reverse justify-end  flex-wrap leading-8 cursor-pointer mb-0 text-secondary;
+
+      &::after {
+        @apply
+          content-['']
+          bg-secondary-light w-[56px] h-8 rounded-full mr-3
+          transition-all duration-200;
+      }
+
+      &::before {
+        @apply
+          content-[''] absolute top-1/2 -translate-y-1/2 left-1
+          bg-white w-[24px] h-[24px] rounded-full
+          transition-all duration-200;
+
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
+      }
+
+      &:hover {
+        &::before {
+          @apply text-[var(--primary-light)];
+        }
+      }
+
+      a {
+        @apply text-[var(--primary-DEFAULT)] hover:no-underline;
+      }
+    }
+
+    &:checked + label {
+
+      &::after {
+        @apply bg-[var(--primary-DEFAULT)];
+      }
+
+      &::before {
+        @apply left-7;
+      }
+
+      &:hover {
+        &::before {
+          @apply text-[var(--primary-DEFAULT)];
+        }
+      }
+    }
+  }
+}
