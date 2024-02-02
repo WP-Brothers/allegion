@@ -201,6 +201,53 @@ $modal_highlight_swiper_options = [
     ],
 ];
 
+
+// Needs to change when the syncforce data is available !!!!!!!!!!!!
+// IDS are now linked to a product on a local enviorment
+$tmp_ids = [178, 178, 178, 178,178, 178, 178, 178];
+
+$matching_products = [];
+
+if(!empty($tmp_ids)) {
+	$links['matching_products'] = __('Bijpassende producten', '_SBF');
+	foreach($tmp_ids as $matching_product) {
+		$matching_products[] = wpb_build_product_card_context($matching_product);
+	}
+}
+
+$similar_products = [];
+
+if(!empty($tmp_ids)) {
+	$links['similar_products'] = __('Vergelijkbare producten', '_SBF');
+	foreach($tmp_ids as $similar_product) {
+		$similar_products[] = wpb_build_product_card_context($similar_product);
+	}
+}
+
+$product_swiper_options = [
+	'slidesPerView' => 1,
+	'spaceBetween'  => 16,
+	'swipeDirection' => 'next',
+	'navigation' => true,
+	'breakpoints'   => [
+		420 => [
+			'slidesPerView' => 2,
+		],
+		540 => [
+			'slidesPerView' => 3,
+		],
+		768 => [
+			'spaceBetween' => 24,
+		],
+		1024 => [
+			'slidesPerView' => 4,
+		],
+	],
+];
+
+$swiper_navigation = $product_swiper_options['navigation'];
+$product_swiper_options = json_encode($product_swiper_options);
+$slide_content = 'molecules/product-card.twig';
 ?>
 
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
@@ -386,11 +433,72 @@ $modal_highlight_swiper_options = [
 								]
 							)
 						);
-					// {% include "molecules/product-single-cta.twig" with cta %} ?>
+					?>
 				</div>
 			</div>
 		</div>
 	</section>
 </div>
+
+<?php if(!empty($matching_products)): ?>
+<section id="matching_products" class="mt-20 mb-20 relative">
+	<div class="full-container relative md:overflow-hidden">
+		<div class="container">
+			<div class="flex">
+				<div class="w-full">
+					<h3 class="font-heading font-bold mb-10 mt-0"><?= __('Bijpassende producten', '_SBF'); ?></h3>
+					<?php
+						Twig::render(
+							'molecules/swiper.twig',
+							Theme::filter(
+								'index_context',
+								[
+									'flow' => 0,
+									'classes' => '',
+									'swiper_options' => $product_swiper_options,
+									'overflow' => 0,
+									'slide_content' => $slide_content,
+									'slides' => $matching_products,
+								]
+							)
+						);
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+
+<?php if(!empty($similar_products)): ?>
+<section id="similar_products" class="pt-20 pb-20 relative bg-secondary-light">
+	<div class="full-container relative md:overflow-hidden">
+		<div class="container">
+			<div class="flex">
+				<div class="w-full">
+					<h3 class="font-heading font-bold mb-10 mt-0"><?= __('Vergelijkbare producten', '_SBF'); ?></h3>
+					<?php
+						Twig::render(
+							'molecules/swiper.twig',
+							Theme::filter(
+								'index_context',
+								[
+									'flow' => 0,
+									'classes' => '',
+									'swiper_options' => $product_swiper_options,
+									'overflow' => 0,
+									'slide_content' => $slide_content,
+									'slides' => $similar_products,
+								]
+							)
+						);
+					?>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<?php endif; ?>
+
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
