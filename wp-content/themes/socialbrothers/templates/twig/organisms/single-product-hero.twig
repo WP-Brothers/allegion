@@ -23,7 +23,7 @@
                 </div>
                 
                 {% if price %}
-                    {% include "atoms/heading/h4.twig" with {title: price} %}
+                    {% include "atoms/heading/h4.twig" with {title: price, class: 'm-0 mb-11 font-heading font-bold '} %}
                 {% endif %}
 
                 {% include "molecules/keurmerken.twig" with {product_single: true} %}
