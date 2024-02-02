@@ -19,13 +19,13 @@ if(!empty(get_field('product_information', get_the_ID()))) {
     ];
 }
 
-if(!empty(get_field('product_information', get_the_ID())) || !empty(get_field('specifications_safety', get_the_ID())) || !empty(get_field('specifications_technical', get_the_ID())) ) {
+if(!empty(get_field('specifications_text', get_the_ID())) || !empty(get_field('specifications_safety', get_the_ID())) || !empty(get_field('specifications_technical', get_the_ID())) ) {
     $links['specifications'] = __('Specificaties', '_SBF');
    
     $specifications['id'] = 'specifications';
     $specifications['title'] = __('Specificaties');
 
-    if(!empty(get_field('product_information', get_the_ID()))) {
+    if(!empty(get_field('specifications_text', get_the_ID()))) {
         $specifications['content'] = get_field('specifications_text', get_the_ID());
     }
 
