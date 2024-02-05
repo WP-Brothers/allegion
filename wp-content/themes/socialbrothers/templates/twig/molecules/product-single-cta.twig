@@ -1,10 +1,18 @@
-<div class="w-full py-6 px-7 border-[1px] border-neutral-25 rounded-[4px] shadow-contentcard lg:sticky top-[196px]">
+<div class="w-full py-6 px-7 border-[1px] bg-white z-20 border-neutral-25 rounded-[4px] shadow-contentcard {{mobile ? 'block lg:hidden sticky top-[calc(100%-98px)]' : 'hidden lg:block lg:sticky top-[196px]'}}">
 
-    {% include "atoms/heading/h5.twig" with {class:'mb-2'} %}
+    {% if not mobile %}
+        {% include "atoms/heading/h5.twig" with {class:'font-heading font-bold m-0 mb-2'} %}
+    {% endif %}
 
-    <span class="mb-6 mt-2 block">{{article_number|raw}}</span>
+    {% if not mobile %}
+        <span class="mb-6 mt-2 block">{{article_number|raw}}</span>
+    {% endif %}
 
 
-    {% include "molecules/buttons.twig" %}
+    {% if shop_settings.allow_buy %}
+        {{shop_settings.add_to_cart|raw}}
+    {% else %}
+        {% include "molecules/buttons.twig" %}
+    {% endif %}
 
 </div>

@@ -71,6 +71,21 @@ function acf_theme_settings()
                 ],
             ],
             [
+                'key'       => "{$prefix}_shop_tab",
+                'label'     => __('Shop', '_SBB'),
+                'type'      => 'tab',
+                'placement' => 'left',
+            ],
+            [
+                'key'       => "{$prefix}_shop_allow_buy",
+                'label'     => __('Add to cart buttons?', '_SBB'),
+                'type'      => 'true_false',
+                'name'      => 'allow_buy',
+                'ui'        => '1',
+                'ui_on_text'=> __('Show', '_SBF'),
+                'ui_off_text'=> __('Hide', '_SBF'),
+            ],
+            [
                 'key'       => "{$prefix}_contact_tab",
                 'label'     => __('Contact', '_SBB'),
                 'type'      => 'tab',

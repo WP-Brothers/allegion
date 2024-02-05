@@ -1,9 +1,9 @@
 {% if links %}
     <section>
         <div class="container">
-            <div class="flex border-b border-b-neutral-50">
+            <div class="flex relative after:w-full after:bg-neutral-50 after:h-[1px] after:absolute after:bottom-[-1px] after:left-0 overflow-x-scroll overflow-y-hidden border-b border-b-neutral-50">
                 {% for anchor, link in links %}
-                    <a href="#{{anchor}}" class="p-3 font-light font-heading">{{link}}</a>
+                    <a href="#{{anchor}}" class="p-3 font-light font-heading relative after:w-full after:h-[1px] after:absolute after:bottom-[0px] after:left-0 after:translate-y-[1px] after:z-[1] hover:after:bg-[var(--primary-DEFAULT)] hover:text-[var(--primary-DEFAULT)] min-w-fit">{{link}}</a>
                 {% endfor %}
             </div>
         </div>

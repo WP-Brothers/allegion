@@ -45,14 +45,12 @@ const mainMenu = (menu: HTMLElement) => {
         });
       });
     } else {
-      console.log(dropdowns);
       dropdowns.forEach(dropdown => {
         const submenuLinks:NodeListOf<HTMLLIElement> = dropdown.querySelectorAll('.submenu li')!;
         const title = dropdown.querySelector('a')!.innerText
         const headerNav = document.querySelector('#header-nav');
         const link = dropdown.querySelector('a');
 
-        console.log(link)
 
 
         const newSubmenuClasses = [

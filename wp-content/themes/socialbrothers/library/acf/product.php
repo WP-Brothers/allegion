@@ -55,22 +55,6 @@ add_action('acf/init', function () {
                 'placement'      => 'left',
             ],
             [
-                'key'           => "{$posttype}_bullet_points",
-                'label'         => __('Bullet points', '_SBB'),
-                'name'          => 'bullet_points',
-                'type'          => 'wysiwyg',
-                'media_upload'  => false,
-                'tabs'          => 'visual',
-                'toolbar'       => 'contentcenter'
-            ],
-            [
-                'key'           => "{$posttype}_price",
-                'label'         => __('Prijs', '_SBB'),
-                'name'          => 'price',
-                'type'          => 'text',
-                'prepend'        => wpb_get_currency() ?? __('€', '_SBB'),
-            ],
-            [
                 'key'           => "{$posttype}_external_link",
                 'label'         => __('Externe bestel link', '_SBB'),
                 'name'          => 'external_link',
@@ -90,49 +74,6 @@ add_action('acf/init', function () {
                 'name'          => 'safety_index',
                 'type'          => 'image_select',
                 'choices' => wpb_build_safety_index_options()
-            ],
-            [
-                'key'           => "{$posttype}_article_number",
-                'label'         => __('Artikel nummer', '_SBB'),
-                'name'          => 'article_number',
-                'type'          => 'text',
-            ],
-            [
-                'key'           => "{$posttype}_images_tab",
-                'label'         => __('Afbeeldingen', '_SBB'),
-                'name'          => 'images_tab',
-                'type'          => 'tab',
-                'placement'      => 'left',
-            ],
-            [
-                'key'           => "{$posttype}_images",
-                'label'         => __('Afbeeldingen', '_SBB'),
-                'name'          => 'images',
-                'type'          => 'repeater',
-                'sub_fields'    => [
-                    [
-                        'key'           => "{$posttype}_images_image",
-                        'label'         => __('Afbeelding', '_SBB'),
-                        'name'          => 'images_image',
-                        'type'          => 'image',
-                    ],
-                ],
-            ],
-            [
-                'key'           => "{$posttype}_product_information_tab",
-                'label'         => __('Productinformatie', '_SBB'),
-                'name'          => 'product_information_tab',
-                'type'          => 'tab',
-                'placement'      => 'left',
-            ],
-            [
-                'key'           => "{$posttype}_product_information",
-                'label'         => __('Productinformatie', '_SBB'),
-                'name'          => 'product_information',
-                'type'          => 'wysiwyg',
-                'media_upload'  => false,
-                'tabs'          => 'visual',
-                'toolbar'       => 'contentcenter'
             ],
             [
                 'key'           => "{$posttype}_specifications_tab",
