@@ -225,7 +225,7 @@ if(!empty($tmp_ids)) {
 }
 
 $product_swiper_options = [
-	'slidesPerView' => 1,
+	'slidesPerView' => 2,
 	'spaceBetween'  => 16,
 	'swipeDirection' => 'next',
 	'navigation' => true,
@@ -271,6 +271,29 @@ $slide_content = 'molecules/product-card.twig';
 			]
 		)
 	);
+	?>
+
+	<div class="block lg:hidden py-8">
+		<?php
+			Twig::render(
+				'molecules/keurmerken.twig',
+				Theme::filter(
+					'index_context',
+					[
+						'product_single' => true,
+						'keurmerken' => wpb_build_keurmerken(get_the_ID(), 1),
+					]
+				)
+			);
+		?>
+	</div>
+
+	<?php
+	if(!empty($product->get_short_description())): ?>
+	<div class="block lg:hidden"><?= $product->get_short_description(); ?></div>
+
+
+	<?php endif;
 	Twig::render(
 		'molecules/anchor-menu.twig',
 		Theme::filter(
@@ -434,11 +457,10 @@ $slide_content = 'molecules/product-card.twig';
 							)
 						);
 					?>
-				</div>
 			</div>
 		</div>
-	</section>
-</div>
+	</div>
+</section>
 
 <?php if(!empty($matching_products)): ?>
 <section id="matching_products" class="mt-20 mb-20 relative">
@@ -470,6 +492,7 @@ $slide_content = 'molecules/product-card.twig';
 </section>
 <?php endif; ?>
 
+
 <?php if(!empty($similar_products)): ?>
 <section id="similar_products" class="pt-20 pb-20 relative bg-secondary-light">
 	<div class="full-container relative md:overflow-hidden">
@@ -500,5 +523,30 @@ $slide_content = 'molecules/product-card.twig';
 </section>
 <?php endif; ?>
 
+
+
+
+
+
+<div class="absolute top-0 left-0 product-single__mask w-full block">
+<?php 
+						Twig::render(
+							'molecules/product-single-cta.twig',
+							Theme::filter(
+								'index_context',
+								[
+									'article_number' => $product->get_sku(),
+									'title' => get_the_title(get_the_ID()),
+									'buttons' => $ctaButtons,
+									'mobile' => true,
+									'shop_settings' => [
+										'add_to_cart' 		=> $add_to_cart,
+										'allow_buy'			=> $allow_buy
+									],
+								]
+							)
+						);
+					?>
+</div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>

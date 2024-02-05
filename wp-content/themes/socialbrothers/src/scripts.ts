@@ -84,9 +84,18 @@ const scriptsInit = () => {
   const modalSlider = document.querySelector('[data-modal="modal-swiper"]');
   if(modalSlider) {
     import('./scripts/modalSlider').then((module) =>
-    module.default(modalSlider as HTMLElement)
+    module.default()
     )
   }
+
+
+  const productSingle = document.querySelector('.single-product');
+  if(productSingle) {
+    import('./scripts/productSingle').then((module) =>
+    module.default(productSingle as HTMLElement)
+    )
+  }
+
   import('./scripts/scrollToTop').then((module) => module.default());
 };
 
